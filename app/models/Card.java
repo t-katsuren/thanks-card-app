@@ -1,14 +1,12 @@
 package models;
 
-import java.util.Date;
+import java.util.*;
 
 import javax.persistence.*;
 
-
 import com.avaje.ebean.Model;
 
-import play.data.validation.Constraints.MaxLength;
-import play.data.validation.Constraints.Required;
+import play.data.validation.Constraints.*;
 
 @Entity
 public class Card extends Model {
@@ -49,4 +47,3 @@ public class Card extends Model {
 	public static Find<Integer, Card> find = new Find<Integer, Card>(){};
 
 }
-

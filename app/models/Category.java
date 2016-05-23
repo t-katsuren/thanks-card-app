@@ -2,12 +2,9 @@ package models;
 
 import javax.persistence.*;
 
-
 import com.avaje.ebean.Model;
 
-import play.data.validation.Constraints.MaxLength;
-import play.data.validation.Constraints.MinLength;
-import play.data.validation.Constraints.Required;
+import play.data.validation.Constraints.*;
 
 @Entity
 public class Category extends Model {
@@ -24,7 +21,6 @@ public class Category extends Model {
 	@Required
 	@MaxLength(20)
 	public String categoryName;
-
 
 	public static Find<Integer, Category> find = new Find<Integer, Category>(){};
 

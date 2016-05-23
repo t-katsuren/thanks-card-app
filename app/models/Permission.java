@@ -4,17 +4,15 @@ import javax.persistence.*;
 
 import com.avaje.ebean.Model;
 
-import play.data.validation.Constraints.MinLength;
-import play.data.validation.Constraints.Required;
+import play.data.validation.Constraints.*;
 
 @Entity
 public class Permission extends Model {
 
 	@Id
 	@Required
-	
 	public Integer permissionId;
-	
+
 	@Required
 	@MinLength(10)
 	@OneToMany()
