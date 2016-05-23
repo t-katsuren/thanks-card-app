@@ -1,0 +1,48 @@
+@main_frame("mypage") {
+	<!-- wrapper -->
+	<div id="wrapper">
+		<!-- サイド -->
+		<aside id="sidebar">
+			<section id="side_contact">
+				<section id="side_banner">
+					<h2>マイページメニュー</h2>
+					<center>
+						<ul><li id="tab1"><a href="#cont1">受信</a></li></ul>
+						<ul><li id="tab2"><a href="#cont2">送信</a></li></ul>
+						<ul><li id="tab3"><a href="#cont3">作成</a></li></ul>
+					</center>
+				</section>
+			</section>
+			<!-- サイドメニューのボトムライン -->
+		</aside>
+		<!-- メイン -->
+		<div id="main">
+			<article>
+				<h1>ようこそ＊＊＊＊＊さん</h1>
+			</article>
+			<!-- 表などを表示するコンテンツ部分 -->
+			<div id="cont1">コンテンツ１</div>
+			<div id="cont2">コンテンツ２</div>
+			<div id="cont3">コンテンツ３</div>
+			<!-- メイン -->
+			<!-- jQueryを使ったタブのスクリプト処理 -->
+			<script>
+				$("#tab1").click(function(){
+					$("#cont1").show();
+					$("#cont2").hide();
+					$("#cont3").hide();
+				});
+				$("#tab2").click(function(){
+					$("#cont1").hide();
+					$("#cont2").show();
+					$("#cont3").hide();
+				});
+				$("#tab3").click(function(){
+					$("#cont1").hide();
+					$("#cont2").hide();
+					$("#cont3").show();
+				});
+			</script>
+		</div>
+	</div>
+}
