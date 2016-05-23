@@ -1,0 +1,25 @@
+@(permissionForm: Form[Permission])
+
+@import helper._
+
+<html>
+	<head>
+		<title>dummy | permission</title>
+	</head>
+	<body>
+
+		<h2>Add a new Data (dummy page)</h2>
+
+		<a href="@routes.ModelController.card()">card_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.category()">category_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.department()">department_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.permission()">permission_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.section()">section_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.user()">user_table</a>
+
+		@form(routes.ModelController.createPermission()) {
+			@inputText(permissionForm("permissionName"), '_label -> "permission_name")
+			<input type="submit" value="Create" />
+		}
+	</body>
+</html>
