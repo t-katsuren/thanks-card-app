@@ -11,3 +11,24 @@ GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# create models as dummy
+# start
+GET     /models/card                controllers.ModelController.card
+POST    /models/card                controllers.ModelController.createCard
+
+GET     /models/category            controllers.ModelController.category
+POST    /models/category            controllers.ModelController.createCategory
+
+GET     /models/department          controllers.ModelController.department
+POST    /models/department          controllers.ModelController.createDepartment
+
+GET     /models/permission          controllers.ModelController.permission
+POST    /models/permission          controllers.ModelController.createPermission
+
+GET     /models/section             controllers.ModelController.section
+POST    /models/section             controllers.ModelController.createSection
+
+GET     /models/user                controllers.ModelController.user
+POST    /models/user                controllers.ModelController.createUser
+# end
