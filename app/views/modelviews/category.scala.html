@@ -1,0 +1,26 @@
+@(categoryForm: Form[Category])
+
+@import helper._
+
+<html>
+	<head>
+		<title>dummy | category</title>
+	</head>
+	<body>
+
+		<h2>Add a new Data (dummy page)</h2>
+
+		<a href="@routes.ModelController.card()">card_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.category()">category_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.department()">department_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.permission()">permission_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.section()">section_table</a>&nbsp;&nbsp;
+		<a href="@routes.ModelController.user()">user_table</a>
+
+		@form(routes.ModelController.createCategory()) {
+			@inputText(categoryForm("categoryCd"), '_label -> "category_cd")
+			@inputText(categoryForm("categoryName"), '_label -> "category_name")
+			<input type="submit" value="Create" />
+		}
+	</body>
+</html>
