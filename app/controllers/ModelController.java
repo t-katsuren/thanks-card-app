@@ -2,6 +2,8 @@ package controllers;
 
 import javax.inject.Inject;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import models.*;
 import play.data.*;
 import play.mvc.*;
@@ -75,6 +77,7 @@ public class ModelController extends Controller {
 	//user作成
 	public Result createUser() {
 		User newUser = formFactory.form(User.class).bindFromRequest().get();
+		newUser.userPass = BCrypt.hashpw(newUser.userPass, BCrypt.gensalt());
 		newUser.save();
 		return redirect(routes.ModelController.user());
 	}
