@@ -10,7 +10,6 @@ import play.data.validation.Constraints.*;
 public class Permission extends Model {
 
 	@Id
-	@Required
 	public Integer permissionId;
 
 	@Required

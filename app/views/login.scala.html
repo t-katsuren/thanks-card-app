@@ -1,21 +1,46 @@
+@(loginForm: Form[Login])
+
+@import helper._
+
 <!DOCTYPE html>
 
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
-		<title>thanks | login</title>
+		<title>thanks | ログイン画面</title>
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/login.css")">
 	</head>
 	<body>
 		<div id="form">
 			<p class="form-title">ログイン</p>
-			<form action="post">
-				<p>usercode</p>
-				<p class="ID"><input type="IDs" name="ID" /></p>
-				<p>Password</p>
-				<p class="pass"><input type="password" name="pass" /></p>
-				<p class="submit"><input type="submit" value="Login" /></p>
-			</form>
+			@if(loginForm.hasGlobalErrors) {
+				<p class="error">
+					<center>
+						<small style="color: red;">
+							@Html(loginForm.globalError.message)
+						</small>
+					</center>
+				</p>
+			}
+			@form(routes.AuthController.authenticate()) {
+				<p class="ID">
+					@inputText(
+						loginForm("usercode"),
+						'_label -> "UserCode",
+						'placeholder -> "社員コードを入力して下さい"
+					)
+				</p>
+				<p class="pass">
+					@inputPassword(
+						loginForm("password"),
+						'_label -> "PassWord",
+						'placeholder -> "パスワードを入力して下さい"
+					)
+				</p>
+				<p class="submit">
+					<input type="submit" value="Login" />
+				</p>
+			}
 		</div>
 	</body>
 </html>

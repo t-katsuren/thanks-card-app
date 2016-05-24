@@ -10,7 +10,6 @@ import play.data.validation.Constraints.*;
 public class User extends Model {
 
 	@Id
-	@Required
 	@OneToMany
 	public Integer userId;
 
@@ -37,5 +36,20 @@ public class User extends Model {
 	public Integer permissionId;
 
 	public static Find<Integer, User> find = new Find<Integer, User>(){};
+
+	/**
+	 * ログイン時の認証を判定するメソッド
+	 *
+	 * @param usercode 社員コード
+	 * @param password 社員パス
+	 * @return 社員コードと社員パスのセットが正しければtrue
+	 */
+	public static Boolean authenticate(String usercode, String password) {
+
+		User user = User.find.where().eq("userCd", usercode).findUnique();
+
+		return (user != null && user.userPass.equals(password));
+
+	}
 
 }

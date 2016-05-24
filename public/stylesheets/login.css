@@ -24,7 +24,7 @@ form p {
 	margin-bottom: 20px;
 }
 
-input[type="IDs"],
+input[type="text"],
 input[type="password"] {
 	width: 300px;
 	padding: 4px;
