@@ -10,7 +10,6 @@ import play.data.validation.Constraints.*;
 public class Department extends Model {
 
 	@Id
-	@Required
 	@OneToMany
 	public Integer departmentId;
 

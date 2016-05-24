@@ -1,19 +1,49 @@
 package controllers;
 
+import javax.inject.Inject;
+
+import models.*;
+import play.data.*;
 import play.mvc.*;
 
 import views.html.*;
 
 public class AuthController extends Controller {
 
-	//loginページ
+	@Inject
+	private FormFactory formFactory;
+
+	//loginページを表示
 	public Result login() {
-		return ok(login.render());
+
+		//ログイン中であればログイン画面は表示しない
+		if(session("login") != null) {
+			return redirect(routes.HomeController.mypage_main());
+		}
+
+		return ok(login.render(formFactory.form(Login.class)));
+
 	}
 
-	//認証メソッド
+	//認証判定メソッド
 	public Result authenticate() {
-		return TODO;
+
+		Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+
+		if(loginForm.hasErrors()) {
+			return badRequest(login.render(loginForm));
+		} else {
+			Login login = loginForm.get();
+			session("login", login.usercode);
+			return redirect(routes.HomeController.mypage_main());
+		}
+
+	}
+
+	//logoutメソッド
+	public Result logout() {
+		session().clear();
+		return redirect(routes.AuthController.login());
 	}
 
 }
