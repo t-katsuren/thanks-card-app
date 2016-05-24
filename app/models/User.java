@@ -2,6 +2,8 @@ package models;
 
 import javax.persistence.*;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.avaje.ebean.Model;
 
 import play.data.validation.Constraints.*;
@@ -48,7 +50,7 @@ public class User extends Model {
 
 		User user = User.find.where().eq("userCd", usercode).findUnique();
 
-		return (user != null && user.userPass.equals(password));
+		return (user != null && BCrypt.checkpw(password, user.userPass));
 
 	}
 
