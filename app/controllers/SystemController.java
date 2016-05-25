@@ -92,7 +92,7 @@ public class SystemController extends Controller {
 	}
 	//permission作成ページ
 	public Result permission_create() {
-		return TODO;
+		return ok(permission_create.render(formFactory.form(Permission.class)));;
 	}
 	//department作成
 	public Result createPermission() {
