@@ -5,31 +5,58 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-		<title>thanks | @title </title>
+		<title>thanks | @title</title>
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
 		<!-- jQuery -->
 		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+		<!-- Slide bar -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery.sidebar.min.js")"></script>
 		<!-- タブ専用のCSS処理 -->
 		<style type="text/css">
-
 			/*最初はcont2,3は表示しないようにしておく。*/
-			#cont2,#cont3 { display: none; }
+			#cont2, #cont3 { display: none; }
 			li { display: inline-block; }
-
 		</style>
+		<script>
+			$(document).ready(function () {
+				// 向き
+				var sides = ["left"];
+				// サイドバーの初期化
+				for (var i = 0; i < sides.length; ++i) {
+					var cSide = sides[i];
+					$(".sidebar." + cSide).sidebar({side: cSide});
+				}
+				// ボタンのクリックにより...
+				$(".btn[data-action]").on("click", function () {
+					var $this = $(this);
+					var action = $this.attr("data-action");
+					var side = $this.attr("data-side");
+					$(".sidebar." + side).trigger("sidebar:" + action);
+					return false;
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<header>
-			<center><h1>Thanks Card Management System</h1></center>
-			<!-- グローバルナビ -->
-			<nav id="global_navi">
-				<ul>
-					<li><a href="@routes.HomeController.mypage_main()">マイページ</a></li>
-					<li><a href="@routes.HomeController.bbs_main()">掲示板</a></li>
-					<li><a href="@routes.HomeController.management_main()">管理者設定</a></li>
-					<li><a href="@routes.AuthController.logout()">ログアウト</a></li>
-				</ul>
-			</nav>
+		<li>Thanks Card Management System</li>
+		<!-- グローバルナビ -->
+		<nav id="global_navi">
+			<ul>
+				<li><a href="@routes.HomeController.mypage_main()">マイページ</a></li>
+				<li><a href="@routes.HomeController.bbs_main()">掲示板</a></li>
+				<li><a href="@routes.HomeController.management_main()">管理者画面</a></li>
+				<li><a href="@routes.AuthController.logout()">ログアウト</a>
+			</ul>
+		</nav>
+		<div id="main">
+			<a href="#" class="btn" data-action="toggle" data-side="left">
+				<img src="@routes.Assets.versioned("images/mail.gif")" align="right" alt="メニュー">
+			</a>
+			<article>
+				<h1>ようこそ＊＊＊＊＊さん</h1>
+			</article>
+		</div>
 		</header>
 		@content
 		<footer>
@@ -37,11 +64,11 @@
 				<ul>
 					<li><a href="@routes.HomeController.mypage_main()">マイページ</a></li>
 					<li><a href="@routes.HomeController.bbs_main()">掲示板</a></li>
-					<li><a href="@routes.HomeController.management_main()">管理者設定</a></li>
-					<li><a href="@routes.AuthController.logout()">ログアウト</a></li>
+					<li><a href="@routes.HomeController.management_main()">管理者画面</a></li>
+					<li><a href="@routes.AuthController.logout()">ログアウト</a>
 				</ul>
 			</div>
-			<small>&copy; 2016 チームOCC-B</small>
+			<small>&copy; 2016 team_OCC-B</small>
 		</footer>
 	</body>
 </html>

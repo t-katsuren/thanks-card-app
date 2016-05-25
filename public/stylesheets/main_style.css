@@ -1,9 +1,17 @@
 @charset "utf-8";
 
 <!-フッターの文字の色とか>
-a { color: #b7a077; }
-b:cpolortest { color:aqua }
-a:visited { color: #a8a8a8; }
+a {
+	color: #b7a077;
+}
+
+b:cpolortest {
+	color:aqua
+}
+
+a:visited {
+	color: #a8a8a8;
+}
 
 a:hover {
 	color: #988564;
@@ -20,13 +28,16 @@ a:hover {
 }
 
 header {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	width: 100%;
 	margin: 0 auto;
+	font-size: 50px;
+	display: block;
+	text-align: center;
 }
 
-header h1 {
-	text-align: center;
-	margin: 5px 0 10px;
+header div{
+	vertical-align:baseline;
 }
 
 header #header_contact {
@@ -35,6 +46,10 @@ header #header_contact {
 }
 
 #global_navi {
+	font-family: helvetica bold;
+	font-size: 17px;
+	font-weight:bold;
+	letter-spacing:10px;
 	width: 1340px;
 	clear: both;
 	overflow: hidden;
@@ -57,70 +72,30 @@ header #header_contact {
 #global_navi ul li a {
 	display: block;
 	padding: 16px;
-	background-color: #352b23;
+	background-color: #22201e;
 	color: #fff;
 	text-decoration: none;
 	transition: background-color 0.2s linear;
 }
 
 #global_navi ul li.current a {
-	background-color: #b7a077;
+	background-color: #c19f63;
 }
 
 #global_navi ul li a:hover {
 	background-color: #8c7a5b;
+	font-size: 15px;
 }
 
 #wrapper {
-	width: 1340px;
+	width: 100%;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
 #main {
-	width: 1120px;
+	width: 100%;
 	float: right;
-}
-
-#sidebar {
-	float: left;
-	width: 220px;
-}
-
-#side_banner {
-	margin-bottom: 50px;
-}
-
-#side_banner h2 {
-	background-color:darkcyan;
-	color:beige;
-	padding: 15px;
-	font-size: 20px;
-	text-align: center;
-}
-
-#side_banner ul {
-	list-style:none;
-	margin:  20px;
-	padding: 0;
-}
-
-#side_banner ul li {
-	margin-bottom: 15px;
-	font-size: 33px;
-}
-
-#side_contact {
-	margin-bottom: 20px;
-	color:dimgray;
-}
-
-#side_contact {
-	border-right:2px solid darkcyan;
-	border-left:2px solid darkcyan;
-	border-bottom:2px solid darkcyan;
-	color:aqua;
-	text-align: center;
 }
 
 footer {
@@ -184,19 +159,32 @@ footer small {
 
 /*table css*/
 .odd {
-	background:#254b11;
-	color:coral;
+	background:#29aaa0;
+	color:#1a504c;
 }
 
 th {
-	background:#114e40;
-	color:#c6a3a3
+	background:#986fba;
+	color:#3f2b5a
 }
 
 .even {
-	background: #f2f2f2
+	background:#b2b275
 }
 
 tr:not(:first-child):hover {
 	background:aqua;
+}
+
+.sidebar {
+	position: fixed;
+	color: #fff; /* 好みに応じて調節してください */
+}
+
+.sidebar.left {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 270px; /*この値は調節してください。*/
+	background: #497664; /*背景色も好みに応じにて調節してください。*/
 }
