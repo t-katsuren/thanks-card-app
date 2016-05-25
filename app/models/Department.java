@@ -14,7 +14,6 @@ public class Department extends Model {
 	public Integer departmentId;
 
 	@Required
-	@MinLength(4)
 	@ManyToOne()
 	public String departmentCd;
 
@@ -22,7 +21,6 @@ public class Department extends Model {
 	public Integer sectionId;
 
 	@Required
-	@MinLength(25)
 	public String departmentName;
 
 	public static Find<Integer, Department> find = new Find<Integer, Department>(){};

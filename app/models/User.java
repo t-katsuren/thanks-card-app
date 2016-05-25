@@ -16,13 +16,9 @@ public class User extends Model {
 	public Integer userId;
 
 	@Required
-	@MinLength(3)
-	@MaxLength(3)
 	public String userCd;
 
 	@Required
-	@MinLength(5)
-	@MaxLength(20)
 	public String userPass;
 
 	@Required
@@ -30,7 +26,6 @@ public class User extends Model {
 	public Integer departmentId;
 
 	@Required
-	@MaxLength(25)
 	public String userName;
 
 	@Required
