@@ -188,3 +188,8 @@ tr:not(:first-child):hover {
 	width: 270px; /*この値は調節してください。*/
 	background: #497664; /*背景色も好みに応じにて調節してください。*/
 }
+
+#side_banner ul li {
+	margin-bottom: 15px;
+	font-size: 18px;
+}
