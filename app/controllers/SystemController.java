@@ -38,7 +38,7 @@ public class SystemController extends Controller {
 	public Result createCard() {
 		Card newCard = formFactory.form(Card.class).bindFromRequest().get();
 		newCard.save();
-		return redirect(routes.SystemController.card_main());
+		return redirect(routes.SystemController.card_top());
 	}
 
 
@@ -58,7 +58,7 @@ public class SystemController extends Controller {
 	public Result createCategory() {
 		Category newCategory = formFactory.form(Category.class).bindFromRequest().get();
 		newCategory.save();
-		return redirect(routes.SystemController.category_main());
+		return redirect(routes.SystemController.category_top());
 	}
 
 
@@ -78,7 +78,7 @@ public class SystemController extends Controller {
 	public Result createDepartment() {
 		Department newDepartment = formFactory.form(Department.class).bindFromRequest().get();
 		newDepartment.save();
-		return redirect(routes.SystemController.department_main());
+		return redirect(routes.SystemController.department_top());
 	}
 
 
@@ -92,13 +92,13 @@ public class SystemController extends Controller {
 	}
 	//permission作成ページ
 	public Result permission_create() {
-		return ok(permission_create.render(formFactory.form(Permission.class)));;
+		return ok(permission_create.render(formFactory.form(Permission.class)));
 	}
 	//department作成
 	public Result createPermission() {
 		Permission newPermission = formFactory.form(Permission.class).bindFromRequest().get();
 		newPermission.save();
-		return redirect(routes.SystemController.permission_main());
+		return redirect(routes.SystemController.permission_top());
 	}
 
 
@@ -118,7 +118,7 @@ public class SystemController extends Controller {
 	public Result createSection() {
 		Section newSection = formFactory.form(Section.class).bindFromRequest().get();
 		newSection.save();
-		return redirect(routes.SystemController.section_main());
+		return redirect(routes.SystemController.section_top());
 	}
 
 
@@ -139,7 +139,7 @@ public class SystemController extends Controller {
 		User newUser = formFactory.form(User.class).bindFromRequest().get();
 		newUser.userPass = BCrypt.hashpw(newUser.userPass, BCrypt.gensalt());
 		newUser.save();
-		return redirect(routes.SystemController.user_main());
+		return redirect(routes.SystemController.user_top());
 	}
 
 }
