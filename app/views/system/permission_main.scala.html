@@ -1,0 +1,41 @@
+@system_main("permission") {
+	<!-- wrapper -->
+	<div id="wrapper">
+		<div class="sidebar left">
+			<center>
+				<h1>
+					<ul>
+						<li id="tab1"class="btn" data-action="toggle" data-side="left">
+							<a href="#cont1">Permission Top</a>
+						</li>
+					</ul>
+					<ul>
+						<li id="tab2"class="btn" data-action="toggle" data-side="left">
+							<a href="#cont2">Permission 作成</a>
+						</li>
+					</ul>
+				</h1>
+			</center>
+		</div>
+		<div id="main">
+			<!--表などを表示するコンテンツ部分-->
+			<div id="cont1">
+				Permission Top だよ
+			</div>
+			<div id="cont2">
+				Permission 作成 だよ
+			</div>
+			<!-- jQueryを使ったタブのスクリプト処理 -->
+			<script>
+				$("#tab1").click(function() {
+					$("#cont1").show();
+					$("#cont2").hide();
+				});
+				$("#tab2").click(function() {
+					$("#cont1").hide();
+					$("#cont2").show();
+				});
+			</script>
+		</div>
+	</div>
+}

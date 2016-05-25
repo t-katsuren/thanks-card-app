@@ -1,0 +1,76 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>system | @title</title>
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/system_style.css")">
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+		<!-- Slide bar -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery.sidebar.min.js")"></script>
+		<!-- タブ専用のCSS処理 -->
+		<style type="text/css">
+			/*最初はcont2は表示しないようにしておく。*/
+			#cont2 { display: none; }
+			li { display: inline-block; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				// 向き
+				var sides = ["left"];
+				// サイドバーの初期化
+				for (var i = 0; i < sides.length; ++i) {
+					var cSide = sides[i];
+					$(".sidebar." + cSide).sidebar({side: cSide});
+				}
+				// ボタンのクリックにより...
+				$(".btn[data-action]").on("click", function () {
+					var $this = $(this);
+					var action = $this.attr("data-action");
+					var side = $this.attr("data-side");
+					$(".sidebar." + side).trigger("sidebar:" + action);
+					return false;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<header>
+		<li>Thanks Card Management System</li>
+		<!-- グローバルナビ -->
+		<nav id="global_navi">
+			<ul>
+				<li><a href="@routes.SystemController.card_main()">card_table</a></li>
+				<li><a href="@routes.SystemController.category_main()">category_table</a></li>
+				<li><a href="@routes.SystemController.department_main()">department_table</a></li>
+				<li><a href="@routes.SystemController.permission_main()">permission_table</a></li>
+				<li><a href="@routes.SystemController.section_main()">section_table</a></li>
+				<li><a href="@routes.SystemController.user_main()">user_table</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<a href="#" class="btn" data-action="toggle" data-side="left">
+				<img src="@routes.Assets.versioned("images/mail.gif")" align="right" alt="メニュー">
+			</a>
+			<article>
+				<h1>システム設定画面 (Administrator Only)</h1>
+			</article>
+		</div>
+		</header>
+		@content
+		<footer>
+			<div id="footer_nav">
+				<ul>
+					<li><a href="@routes.HomeController.mypage_main()">マイページ</a></li>
+					<li><a href="@routes.HomeController.bbs_main()">掲示板</a></li>
+					<li><a href="@routes.HomeController.management_main()">管理者画面</a></li>
+					<li><a href="@routes.AuthController.logout()">ログアウト</a>
+				</ul>
+			</div>
+			<small>&copy; 2016 team_OCC-B</small>
+		</footer>
+	</body>
+</html>

@@ -24,23 +24,37 @@ GET     /mypage                     controllers.HomeController.mypage_main
 GET     /bbs                        controllers.HomeController.bbs_main
 GET     /management                 controllers.HomeController.management_main
 
-# create models as dummy
+# System Control
 # start
-GET     /models/card                controllers.ModelController.card
-POST    /models/card                controllers.ModelController.createCard
+GET     /system                     controllers.SystemController.system_main
 
-GET     /models/category            controllers.ModelController.category
-POST    /models/category            controllers.ModelController.createCategory
+GET     /system/card                controllers.SystemController.card_main
+GET     /system/card/top            controllers.SystemController.card_top
+GET     /system/card/create         controllers.SystemController.card_create
+POST    /system/card/create         controllers.SystemController.createCard
 
-GET     /models/department          controllers.ModelController.department
-POST    /models/department          controllers.ModelController.createDepartment
+GET     /system/category            controllers.SystemController.category_main
+GET     /system/category/top        controllers.SystemController.category_top
+GET     /system/category/create     controllers.SystemController.category_create
+POST    /system/category/create     controllers.SystemController.createCategory
 
-GET     /models/permission          controllers.ModelController.permission
-POST    /models/permission          controllers.ModelController.createPermission
+GET     /system/department          controllers.SystemController.department_main
+GET     /system/department/top      controllers.SystemController.department_top
+GET     /system/department/create   controllers.SystemController.department_create
+POST    /system/department/create   controllers.SystemController.createDepartment
 
-GET     /models/section             controllers.ModelController.section
-POST    /models/section             controllers.ModelController.createSection
+GET     /system/permission          controllers.SystemController.permission_main
+GET     /system/permission/top      controllers.SystemController.permission_top
+GET     /system/permission/create   controllers.SystemController.permission_create
+POST    /system/permission/create   controllers.SystemController.createPermission
 
-GET     /models/user                controllers.ModelController.user
-POST    /models/user                controllers.ModelController.createUser
+GET     /system/section             controllers.SystemController.section_main
+GET     /system/section/top         controllers.SystemController.section_top
+GET     /system/section/create      controllers.SystemController.section_create
+POST    /system/section/create      controllers.SystemController.createSection
+
+GET     /system/user                controllers.SystemController.user_main
+GET     /system/user/top            controllers.SystemController.user_top
+GET     /system/user/create         controllers.SystemController.user_create
+POST    /system/user/create         controllers.SystemController.createUser
 # end
