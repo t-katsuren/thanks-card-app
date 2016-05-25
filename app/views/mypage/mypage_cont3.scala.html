@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			table{border-spacing: 15px;}
+			div.migi{text-align: right}
+		</style>
+		<title>感謝カード作成</title>
+	</head>
+	<body>
+		<center>
+			<h2>感謝カード作成</h2>
+			<table class="thank" bgcolor="#e8e8e8">
+				<tr>
+					<td>
+						<b>宛先</b>
+						<select name="navi">
+							<!-- にURLを記入 -->
+							<option  value =""> --- 部署 ---
+							<option  value ="">いいね降順
+						</select>
+						<select name="navi">
+							<!-- valueにURLを記入 -->
+							<option  value =""> --- 氏名 ---
+							<option  value ="">いいね降順
+						</select>
+						&nbsp;&nbsp;<b>分類</b>
+						<select name="navi">
+							<!-- にURLを記入 -->
+							<option  value =""> --- 分類 ---
+							<option  value ="">１
+							<option  value ="">２
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>タイトル</b></br>
+						<input type="text" size="80">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>やってもらったこと</b><br>
+						<textarea cols="80" rows="10"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>感謝の言葉</b><br>
+						<textarea cols="80" rows="10"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="migi">
+							<input type="submit" value="作成完了">
+							<input type="button" value="キャンセル">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</center>
+		</form>
+	</body>
+</html>

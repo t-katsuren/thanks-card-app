@@ -11,7 +11,7 @@ import views.html.management.*;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-@Security.Authenticated(Secured.class)
+//@Security.Authenticated(Secured.class)
 public class HomeController extends Controller {
 
     /**
@@ -28,6 +28,19 @@ public class HomeController extends Controller {
     public Result mypage_main() {
     	return ok(mypage_main.render());
     }
+    //マイページ受信箱
+    public Result mypage_cont1() {
+    	return ok(mypage_cont1.render());
+    }
+    //マイページ受信箱
+    public Result mypage_cont2() {
+    	return ok(mypage_cont2.render());
+    }
+    //マイページ受信箱
+    public Result mypage_cont3() {
+    	return ok(mypage_cont3.render());
+    }
+
 
   //掲示板ページを表示
     public Result bbs_main() {
