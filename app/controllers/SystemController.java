@@ -143,11 +143,11 @@ public class SystemController extends Controller {
 	}
 
 
-	//common メインページ
+	//集計テーブル メインページ
 	public Result master_main() {
 		return ok(master_main.render());
 	}
-	//common TOPページ
+	//集計テーブル TOPページ
 	public Result master_cont1() {
 		return ok(master_cont1.render());
 	}
