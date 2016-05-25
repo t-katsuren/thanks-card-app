@@ -1,43 +1,16 @@
+@(userForm: Form[User])
+
+@import helper._
+
 <html>
     <body>
-        <form action="/system/user/create" method="GET" >
-
-   		<dl class=" " id="user_name_field">
-     	<dt><label for="user_name_field">社員コード</label></dt>
-     		<dd>
-       			<input type="text" id="user_cd" name="user_code" value="" />
-     		</dd>
-  		</dl>
-
-  		<dl class=" " id="user_pass_field">
-    		<dt><label for="user_pass_field">社員パス</label></dt>
-    		<dd>
-      			<input type="text" id="user_pass" name="user_pass" value="" />
-    		</dd>
- 		</dl>
-
- 		<dl class=" " id="department_id_field">
-     	<dt><label for="department_id_field">部署ID</label></dt>
-     		<dd>
-       			<input type="text" id="department_id" name="department_id" value="" />
-     		</dd>
-  		</dl>
-
-  		<dl class=" " id="user_name_field">
-    		<dt><label for="user_name">氏名</label></dt>
-    		<dd>
-      			<input type="text" id="user_name" name="user_name" value="" />
-    		</dd>
- 		</dl>
-
- 		<dl class=" " id="permission_id_field">
-    		<dt><label for="permission_id">権限ID</label></dt>
-    		<dd>
-      			<input type="text" id="permission_id" name="permission_id" value="" />
-    		</dd>
- 		</dl>
-
-  		<input type="submit" value="Create" />
-		</form>
+        @form(routes.SystemController.createUser()) {
+        	@inputText(userForm("userCd"), '_label -> "user_cd")
+        	@inputPassword(userForm("userPass"), '_label -> "user_pass")
+        	@inputText(userForm("departmentId"), '_label -> "department_id")
+        	@inputText(userForm("userName"), '_label -> "user_name")
+        	@inputText(userForm("permissionId"), '_label -> "permission_id")
+        	<input type="submit" value="Create" />
+    }
     </body>
 </html>

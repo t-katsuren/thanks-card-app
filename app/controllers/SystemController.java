@@ -132,7 +132,7 @@ public class SystemController extends Controller {
 	}
 	//user作成ページ
 	public Result user_create() {
-		return ok(user_create.render());
+		return ok(user_create.render(formFactory.form(User.class)));
 	}
 	//user作成
 	public Result createUser() {
