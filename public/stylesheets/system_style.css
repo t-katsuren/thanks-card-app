@@ -47,7 +47,7 @@ header #header_contact {
 
 #global_navi {
 	font-family: helvetica bold;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight:bold;
 	letter-spacing:2px;
 	width: 1340px;
@@ -63,7 +63,7 @@ header #header_contact {
 }
 
 #global_navi ul li {
-	width: 221px;
+	width: 188px;
 	float: left;
 	margin-right: 1px;
 	text-align: center;
