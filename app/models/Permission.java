@@ -13,7 +13,6 @@ public class Permission extends Model {
 	public Integer permissionId;
 
 	@Required
-	@MinLength(10)
 	@OneToMany()
 	public String permissionName;
 
