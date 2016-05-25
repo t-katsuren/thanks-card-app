@@ -1,4 +1,4 @@
-@system_main("department") {
+@system_main("master") {
 	<!-- wrapper -->
 	<div id="wrapper">
 		<div class="sidebar left">
@@ -7,12 +7,12 @@
 					<h1>
 						<ul>
 							<li id="tab1" class="btn" data-action="toggle" data-side="left">
-								<a href="#cont1">Department Top</a>
+								<a href="#cont1">Master Top</a>
 							</li>
 						</ul>
 						<ul>
 							<li id="tab2"class="btn" data-action="toggle" data-side="left">
-								<a href="#cont2">Department 作成</a>
+								<a href="#cont2">Master Top</a>
 							</li>
 						</ul>
 					</h1>
@@ -22,10 +22,14 @@
 		<div id="main">
 			<!-- 表などを表示するコンテンツ部分 -->
 			<div id="cont1">
-				Department Top だよ
+				<iframe src="@routes.SystemController.master_cont1()"width="100%" height="540px"frameborder="0">
+					Master Top
+				</iframe>
 			</div>
 			<div id="cont2">
-				Add a new Data
+				<iframe src="@routes.SystemController.master_cont1()"width="100%" height="540px"frameborder="0">
+					Master Top
+				</iframe>
 			</div>
 			<!-- jQueryを使ったタブのスクリプト処理 -->
 			<script>

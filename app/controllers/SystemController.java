@@ -22,124 +22,134 @@ public class SystemController extends Controller {
 	}
 
 
-	//cardメインページ
+	//card メインページ
 	public Result card_main() {
 		return ok(card_main.render());
 	}
-	//cardTOPページ
-	public Result card_top() {
+	//card TOPページ
+	public Result card_cont1() {
 		return TODO;
 	}
-	//card作成ページ
-	public Result card_create() {
+	//card 作成ページ
+	public Result card_cont2() {
 		return TODO;
 	}
-	//card作成
+	//card 作成
 	public Result createCard() {
 		Card newCard = formFactory.form(Card.class).bindFromRequest().get();
 		newCard.save();
-		return redirect(routes.SystemController.card_top());
+		return redirect(routes.SystemController.card_cont1());
 	}
 
 
-	//categoryメインページ
+	//category メインページ
 	public Result category_main() {
 		return ok(category_main.render());
 	}
-	//categoryTOPページ
-	public Result category_top() {
+	//category TOPページ
+	public Result category_cont1() {
 		return TODO;
 	}
-	//category作成ページ
-	public Result category_create() {
+	//category 作成ページ
+	public Result category_cont2() {
 		return TODO;
 	}
-	//category作成
+	//category 作成
 	public Result createCategory() {
 		Category newCategory = formFactory.form(Category.class).bindFromRequest().get();
 		newCategory.save();
-		return redirect(routes.SystemController.category_top());
+		return redirect(routes.SystemController.category_cont1());
 	}
 
 
-	//departmentメインページ
+	//department メインページ
 	public Result department_main() {
 		return ok(department_main.render());
 	}
-	//departmentTOPページ
-	public Result department_top() {
+	//department TOPページ
+	public Result department_cont1() {
 		return TODO;
 	}
-	//department作成ページ
-	public Result department_create() {
+	//department 作成ページ
+	public Result department_cont2() {
 		return TODO;
 	}
-	//department作成
+	//department 作成
 	public Result createDepartment() {
 		Department newDepartment = formFactory.form(Department.class).bindFromRequest().get();
 		newDepartment.save();
-		return redirect(routes.SystemController.department_top());
+		return redirect(routes.SystemController.department_cont1());
 	}
 
 
-	//permissionメインページ
+	//permission メインページ
 	public Result permission_main() {
 		return ok(permission_main.render());
 	}
-	//permissionTOPページ
-	public Result permission_top() {
+	//permission TOPページ
+	public Result permission_cont1() {
 		return TODO;
 	}
-	//permission作成ページ
-	public Result permission_create() {
-		return ok(permission_create.render(formFactory.form(Permission.class)));
+	//permission 作成ページ
+	public Result permission_cont2() {
+		return ok(permission_cont2.render(formFactory.form(Permission.class)));
 	}
-	//department作成
+	//department 作成
 	public Result createPermission() {
 		Permission newPermission = formFactory.form(Permission.class).bindFromRequest().get();
 		newPermission.save();
-		return redirect(routes.SystemController.permission_top());
+		return redirect(routes.SystemController.permission_cont1());
 	}
 
 
-	//sectionメインページ
+	//section メインページ
 	public Result section_main() {
 		return ok(section_main.render());
 	}
-	//sectionTOPページ
-	public Result section_top() {
+	//section TOPページ
+	public Result section_cont1() {
 		return TODO;
 	}
-	//section作成ページ
-	public Result section_create() {
+	//section 作成ページ
+	public Result section_cont2() {
 		return TODO;
 	}
-	//section作成
+	//section 作成
 	public Result createSection() {
 		Section newSection = formFactory.form(Section.class).bindFromRequest().get();
 		newSection.save();
-		return redirect(routes.SystemController.section_top());
+		return redirect(routes.SystemController.section_cont1());
 	}
 
 
-	//userメインページ
+	//user メインページ
 	public Result user_main() {
 		return ok(user_main.render());
 	}
-	//userTOPページ
-	public Result user_top() {
+	//user TOPページ
+	public Result user_cont1() {
 		return TODO;
 	}
-	//user作成ページ
-	public Result user_create() {
-		return ok(user_create.render(formFactory.form(User.class)));
+	//user 作成ページ
+	public Result user_cont2() {
+		return ok(user_cont2.render(formFactory.form(User.class)));
 	}
-	//user作成
+	//user 作成
 	public Result createUser() {
 		User newUser = formFactory.form(User.class).bindFromRequest().get();
 		newUser.userPass = BCrypt.hashpw(newUser.userPass, BCrypt.gensalt());
 		newUser.save();
-		return redirect(routes.SystemController.user_top());
+		return redirect(routes.SystemController.user_cont1());
+	}
+
+
+	//common メインページ
+	public Result master_main() {
+		return ok(master_main.render());
+	}
+	//common TOPページ
+	public Result master_cont1() {
+		return ok(master_cont1.render());
 	}
 
 }
