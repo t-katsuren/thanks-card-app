@@ -1,0 +1,82 @@
+@charset "utf8";
+
+table.tyepe04{
+    text-align: center;
+    font-family: helvetica;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+
+
+}
+table.type04 th {
+      text-align: center;
+        width: 150px;
+        padding: 10px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+     border-right: 1px solid #ccc;
+    }
+table.type04 td {
+    text-align: center;
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+}
+table.tyepe03{
+    width: 100%;
+	text-align: center;
+	border: 1px solid #100606;
+    border-collapse: collapse;
+}
+table.tyepe03 tr td {
+    border-bottom: 1px solid #100404;
+    font-size: 30px;
+    font-weight:bold;
+}
+table.tyepe03 tr th {
+    border-bottom: 1px solid #100404;
+    border-right: 2px solid #100404;
+    border-top:  1px solid #100404;
+    border-collapse: collapse;
+    border-left: 1px solid #100404;
+}
+table.type01{
+    text-align: center;
+    font-family: helvetica;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+
+
+}
+table.type01 th {
+    background-color: bisque;
+      text-align: center;
+        width: 150px;
+        padding: 10px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+     border-right: 1px solid #ccc;
+
+    }
+
+table.type01 div{
+    background-color: #771919;
+    }
+
+table.type01 td {
+    background: #f8f8f8;
+    text-align: center;
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+}

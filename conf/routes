@@ -21,6 +21,10 @@ GET     /logout                     controllers.AuthController.logout
 
 # URI for main_page
 GET     /mypage                     controllers.HomeController.mypage_main
+GET     /mypage/cont1               controllers.HomeController.mypage_cont1
+GET     /mypage/cont2               controllers.HomeController.mypage_cont2
+GET     /mypage/cont3               controllers.HomeController.mypage_cont3
+
 GET     /bbs                        controllers.HomeController.bbs_main
 GET     /management                 controllers.HomeController.management_main
 
