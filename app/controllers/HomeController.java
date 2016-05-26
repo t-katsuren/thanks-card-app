@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.*;
+
+import models.Card;
 import play.mvc.*;
 
 import views.html.*;
@@ -49,7 +52,8 @@ public class HomeController extends Controller {
     }
     //掲示板一覧
     public Result bbs_cont1() {
-    	return ok(bbs_cont1.render());
+    	List<Card> cardList = Card.find.all();
+    	return ok(bbs_cont1.render(cardList));
     }
     //掲示板事例1
     public Result bbs_cont2() {
