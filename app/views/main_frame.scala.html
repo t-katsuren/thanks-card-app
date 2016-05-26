@@ -46,17 +46,22 @@
 				<li><a href="@routes.HomeController.mypage_main()">マイページ</a></li>
 				<li><a href="@routes.HomeController.bbs_main()">掲示板</a></li>
 				<li><a href="@routes.HomeController.management_main()">管理者画面</a></li>
-				<li><a href="@routes.AuthController.logout()">ログアウト</a>
+				<li><a href="@routes.AuthController.logout()">ログアウト</a></li>
 			</ul>
 		</nav>
-		<div id="main">
-			<a href="#" class="btn" data-action="toggle" data-side="left">
-				<img src="@routes.Assets.versioned("images/mail.gif")" align="right" alt="メニュー">
-			</a>
-			<article>
-				<h1>ようこそ＊＊＊＊＊さん</h1>
-			</article>
-		</div>
+
+			 <div id="main">
+ <a href="#" id="nav-toggle" class="btn" data-action="toggle" data-side="left"><span align="right"></span></a>
+     <!--ハンバーガー-->
+       <script>
+   document.querySelector( "#nav-toggle" )
+  .addEventListener( "click", function() {
+    this.classList.toggle( "active" );
+  });
+    </script>
+      <article>
+        <h1>ようこそ＊＊＊＊＊さん</h1>
+        </article></div>
 		</header>
 		@content
 		<footer>
