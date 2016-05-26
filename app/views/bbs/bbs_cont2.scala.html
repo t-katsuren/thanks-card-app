@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/style.css")">
+
+		<!-- popuup -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+
+		<!-- 表のCSS -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
+		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
+
+		<title>thanks | 事例</title>
+
+		<!-- 表のセルに対して色を変えてる -->
+		<script>
+			$(function() {
+				$("th:nth-child(odd)").addClass("odd");
+				$("tr:nth-child(even)").addClass("even");
+			});
+		</script>
+	</head>
+	<body>
+		<div class="jirei">
+			<center>
+				<h1 > 過去の事例 </h1>
+				<a href="@routes.HomeController.bbs_cont4()">● 2016年3月 TOP10</a></br>
+				<a href="@routes.HomeController.bbs_cont4()">● 2016年4月 TOP10</a></br>
+				<a href="@routes.HomeController.bbs_cont4()">● 2016年5月 TOP10</a></br>
+			</center>
+		</div>
+		<script>
+			jQuery(function($) {
+				$('.parent-container').magnificPopup({
+					delegate: 'a', // 子要素のセレクタ
+					type: 'image'
+					// other options
+				})
+			});
+		</script>
+	</body>
+</html>

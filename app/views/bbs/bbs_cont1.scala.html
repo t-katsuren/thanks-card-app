@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/style.css")">
+
+		<!-- popuup -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
+		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
+
+		<title>thanks | 一覧</title>
+
+		<script>
+			$(function() {
+				$("th:nth-child(odd)").addClass("odd");
+				$("tr:nth-child(even)").addClass("even");
+			});
+		</script>
+	</head>
+	<body>
+		<p><h1><center>掲示板</center></h1></p>
+		<p>検索ツール</p>
+		<!-- 別フレームにリンクしたい場合は下の※を見てください ここから -->
+		<!-- ここまで -->
+		<select name="navi">
+			<!-- valueにURLを記入 -->
+			<option value=""> --- FROM(部署)検索 ---
+			<option value="">IT
+			<option value="">人事
+			<option value="">自治
+		</select>
+		<input type="search" name="search" placeholder="FROM(氏名)入力">
+		<select name="navi">
+			<!-- valueにURLを記入 -->
+			<option value=""> --- TO(部署)検索 ---
+			<option value="">IT
+			<option value="">人事
+			<option value="">自治
+		</select>
+		<input type="search" name="search" placeholder="TO(氏名)入力">
+		<select name="navi">
+			<!-- valueにURLを記入 -->
+			<option  value =""> --- 分類 ---
+			<option  value="">１
+			<option  value="">２
+			<option  value="">３
+		</select>
+		<select name="navi">
+			<!-- valueにURLを記入 -->
+			<option value=""> --- 期間指定なしー ---
+			<option value="">１日以内
+			<option value="">１週間以内
+			<option value="">１か月以内
+		</select>
+		<!-- 別フレームにリンクしたい場合は下の※を見てください ここから -->
+		<!-- ここまで -->
+		<select name="navi">
+		<!-- valueにURLを記入 -->
+		<option value=""> --- いいね ---
+		<option value="">いいね降順
+		</select>
+		<input type="submit" name="submit" value="検索">
+		<table class="type04" width="100%">
+			<tr>
+				<th class="odd" scope="row">FROM(部署)</th>
+				<th scope="row">FROM(氏名)</th>
+				<th scope="row">TO(部署)</th>
+				<th scope="row">TO(氏名)</th>
+				<th scope="row">分類</th>
+				<th scope="row">TITLE</th>
+				<th scope="row">DATE</th>
+				<th class="odd" scope="row">IINE</th>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+		</table>
+		<script>
+			$(function() {
+				$('.popup-iframe').magnificPopup({
+					type: 'iframe',
+					disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
+					mainClass: 'mfp-fade',
+					removalDelay: 200,
+					preloader: false,
+					fixedContentPos: false
+				});
+			});
+		</script>
+	</body>
+</html>
