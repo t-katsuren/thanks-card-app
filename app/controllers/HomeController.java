@@ -2,7 +2,7 @@ package controllers;
 
 import java.util.*;
 
-import models.Card;
+import models.*;
 import play.mvc.*;
 
 import views.html.*;
