@@ -112,7 +112,7 @@ public class SystemController extends Controller {
 	}
 	//section 作成ページ
 	public Result section_cont2() {
-		return TODO;
+		return ok(section_cont2.render(formFactory.form(Section.class)));
 	}
 	//section 作成
 	public Result createSection() {
