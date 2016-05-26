@@ -1,0 +1,19 @@
+@(userCategory: Form[Category])
+
+@import helper._
+
+<html>
+    <body>
+        @form(routes.SystemController.createCard()) {
+        	@inputDate(userCategory("date"), '_label -> "date")
+        	@inputText(userCategory("fromUserId"), '_label -> "from_user_id")
+        	@inputText(userCategory("toUserId"), '_label -> "to_user_id")
+        	@inputText(userCategory("title"), '_label -> "title")
+        	@inputText(userCategory("detail"), '_label -> "detail")
+        	@inputText(userCategory("message"), '_label -> "message")
+        	@inputText(userCategory("categoryId"), '_label -> "category_id")
+        	@inputText(userCategory("goodCount"), '_label -> "good_count")
+        	<input type="submit" value="Create" />
+    }
+    </body>
+</html>

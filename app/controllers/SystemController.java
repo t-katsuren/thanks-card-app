@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -32,7 +34,8 @@ public class SystemController extends Controller {
 	}
 	//card 作成ページ
 	public Result card_cont2() {
-		return TODO;
+		return ok(card_cont2.render(formFactory.form(Card.class)));
+		//return TODO;
 	}
 	//card 作成
 	public Result createCard() {
@@ -52,7 +55,7 @@ public class SystemController extends Controller {
 	}
 	//category 作成ページ
 	public Result category_cont2() {
-		return TODO;
+		return ok(category_cont2.render(formFactory.form(Category.class)));
 	}
 	//category 作成
 	public Result createCategory() {
@@ -72,7 +75,7 @@ public class SystemController extends Controller {
 	}
 	//department 作成ページ
 	public Result department_cont2() {
-		return TODO;
+		return ok(department_cont2.render(formFactory.form(Department.class)));
 	}
 	//department 作成
 	public Result createDepartment() {
