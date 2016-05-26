@@ -1,3 +1,4 @@
+@(userList: List[User])
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -39,38 +40,16 @@
 				<th scope="row">氏名</th>
 				<th scope="row">権限ID</th>
 			</tr>
+			@for(user <- userList) {
 			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
+				<td>@user.userId</td>
+				<td>@user.userCd</td>
+				<td>@user.userPass</td>
+				<td>@user.departmentId</td>
+				<td>@user.userName</td>
+				<td>@user.permissionId</td>
 			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			$(function() {
