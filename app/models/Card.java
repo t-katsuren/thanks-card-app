@@ -12,18 +12,18 @@ import play.data.validation.Constraints.*;
 public class Card extends Model {
 
 	@Id
-	public Integer cardId;
+	public Integer id;
 
 	@Required
 	public Date date;
 
 	@Required
 	@ManyToOne
-	public Integer fromUserId;
+	public User fromUser;
 
 	@Required
 	@ManyToOne
-	public Integer toUserId;
+	public User toUser;
 
 	@Required
 	@MaxLength(30)
@@ -39,7 +39,7 @@ public class Card extends Model {
 
 	@Required
 	@ManyToOne
-	public Integer categoryId;
+	public Category category;
 
 	@Required
 	public Integer goodCount;

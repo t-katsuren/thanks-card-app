@@ -11,7 +11,7 @@ public class Section extends Model {
 
 	@Id
 	@OneToMany
-	public Integer sectionId;
+	public Integer id;
 
 	@Required
 	public String sectionCd;

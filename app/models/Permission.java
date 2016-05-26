@@ -10,10 +10,10 @@ import play.data.validation.Constraints.*;
 public class Permission extends Model {
 
 	@Id
-	public Integer permissionId;
+	@OneToMany
+	public Integer id;
 
 	@Required
-	@OneToMany()
 	public String permissionName;
 
 	public static Find<Integer, Permission> find = new Find<Integer, Permission>(){};
