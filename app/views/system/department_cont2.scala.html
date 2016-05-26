@@ -3,13 +3,12 @@
 @import helper._
 
 <html>
-    <body>
-        @form(routes.SystemController.createDepartment()) {
-        	@inputText(departmentForm("departmentId"), '_label -> "department_id")
-        	@inputText(departmentForm("departmentCd"), '_label -> "department_cd")
-        	@inputText(departmentForm("sectionId"), '_label -> "section_id")
-   	       	@inputText(departmentForm("departmentName"), '_label -> "department_name")
-        	<input type="submit" value="Create" />
-    }
-    </body>
+	<body>
+		@form(routes.SystemController.createDepartment()) {
+			@inputText(departmentForm("departmentCd"), '_label -> "department_cd")
+			@inputText(departmentForm("section.id"), '_label -> "section_id")
+			@inputText(departmentForm("departmentName"), '_label -> "department_name")
+			<input type="submit" value="Create" />
+		}
+	</body>
 </html>

@@ -1,4 +1,7 @@
 @(permissionList: List[Permission])
+
+@import helper._
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -8,7 +11,7 @@
 		<!-- jQuery -->
 		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
 
-		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/system_style.css")">
 
 		<!-- popuup -->
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
@@ -18,7 +21,7 @@
 
 		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
 
-		<title>thanks | Permission_table</title>
+		<title>thanks | permission</title>
 
 		<!--表のセルに対して色を変えてる-->
 		<script>
@@ -29,7 +32,7 @@
 		</script>
 	</head>
 	<body>
-		<center> <h1>permission_table</h1></center>
+		<center><h1>permission_table</h1></center>
 
 		<table class="type04" width="100%">
 			<tr>

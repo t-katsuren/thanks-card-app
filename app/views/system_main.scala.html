@@ -53,9 +53,14 @@
 			</ul>
 		</nav>
 		<div id="main">
-			<a href="#" class="btn" data-action="toggle" data-side="left">
-				<img src="@routes.Assets.versioned("images/mail.gif")" align="right" alt="メニュー">
-			</a>
+			<a href="#" id="nav-toggle" class="btn" data-action="toggle" data-side="left"><span align="right"></span></a>
+			<!--ハンバーガー-->
+			<script>
+				document.querySelector( "#nav-toggle" )
+					.addEventListener( "click", function() {
+					this.classList.toggle( "active" );
+				});
+			</script>
 			<article>
 				<h1>システム設定画面 (Administrator Only)</h1>
 			</article>

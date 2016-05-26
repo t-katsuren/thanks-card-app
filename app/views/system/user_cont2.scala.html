@@ -7,9 +7,9 @@
 		@form(routes.SystemController.createUser()) {
 			@inputText(userForm("userCd"), '_label -> "user_cd")
 			@inputPassword(userForm("userPass"), '_label -> "user_pass")
-			@inputText(userForm("departmentId"), '_label -> "department_id")
+			@inputText(userForm("department.id"), '_label -> "department_id")
 			@inputText(userForm("userName"), '_label -> "user_name")
-			@inputText(userForm("permissionId"), '_label -> "permission_id")
+			@inputText(userForm("permission.id"), '_label -> "permission_id")
 			<input type="submit" value="Create" />
 		}
 	</body>

@@ -1,14 +1,13 @@
-@(userCategory: Form[Category])
+@(categoryForm: Form[Category])
 
 @import helper._
 
 <html>
-    <body>
-        @form(routes.SystemController.createCategory()) {
-        	@inputText(userCategory("categoryCd"), '_label -> "category")
-        	@inputText(userCategory("categoryName"), '_label -> "categoryname")
-        	<input type="submit" value="Create" />
-    }
-    </body>
+	<body>
+		@form(routes.SystemController.createCategory()) {
+			@inputText(categoryForm("categoryCd"), '_label -> "category_cd")
+			@inputText(categoryForm("categoryName"), '_label -> "category_name")
+			<input type="submit" value="Create" />
+		}
+	</body>
 </html>
-

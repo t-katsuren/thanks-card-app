@@ -3,15 +3,15 @@
 @import helper._
 
 <html>
-    <body>
+	<body>
 		@form(routes.SystemController.createCard()){
 			@inputDate(cardForm("date"), '_label -> "date")
-			@inputText(cardForm("fromUserId"), '_label -> "from_user_id")
-			@inputText(cardForm("toUserId"), '_label -> "to_user_id")
+			@inputText(cardForm("fromUser.id"), '_label -> "from_user_id")
+			@inputText(cardForm("toUser.id"), '_label -> "to_user_id")
 			@inputText(cardForm("title"), '_label -> "title")
 			@inputText(cardForm("detail"), '_label -> "detail")
 			@inputText(cardForm("message"), '_label -> "message")
-			@inputText(cardForm("categoryId"), '_label -> "category_id")
+			@inputText(cardForm("category.id"), '_label -> "category_id")
 			@inputText(cardForm("goodCount"), '_label -> "good_count")
 			<input type="submit" value="Create" />
 		}

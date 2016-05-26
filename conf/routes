@@ -47,36 +47,36 @@ GET     /management/cont3           controllers.HomeController.management_cont3
 GET     /system                     controllers.SystemController.system_main
 
 GET     /system/card                controllers.SystemController.card_main
-GET     /system/card/top            controllers.SystemController.card_cont1
-GET     /system/card/create         controllers.SystemController.card_cont2
+GET     /system/card/cont1          controllers.SystemController.card_cont1
+GET     /system/card/cont2          controllers.SystemController.card_cont2
 POST    /system/card/create         controllers.SystemController.createCard
 
 GET     /system/category            controllers.SystemController.category_main
-GET     /system/category/top        controllers.SystemController.category_cont1
-GET     /system/category/create     controllers.SystemController.category_cont2
+GET     /system/category/cont1      controllers.SystemController.category_cont1
+GET     /system/category/cont2      controllers.SystemController.category_cont2
 POST    /system/category/create     controllers.SystemController.createCategory
 
 GET     /system/department          controllers.SystemController.department_main
-GET     /system/department/top      controllers.SystemController.department_cont1
-GET     /system/department/create   controllers.SystemController.department_cont2
+GET     /system/department/cont1    controllers.SystemController.department_cont1
+GET     /system/department/cont2    controllers.SystemController.department_cont2
 POST    /system/department/create   controllers.SystemController.createDepartment
 
 GET     /system/permission          controllers.SystemController.permission_main
-GET     /system/permission/top      controllers.SystemController.permission_cont1
-GET     /system/permission/create   controllers.SystemController.permission_cont2
+GET     /system/permission/cont1    controllers.SystemController.permission_cont1
+GET     /system/permission/cont2    controllers.SystemController.permission_cont2
 POST    /system/permission/create   controllers.SystemController.createPermission
 
 GET     /system/section             controllers.SystemController.section_main
-GET     /system/section/top         controllers.SystemController.section_cont1
-GET     /system/section/create      controllers.SystemController.section_cont2
+GET     /system/section/cont1       controllers.SystemController.section_cont1
+GET     /system/section/cont2       controllers.SystemController.section_cont2
 POST    /system/section/create      controllers.SystemController.createSection
 
 GET     /system/user                controllers.SystemController.user_main
-GET     /system/user/top            controllers.SystemController.user_cont1
-GET     /system/user/create         controllers.SystemController.user_cont2
+GET     /system/user/cont1          controllers.SystemController.user_cont1
+GET     /system/user/cont2          controllers.SystemController.user_cont2
 POST    /system/user/create         controllers.SystemController.createUser
 POST    /system/user/delete         controllers.SystemController.deleteUser(userId: Integer)
 
 GET     /system/master              controllers.SystemController.master_main
-GET     /system/master/top          controllers.SystemController.master_cont1
+GET     /system/master/cont1        controllers.SystemController.master_cont1
 # end
