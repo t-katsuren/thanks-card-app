@@ -91,7 +91,7 @@ public class SystemController extends Controller {
 	}
 	//permission TOPページ
 	public Result permission_cont1() {
-		return TODO;
+		return ok(permission_cont1.render());
 	}
 	//permission 作成ページ
 	public Result permission_cont2() {
@@ -111,7 +111,7 @@ public class SystemController extends Controller {
 	}
 	//section TOPページ
 	public Result section_cont1() {
-		return TODO;
+		return ok(section_cont1.render());
 	}
 	//section 作成ページ
 	public Result section_cont2() {
@@ -131,7 +131,7 @@ public class SystemController extends Controller {
 	}
 	//user TOPページ
 	public Result user_cont1() {
-		return TODO;
+		return ok(user_cont1.render());
 	}
 	//user 作成ページ
 	public Result user_cont2() {
