@@ -19,78 +19,81 @@
 		<title>thanks | 送信画面</title>
 
 		<script>
-			$(function() {
-				$("th:nth-child(odd)").addClass("odd");
-				$("tr:nth-child(even)").addClass("even");
-			});
-		</script>
-	</head>
-	<body>
-		<center> <h1>送信箱</h1></center>
+    $(function(){
+        $("th:nth-child(odd)").addClass("odd");
+        $("tr:nth-child(even)").addClass("even");
+    });
+    </script>
+    </head>
+<body>
 
-		<table class="type04" width="100%">
-			<tr>
-				<th class="odd" scope="row">FROM(部署)</th>
-				<th scope="row">FROM(氏名)</th>
-				<th scope="row">TO(部署)</th>
-				<th scope="row">TO(氏名)</th>
-				<th scope="row">分類</th>
-				<th scope="row">TITLE</th>
-				<th scope="row">DATE</th>
-				<th class="odd" scope="row">IINE</th>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-		</table>
-		<script>
-			$(function() {
-				$('.popup-iframe').magnificPopup({
-					type: 'iframe',
-					disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
-					mainClass: 'mfp-fade',
-					removalDelay: 200,
-					preloader: false,
-					fixedContentPos: false
-				});
-			});
-		</script>
-	</body>
+   <center> <h1>送信箱</h1></center>
+
+    <table class="type04" width="100%">
+
+	<tr>
+        <th class="odd" scope="row">FROM(部署)</th>
+         <th scope="row">FROM(氏名)</th>
+		<th scope="row">TO(部署)</th>
+        <th scope="row">TO(氏名)</th>
+         <th scope="row">分類</th>
+        <th scope="row">TITLE</th>
+        <th scope="row">DATE</th>
+        <th class="odd" scope="row">IINE</th>
+	</tr>
+	<tr>
+        <td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td><a class="popup-iframe" href="thankcardlayout.html">内容がはいります。</a></td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+	</tr>
+	<tr>
+		<td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+
+	</tr>
+    <tr>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+	</tr>
+    <tr>
+		<td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+		<td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+        <td>内容がはいります。</td>
+	</tr>
+</table>
+<script>
+$(function(){
+  $('.popup-iframe').magnificPopup({
+    type: 'iframe',
+    disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
+    mainClass: 'mfp-fade',
+    removalDelay: 200,
+    preloader: false,
+    fixedContentPos: false
+  });
+});
+</script>
+</body>
 </html>
