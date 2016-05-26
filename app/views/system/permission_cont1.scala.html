@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
+
+		<!-- popuup -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+
+		<!-- 表のCSS -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
+		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
+
+		<title>thanks | 受信画面</title>
+
+		<!--表のセルに対して色を変えてる-->
+		<script>
+			$(function(){
+				$("th:nth-child(odd)").addClass("odd");
+				$("tr:nth-child(even)").addClass("even");
+			});
+		</script>
+	</head>
+	<body>
+		<center> <h1>受信箱</h1></center>
+
+		<table class="type04" width="100%">
+			<tr>
+				<th class="odd" scope="row">権限ID</th>
+				<th class="odd" scope="row">権限名</th>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+		</table>
+		<script>
+			$(function() {
+				$('.popup-iframe').magnificPopup({
+					type: 'iframe',
+					disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
+					mainClass: 'mfp-fade',
+					removalDelay: 200,
+					preloader: false,
+					fixedContentPos: false
+				});
+			});
+		</script>
+	</body>
+</html>
