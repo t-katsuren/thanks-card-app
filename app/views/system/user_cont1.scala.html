@@ -1,4 +1,6 @@
 @(userList: List[User])
+
+@import helper._
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -39,6 +41,7 @@
 				<th scope="row">部署ID</th>
 				<th scope="row">氏名</th>
 				<th scope="row">権限ID</th>
+				<th scope="row">削除</th>
 			</tr>
 			@for(user <- userList) {
 			<tr>
@@ -48,6 +51,11 @@
 				<td>@user.departmentId</td>
 				<td>@user.userName</td>
 				<td>@user.permissionId</td>
+				<td>
+					@form(routes.SystemController.deleteUser(user.userId)) {
+						<input type="submit" value="DELETE" />
+					}
+				</td>
 			</tr>
 			}
 		</table>
