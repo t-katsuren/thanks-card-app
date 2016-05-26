@@ -32,7 +32,7 @@ public class Master extends Model {
 
 
 	/**
-	 * テーブルデータをupdateするメソッド
+	 * Masterテーブルを最新の状態にするメソッド
 	 *
 	 * @param なし
 	 *
