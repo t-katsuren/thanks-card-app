@@ -1,7 +1,5 @@
 package models;
 
-import java.util.*;
-
 import javax.persistence.*;
 
 import com.avaje.ebean.Model;
