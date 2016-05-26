@@ -42,12 +42,29 @@ public class HomeController extends Controller {
     }
 
 
-  //掲示板ページを表示
+    //掲示板ページを表示
     public Result bbs_main() {
     	return ok(bbs_main.render());
     }
+    //掲示板一覧
+    public Result bbs_cont1() {
+    	return ok(bbs_cont1.render());
+    }
+    //掲示板事例1
+    public Result bbs_cont2() {
+    	return ok(bbs_cont2.render());
+    }
+    //掲示板関連
+    public Result bbs_cont3() {
+    	return ok(bbs_cont3.render());
+    }
+    //掲示板事例2
+    public Result bbs_cont4() {
+    	return ok(bbs_cont4.render());
+    }
 
-  //管理者設定ページを表示
+
+    //管理者設定ページを表示
     public Result management_main() {
     	return ok(management_main.render());
     }

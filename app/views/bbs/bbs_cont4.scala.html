@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/style.css")">
+
+		<!-- popuup -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+
+		<!-- 表のCSS -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
+		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
+
+		<title>事例</title>
+
+		<!-- 表のセルに対して色を変えてる -->
+		<script>
+			$(function() {
+				$("th:nth-child(odd)").addClass("odd");
+				$("tr:nth-child(even)").addClass("even");
+			});
+		</script>
+	</head>
+	<body>
+		<!-- ここまで -->
+		<h1><center>2016年4月 TOP10</center></h1>
+		<table class="type04" width="100%">
+			<tr>
+				<th class="odd" scope="row">RANK</th>
+				<th class="odd" scope="row">FROM(部署)</th>
+				<th class="odd" scope="row">FROM(氏名)</th>
+				<th scope="row">TO(部署)</th>
+				<th scope="row">TO(氏名)</th>
+				<th class="odd" scope="row">分類</th>
+				<th class="odd" scope="row">TITLE</th>
+				<th scope="row">DATE</th>
+				<th class="odd" scope="row">IINE</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+				<td>内容がはいります。</td>
+			</tr>
+		</table>
+		<script>
+			jQuery(function($){
+				$('.parent-container').magnificPopup({
+					delegate: 'a', // 子要素のセレクタ
+					type: 'image'
+					// other options
+				})
+			});
+		</script>
+	</body>
+</html>
