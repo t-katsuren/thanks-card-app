@@ -1,0 +1,13 @@
+@(sectionForm: Form[Section])
+
+@import helper._
+
+<html>
+	<body>
+		@form(routes.SystemController.createSection()) {
+			@inputText(sectionForm("sectionCd"), '_label -> "section_cd")
+			@inputText(sectionForm("sectionName"), '_label -> "section_name")
+			<input type="submit" value="Create" />
+		}
+	</body>
+</html>
