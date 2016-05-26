@@ -30,12 +30,12 @@ public class SystemController extends Controller {
 	}
 	//card TOPページ
 	public Result card_cont1() {
-		return ok (card_cont1.render());
+		List<Card> cardList = Card.find.all();
+		return ok(card_cont1.render(cardList));
 	}
 	//card 作成ページ
 	public Result card_cont2() {
 		return ok(card_cont2.render(formFactory.form(Card.class)));
-		//return TODO;
 	}
 	//card 作成
 	public Result createCard() {
@@ -51,7 +51,8 @@ public class SystemController extends Controller {
 	}
 	//category TOPページ
 	public Result category_cont1() {
-		return ok(category_cont1.render());
+		List<Category> categoryList = Category.find.all();
+		return ok(category_cont1.render(categoryList));
 	}
 	//category 作成ページ
 	public Result category_cont2() {
@@ -71,7 +72,8 @@ public class SystemController extends Controller {
 	}
 	//department TOPページ
 	public Result department_cont1() {
-		return ok(department_cont1.render());
+		List<Department> departmentList = Department.find.all();
+		return ok(department_cont1.render(departmentList));
 	}
 	//department 作成ページ
 	public Result department_cont2() {
@@ -91,7 +93,8 @@ public class SystemController extends Controller {
 	}
 	//permission TOPページ
 	public Result permission_cont1() {
-		return ok(permission_cont1.render());
+		List<Permission> permissionList = Permission.find.all();
+		return ok(permission_cont1.render(permissionList));
 	}
 	//permission 作成ページ
 	public Result permission_cont2() {
@@ -111,7 +114,8 @@ public class SystemController extends Controller {
 	}
 	//section TOPページ
 	public Result section_cont1() {
-		return ok(section_cont1.render());
+		List<Section> sectionList = Section.find.all();
+		return ok(section_cont1.render(sectionList));
 	}
 	//section 作成ページ
 	public Result section_cont2() {
