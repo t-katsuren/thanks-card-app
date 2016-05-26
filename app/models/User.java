@@ -1,5 +1,7 @@
 package models;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -12,7 +14,6 @@ import play.data.validation.Constraints.*;
 public class User extends Model {
 
 	@Id
-	@OneToMany
 	public Integer id;
 
 	@Required
@@ -33,6 +34,7 @@ public class User extends Model {
 	public Permission permission;
 
 	public static Find<Integer, User> find = new Find<Integer, User>(){};
+
 
 	/**
 	 * ログイン時の認証を判定するメソッド

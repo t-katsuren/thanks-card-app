@@ -1,5 +1,7 @@
 package models;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 import com.avaje.ebean.Model;
@@ -10,7 +12,6 @@ import play.data.validation.Constraints.*;
 public class Department extends Model {
 
 	@Id
-	@OneToMany
 	public Integer id;
 
 	@Required
