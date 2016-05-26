@@ -149,6 +149,11 @@ public class SystemController extends Controller {
 		newUser.save();
 		return redirect(routes.SystemController.user_cont1());
 	}
+	//user 削除
+	public Result deleteUser(Integer userId) {
+		User.find.deleteById(userId);
+		return redirect(routes.SystemController.user_cont1());
+	}
 
 
 	//集計テーブル メインページ

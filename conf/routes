@@ -75,6 +75,7 @@ GET     /system/user                controllers.SystemController.user_main
 GET     /system/user/top            controllers.SystemController.user_cont1
 GET     /system/user/create         controllers.SystemController.user_cont2
 POST    /system/user/create         controllers.SystemController.createUser
+POST    /system/user/delete         controllers.SystemController.deleteUser(userId: Integer)
 
 GET     /system/master              controllers.SystemController.master_main
 GET     /system/master/top          controllers.SystemController.master_cont1

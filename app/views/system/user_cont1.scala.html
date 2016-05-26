@@ -45,14 +45,14 @@
 			</tr>
 			@for(user <- userList) {
 			<tr>
-				<td>@user.userId</td>
+				<td>@user.id</td>
 				<td>@user.userCd</td>
 				<td>@user.userPass</td>
-				<td>@user.departmentId</td>
+				<td>@user.department.id</td>
 				<td>@user.userName</td>
-				<td>@user.permissionId</td>
+				<td>@user.permission.id</td>
 				<td>
-					@form(routes.SystemController.deleteUser(user.userId)) {
+					@form(routes.SystemController.deleteUser(user.id)) {
 						<input type="submit" value="DELETE" />
 					}
 				</td>
