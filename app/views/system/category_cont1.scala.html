@@ -1,3 +1,4 @@
+@(categoryList: List[Category])
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -36,26 +37,13 @@
 				<th class="odd" scope="row">分類コード</th>
 				<th scope="odd">分類名</th>
 			</tr>
+			@for(category <- categoryList) {
 			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
+				<td>@category.categoryId</td>
+				<td>@category.categoryCd</td>
+				<td>@category.categoryName</td>
 			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			$(function() {

@@ -1,3 +1,4 @@
+@(permission: List[Permission])
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -34,22 +35,12 @@
 			<tr>
 				<th class="odd" scope="row">権限ID</th>
 				<th class="odd" scope="row">権限名</th>
+			@for(permission <- permissionList) {
 			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
+				<td>@permission.permissionId</td>
+				<td>@permission.permissionName</td>
 			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			$(function() {

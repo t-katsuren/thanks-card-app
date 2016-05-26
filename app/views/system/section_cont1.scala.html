@@ -1,3 +1,4 @@
+@(sectionList: List[Section])
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -36,25 +37,13 @@
 				<th class="odd" scope="row">部門コード</th>
 				<th scope="row">部門名</th>
 			</tr>
+			@for(user <- userList) {
 			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
+				<td>@section.sectionId</td>
+				<td>@section.sectionCd</td>
+				<td>@section.sectionName</td>
 			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			$(function() {

@@ -1,3 +1,4 @@
+@(departmentrList: List[Department])
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -39,30 +40,14 @@
 
 
 			</tr>
+			@for(department <- departmentList) {
 			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
+				<td>@department.departmentId</td>
+				<td>@department.departmentCd</td>
+				<td>@department.sectionId</td>
+				<td>@department.departmentName</td>
 			</tr>
-			<tr>
-			    <td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-    			<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			$(function() {
