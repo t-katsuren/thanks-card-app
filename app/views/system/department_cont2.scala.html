@@ -1,14 +1,14 @@
-@(userDepartment: Form[Department])
+@(departmentForm: Form[Department])
 
 @import helper._
 
 <html>
     <body>
-        @form(routes.SystemController.createCard()) {
-        	@inputText(userDepartment("departmentId"), '_label -> "department_id")
-        	@inputText(userDepartment("departmentCd"), '_label -> "department_cd")
-        	@inputText(userDepartment("sectionId"), '_label -> "section_id")
-   	       	@inputText(userDepartment("departmentName"), '_label -> "department_name")
+        @form(routes.SystemController.createDepartment()) {
+        	@inputText(departmentForm("departmentId"), '_label -> "department_id")
+        	@inputText(departmentForm("departmentCd"), '_label -> "department_cd")
+        	@inputText(departmentForm("sectionId"), '_label -> "section_id")
+   	       	@inputText(departmentForm("departmentName"), '_label -> "department_name")
         	<input type="submit" value="Create" />
     }
     </body>

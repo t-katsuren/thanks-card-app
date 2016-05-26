@@ -30,7 +30,7 @@ public class SystemController extends Controller {
 	}
 	//card TOPページ
 	public Result card_cont1() {
-		return TODO;
+		return ok (card_cont1.render());
 	}
 	//card 作成ページ
 	public Result card_cont2() {
@@ -51,7 +51,7 @@ public class SystemController extends Controller {
 	}
 	//category TOPページ
 	public Result category_cont1() {
-		return TODO;
+		return ok(category_cont1.render());
 	}
 	//category 作成ページ
 	public Result category_cont2() {
@@ -71,7 +71,7 @@ public class SystemController extends Controller {
 	}
 	//department TOPページ
 	public Result department_cont1() {
-		return TODO;
+		return ok(department_cont1.render());
 	}
 	//department 作成ページ
 	public Result department_cont2() {
