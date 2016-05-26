@@ -49,14 +49,20 @@
 				<li><a href="@routes.AuthController.logout()">ログアウト</a>
 			</ul>
 		</nav>
-		<div id="main">
-			<a href="#" class="btn" data-action="toggle" data-side="left">
-				<img src="@routes.Assets.versioned("images/mail.gif")" align="right" alt="メニュー">
-			</a>
+
 			<article>
 				<h1>ようこそ＊＊＊＊＊さん</h1>
 			</article>
 		</div>
+		<div id="main">
+ <a href="#" id="nav-toggle" class="btn" data-action="toggle" data-side="left"><span align="right"></span></a>
+     <!--ハンバーガー-->
+       <script>
+   document.querySelector( "#nav-toggle" )
+  .addEventListener( "click", function() {
+    this.classList.toggle( "active" );
+  });
+    </script>
 		</header>
 		@content
 		<footer>
