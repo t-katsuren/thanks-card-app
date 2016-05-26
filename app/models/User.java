@@ -13,7 +13,7 @@ public class User extends Model {
 
 	@Id
 	@OneToMany
-	public Integer userId;
+	public Integer id;
 
 	@Required
 	public String userCd;
@@ -23,14 +23,14 @@ public class User extends Model {
 
 	@Required
 	@ManyToOne
-	public Integer departmentId;
+	public Department department;
 
 	@Required
 	public String userName;
 
 	@Required
 	@ManyToOne
-	public Integer permissionId;
+	public Permission permission;
 
 	public static Find<Integer, User> find = new Find<Integer, User>(){};
 

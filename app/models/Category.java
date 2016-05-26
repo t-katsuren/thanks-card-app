@@ -11,7 +11,7 @@ public class Category extends Model {
 
 	@Id
 	@OneToMany
-	public Integer categoryId;
+	public Integer id;
 
 	@Required
 	public String categoryCd;

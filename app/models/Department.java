@@ -11,13 +11,14 @@ public class Department extends Model {
 
 	@Id
 	@OneToMany
-	public Integer departmentId;
+	public Integer id;
 
 	@Required
 	public String departmentCd;
 
 	@Required
-	public Integer sectionId;
+	@ManyToOne
+	public Section section;
 
 	@Required
 	public String departmentName;
