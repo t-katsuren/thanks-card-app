@@ -131,7 +131,8 @@ public class SystemController extends Controller {
 	}
 	//user TOPページ
 	public Result user_cont1() {
-		return ok(user_cont1.render());
+		List<User> userList = User.find.all();
+		return ok(user_cont1.render(userList));
 	}
 	//user 作成ページ
 	public Result user_cont2() {
