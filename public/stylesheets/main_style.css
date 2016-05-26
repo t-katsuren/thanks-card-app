@@ -151,7 +151,7 @@ tr:not(:first-child):hover{
  	text-decoration:underl
  }
 /*ハンバーガーアイコンの記述*/
-#nav-toggle { position: absolute; right: 5%; top: 25.5%; }
+#nav-toggle { position: absolute; right: 5%; top: 29.5%; }
 
 #nav-toggle { cursor: pointer; padding: 10px 35px 16px 0px; }
 #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
