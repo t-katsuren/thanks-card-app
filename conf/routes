@@ -34,7 +34,11 @@ GET     /bbs/cont1                  controllers.HomeController.bbs_cont1
 GET     /bbs/cont2                  controllers.HomeController.bbs_cont2
 GET     /bbs/cont3                  controllers.HomeController.bbs_cont3
 GET     /bbs/cont4                  controllers.HomeController.bbs_cont4
+
 GET     /management                 controllers.HomeController.management_main
+GET     /management/cont1           controllers.HomeController.management_cont1
+GET     /management/cont2           controllers.HomeController.management_cont2
+GET     /management/cont3           controllers.HomeController.management_cont3
 # end
 
 

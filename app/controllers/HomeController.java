@@ -24,6 +24,7 @@ public class HomeController extends Controller {
         return ok(index.render("Your new application is ready."));
     }
 
+
     //マイページを表示
     public Result mypage_main() {
     	return ok(mypage_main.render());
@@ -67,6 +68,18 @@ public class HomeController extends Controller {
     //管理者設定ページを表示
     public Result management_main() {
     	return ok(management_main.render());
+    }
+    //社員設定
+    public Result management_cont1() {
+    	return ok(management_cont1.render());
+    }
+    //所属設定
+    public Result management_cont2() {
+    	return ok(management_cont2.render());
+    }
+    //分類設定
+    public Result management_cont3() {
+    	return ok(management_cont3.render());
     }
 
 }

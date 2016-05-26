@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/style.css")">
+
+		<title>thanks | 分類設定</title>
+
+		<script>
+		$(function() {
+			$("th:nth-child(odd)").addClass("odd");
+			$("tr:nth-child(even)").addClass("even");
+		});
+		</script>
+	</head>
+	<body>
+		<center><h1>分類設定</h1></center>
+		<table class="type04" width="100%">
+			<tr>
+				<th>分類CD</th>
+				<th>分類名</th>
+				<th>追加/削除</th>
+			</tr>
+			<tr>
+				<td>A01</td>
+				<td>管理本部</td>
+				<td>
+					<form action="" method="post">
+						<a href="#" class="myButtonD">DELETE</a>
+					</form>
+				</td>
+			</tr>
+			<tbody>
+			<tr>
+				<td> <textarea></textarea></td>
+				<td><textarea></textarea></td>
+				<td>
+					<form action="" method="post">
+						<a href="#" class="myButtonA">ADD</a>
+					</form>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
