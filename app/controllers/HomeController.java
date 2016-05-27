@@ -91,8 +91,21 @@ public class HomeController extends Controller {
     }
     //社員追加
     public Result createUser(){
-    	User newUser = formFactory.form(User.class).bindFromRequest().get();
+    	Map<String, String[]> params = request().body().asFormUrlEncoded();
+    	User newUser = new User();
+    	newUser.userCd = params.get("userCd")[0];
+    	newUser.userPass = params.get("userPass")[0];
+
+    	String departmentName = params.get("departmentName")[0];
+    	newUser.department = Department.find.where().eq("departmentName", departmentName).findUnique();
+
+    	newUser.userName = params.get("userName")[0];
+
+    	String permissionName = params.get("permissionName")[0];
+    	newUser.permission = Permission.find.where().eq("permissionName", permissionName).findUnique();
+
     	newUser.save();
+
     	return redirect(routes.HomeController.management_cont1());
     }
     //所属設定

@@ -32,41 +32,32 @@
 				<th>権限</th>
 				<th>追加/削除</th>
 			</tr>
-			@for(user<-userList){
+			@for(user <- userList) {
 			<tr>
 				<td>@user.userCd</td>
 				<td>@user.userPass</td>
 				<td>@user.department.departmentName</td>
 				<td>@user.userName</td>
 				<td>@user.permission.permissionName</td>
-
-				@form(routes.HomeController.deleteUser(user.id)){
-				<input type="submit" value="DELETE" />
-
-				}
-				<!-- 	<form action="" method="post">
-						<a href="#" class="myButtonD">DELETE</a>
-					</form> -->
+				<td>
+					<form action="routes.HomeController.deleteUser(user.id)" method="post">
+						<input class="myButtonD" type="submit" value="DELETE" />
+					</form>
 				</td>
 			</tr>
 			}
-			<tbody>
-				<tr>
-					@form(routes.HomeController.createUser()){
-					<td><textarea>@inputText(userForm("userCd"))</textarea></td>
-					<td><textarea>@inputText(userForm("userPass"))</textarea></td>
-					<td><textarea>@inputText(userForm("department"))</textarea></td>
-					<td><textarea>@inputText(userForm("userName"))</textarea></td>
-					<td><textarea>@inputText(userForm("permission"))</textarea></td>
+			<tr>
+				<form action="@routes.HomeController.createUser()" method="post">
+					<td><input type="text" name="userCd" /></td>
+					<td><input type="text" name="userPass" /></td>
+					<td><input type="text" name="departmentName" /></td>
+					<td><input type="text" name="userName" /></td>
+					<td><input type="text" name="permissionName" /></td>
 					<td>
-						<input type="submit" value="ADD" />
-						<!--  <form action="" method="post">
-							<a href="#" class="myButtonA">ADD</a>
-						</form>-->
+						<input class="myButtonA" type="submit" value="ADD" />
 					</td>
-					}
-				</tr>
-			</tbody>
+				</form>
+			</tr>
 		</table>
 	</body>
 </html>
