@@ -2,7 +2,10 @@ package controllers;
 
 import java.util.*;
 
+import javax.inject.Inject;
+
 import models.*;
+import play.data.*;
 import play.mvc.*;
 
 import views.html.*;
@@ -16,6 +19,9 @@ import views.html.management.*;
  */
 //@Security.Authenticated(Secured.class)
 public class HomeController extends Controller {
+
+	@Inject
+	private FormFactory formFactory;
 
     /**
      * An action that renders an HTML page with a welcome message.
@@ -76,7 +82,18 @@ public class HomeController extends Controller {
     //社員設定
     public Result management_cont1() {
     	List<User> userList = User.find.all();
-    	return ok(management_cont1.render(userList));
+    	return ok(management_cont1.render(userList, formFactory.form(User.class)));
+    }
+    //社員削除
+    public Result deleteUser(Integer userId){
+    	User.find.deleteById(userId);
+    	return redirect(routes.HomeController.management_cont1());
+    }
+    //社員追加
+    public Result createUser(){
+    	User newUser = formFactory.form(User.class).bindFromRequest().get();
+    	newUser.save();
+    	return redirect(routes.HomeController.management_cont1());
     }
     //所属設定
     public Result management_cont2() {

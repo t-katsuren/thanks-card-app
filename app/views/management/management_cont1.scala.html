@@ -1,4 +1,5 @@
-@(userList:List[User])
+@(userList:List[User], userForm:Form[User])
+@import helper._
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -39,25 +40,31 @@
 				<td>@user.userName</td>
 				<td>@user.permission.permissionName</td>
 
+				@form(routes.HomeController.deleteUser(user.id)){
+				<input type="submit" value="DELETE" />
 
-					<form action="" method="post">
+				}
+				<!-- 	<form action="" method="post">
 						<a href="#" class="myButtonD">DELETE</a>
-					</form>
+					</form> -->
 				</td>
 			</tr>
 			}
 			<tbody>
 				<tr>
-					<td><textarea></textarea></td>
-					<td><textarea></textarea></td>
-					<td><textarea></textarea></td>
-					<td><textarea></textarea></td>
-					<td><textarea></textarea></td>
+					@form(routes.HomeController.createUser()){
+					<td><textarea>@inputText(userForm("userCd"))</textarea></td>
+					<td><textarea>@inputText(userForm("userPass"))</textarea></td>
+					<td><textarea>@inputText(userForm("department"))</textarea></td>
+					<td><textarea>@inputText(userForm("userName"))</textarea></td>
+					<td><textarea>@inputText(userForm("permission"))</textarea></td>
 					<td>
-						<form action="" method="post">
+						<input type="submit" value="ADD" />
+						<!--  <form action="" method="post">
 							<a href="#" class="myButtonA">ADD</a>
-						</form>
+						</form>-->
 					</td>
+					}
 				</tr>
 			</tbody>
 		</table>
