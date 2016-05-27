@@ -50,16 +50,19 @@ GET     /system/card                controllers.SystemController.card_main
 GET     /system/card/cont1          controllers.SystemController.card_cont1
 GET     /system/card/cont2          controllers.SystemController.card_cont2
 POST    /system/card/create         controllers.SystemController.createCard
+POST    /system/card/delete   controllers.SystemController.deleteCard(cardId: Integer)
 
 GET     /system/category            controllers.SystemController.category_main
 GET     /system/category/cont1      controllers.SystemController.category_cont1
 GET     /system/category/cont2      controllers.SystemController.category_cont2
 POST    /system/category/create     controllers.SystemController.createCategory
+POST    /system/category/delete   controllers.SystemController.deleteCategory(categoryId: Integer)
 
 GET     /system/department          controllers.SystemController.department_main
 GET     /system/department/cont1    controllers.SystemController.department_cont1
 GET     /system/department/cont2    controllers.SystemController.department_cont2
 POST    /system/department/create   controllers.SystemController.createDepartment
+POST    /system/department/delete   controllers.SystemController.deleteDepartment(departmentId: Integer)
 
 GET     /system/permission          controllers.SystemController.permission_main
 GET     /system/permission/cont1    controllers.SystemController.permission_cont1

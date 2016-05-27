@@ -45,6 +45,7 @@
 				<th scope="odd">感謝の言葉</th>
 				<th scope="odd">分類ID</th>
 				<th scope="odd">いいね</th>
+				<th scope="row">削除</th>
 			</tr>
 			@for(card <- cardList) {
 			<tr>
@@ -57,6 +58,11 @@
 				<td>@card.message</td>
 				<td>@card.category.id</td>
 				<td>@card.goodCount</td>
+				<td>
+					@form(routes.SystemController.deleteCard(card.id)) {
+						<input type="submit" value="DELETE" />
+					}
+				</td>
 			</tr>
 			}
 		</table>

@@ -43,6 +43,11 @@ public class SystemController extends Controller {
 		newCard.save();
 		return redirect(routes.SystemController.card_cont1());
 	}
+	//card 削除
+		public Result deleteCard(Integer cardId) {
+			Card.find.deleteById(cardId);
+			return redirect(routes.SystemController.card_cont1());
+		}
 
 
 	//category メインページ
@@ -64,7 +69,11 @@ public class SystemController extends Controller {
 		newCategory.save();
 		return redirect(routes.SystemController.category_cont1());
 	}
-
+	//category 削除
+	public Result deleteCategory(Integer categoryId) {
+		Category.find.deleteById(categoryId);
+		return redirect(routes.SystemController.category_cont1());
+	}
 
 	//department メインページ
 	public Result department_main() {
@@ -85,6 +94,11 @@ public class SystemController extends Controller {
 		newDepartment.save();
 		return redirect(routes.SystemController.department_cont1());
 	}
+	//department 削除
+		public Result deleteDepartment(Integer departmentId) {
+			Department.find.deleteById(departmentId);
+			return redirect(routes.SystemController.department_cont1());
+		}
 
 
 	//permission メインページ
