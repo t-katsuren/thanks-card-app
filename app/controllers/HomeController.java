@@ -40,11 +40,19 @@ public class HomeController extends Controller {
     }
     //マイページ受信箱
     public Result mypage_cont1() {
-    	return ok(mypage_cont1.render());
+    	List<Card> cardList = Card.find.all();
+    	String userCd = session("login");
+    	User nowUser = User.find.where().eq("userCd", userCd).findUnique();
+    	cardList = Card.find.where().eq("toUser", nowUser).findList();
+    	return ok(mypage_cont1.render(cardList));
     }
-    //マイページ受信箱
+    //マイページ送信箱
     public Result mypage_cont2() {
-    	return ok(mypage_cont2.render());
+    	List<Card> cardList = Card.find.all();
+    	String userCd = session("login");
+    	User nowUser = User.find.where().eq("userCd", userCd).findUnique();
+    	cardList = Card.find.where().eq("fromUser", nowUser).findList();
+    	return ok(mypage_cont2.render(cardList));
     }
     //マイページ受信箱
     public Result mypage_cont3() {
