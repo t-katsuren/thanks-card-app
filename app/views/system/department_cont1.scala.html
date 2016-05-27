@@ -40,6 +40,7 @@
 				<th class="odd" scope="row">部署コード</th>
 				<th scope="row">部門ID</th>
 				<th scope="row">部署名</th>
+				<th scope="row">削除</th>
 			</tr>
 			@for(department <- departmentList) {
 			<tr>
@@ -47,6 +48,11 @@
 				<td>@department.departmentCd</td>
 				<td>@department.section.id</td>
 				<td>@department.departmentName</td>
+				<td>
+					@form(routes.SystemController.deleteDepartment(department.id)) {
+						<input type="submit" value="DELETE" />
+					}
+				</td>
 			</tr>
 			}
 		</table>
