@@ -37,6 +37,9 @@ GET     /bbs/cont4                  controllers.HomeController.bbs_cont4
 
 GET     /management                 controllers.HomeController.management_main
 GET     /management/cont1           controllers.HomeController.management_cont1
+POST    /management/cont1/delete    controllers.HomeController.deleteUser(userId: Integer)
+POST    /management/cont1/create    controllers.HomeController.createUser
+
 GET     /management/cont2           controllers.HomeController.management_cont2
 GET     /management/cont3           controllers.HomeController.management_cont3
 # end
@@ -50,13 +53,13 @@ GET     /system/card                controllers.SystemController.card_main
 GET     /system/card/cont1          controllers.SystemController.card_cont1
 GET     /system/card/cont2          controllers.SystemController.card_cont2
 POST    /system/card/create         controllers.SystemController.createCard
-POST    /system/card/delete   controllers.SystemController.deleteCard(cardId: Integer)
+POST    /system/card/delete  	    controllers.SystemController.deleteCard(cardId: Integer)
 
 GET     /system/category            controllers.SystemController.category_main
 GET     /system/category/cont1      controllers.SystemController.category_cont1
 GET     /system/category/cont2      controllers.SystemController.category_cont2
 POST    /system/category/create     controllers.SystemController.createCategory
-POST    /system/category/delete   controllers.SystemController.deleteCategory(categoryId: Integer)
+POST    /system/category/delete     controllers.SystemController.deleteCategory(categoryId: Integer)
 
 GET     /system/department          controllers.SystemController.department_main
 GET     /system/department/cont1    controllers.SystemController.department_cont1
