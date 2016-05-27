@@ -65,11 +65,13 @@ GET     /system/permission          controllers.SystemController.permission_main
 GET     /system/permission/cont1    controllers.SystemController.permission_cont1
 GET     /system/permission/cont2    controllers.SystemController.permission_cont2
 POST    /system/permission/create   controllers.SystemController.createPermission
+POST    /system/permission/delete   controllers.SystemController.deletePermission(permissionId: Integer)
 
 GET     /system/section             controllers.SystemController.section_main
 GET     /system/section/cont1       controllers.SystemController.section_cont1
 GET     /system/section/cont2       controllers.SystemController.section_cont2
 POST    /system/section/create      controllers.SystemController.createSection
+POST    /system/section/delete      controllers.SystemController.deleteSection(sectionId: Integer)
 
 GET     /system/user                controllers.SystemController.user_main
 GET     /system/user/cont1          controllers.SystemController.user_cont1

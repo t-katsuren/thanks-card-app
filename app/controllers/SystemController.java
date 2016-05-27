@@ -100,12 +100,17 @@ public class SystemController extends Controller {
 	public Result permission_cont2() {
 		return ok(permission_cont2.render(formFactory.form(Permission.class)));
 	}
-	//department 作成
+	//permission 作成
 	public Result createPermission() {
 		Permission newPermission = formFactory.form(Permission.class).bindFromRequest().get();
 		newPermission.save();
 		return redirect(routes.SystemController.permission_cont1());
 	}
+	//permission 削除
+			public Result deletePermission(Integer permissionId) {
+				Permission.find.deleteById(permissionId);
+				return redirect(routes.SystemController.permission_cont1());
+		}
 
 
 	//section メインページ
@@ -126,6 +131,11 @@ public class SystemController extends Controller {
 		Section newSection = formFactory.form(Section.class).bindFromRequest().get();
 		newSection.save();
 		return redirect(routes.SystemController.section_cont1());
+	}
+	//section 削除
+		public Result deleteSection(Integer sectionId) {
+			Section.find.deleteById(sectionId);
+			return redirect(routes.SystemController.section_cont1());
 	}
 
 

@@ -38,10 +38,16 @@
 			<tr>
 				<th class="odd" scope="row">権限ID</th>
 				<th class="odd" scope="row">権限名</th>
+				<th class="odd" scope="row">削除</th>
 			@for(permission <- permissionList) {
 			<tr>
 				<td>@permission.id</td>
 				<td>@permission.permissionName</td>
+				<td>
+					@form(routes.SystemController.deletePermission(permission.id)) {
+						<input type="submit" value="DELETE" />
+					}
+				</td>
 			</tr>
 			}
 		</table>

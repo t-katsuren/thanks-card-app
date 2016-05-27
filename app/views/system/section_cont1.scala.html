@@ -39,12 +39,18 @@
 				<th class="odd" scope="row">部門ID</th>
 				<th class="odd" scope="row">部門コード</th>
 				<th scope="row">部門名</th>
+				<th scope="row">削除</th>
 			</tr>
 			@for(section <- sectionList) {
 			<tr>
 				<td>@section.id</td>
 				<td>@section.sectionCd</td>
 				<td>@section.sectionName</td>
+				<td>
+					@form(routes.SystemController.deleteSection(section.id)) {
+						<input type="submit" value="DELETE" />
+					}
+				</td>
 			</tr>
 			}
 		</table>
