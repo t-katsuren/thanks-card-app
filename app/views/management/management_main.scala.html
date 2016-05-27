@@ -6,17 +6,17 @@
 				<center>
 					<h1>
 						<ul>
-							<li id="tab1">
+							<li id="tab1"class="btn" data-action="toggle" data-side="left">
 								<a href="#cont1">社員設定</a>
 							</li>
 						</ul>
 						<ul>
-							<li id="tab2">
+							<li id="tab2"class="btn" data-action="toggle" data-side="left">
 								<a href="#cont2">所属設定</a>
 							</li>
 						</ul>
 						<ul>
-							<li id="tab3">
+							<li id="tab3"class="btn" data-action="toggle" data-side="left">
 								<a href="#cont3">分類設定</a>
 							</li>
 						</ul>
@@ -27,13 +27,13 @@
 		<div id="main">
 			<!--表などを表示するコンテンツ部分-->
 			<div id="cont1">
-				<iframe src="@routes.HomeController.management_cont1()"width="100%" height="540px"frameborder="0"></iframe>
+				<iframe src="@routes.HomeController.management_cont1()"width="100%" height="353px"frameborder="0"></iframe>
 			</div>
 			<div id="cont2">
-				<iframe src="@routes.HomeController.management_cont2()"width="100%" height="540px"frameborder="0"></iframe>
+				<iframe src="@routes.HomeController.management_cont2()"width="100%" height="353px"frameborder="0"></iframe>
 			</div>
 			<div id="cont3">
-				<iframe src="@routes.HomeController.management_cont3()"width="100%" height="540px"frameborder="0"></iframe>
+				<iframe src="@routes.HomeController.management_cont3()"width="100%" height="353px"frameborder="0"></iframe>
 			</div>
 			<!-- jQueryを使ったタブのスクリプト処理 -->
 			<script>
