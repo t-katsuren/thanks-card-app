@@ -1,3 +1,7 @@
+@(cardList: List[Card])
+
+@import helper._
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -78,36 +82,18 @@
 				<th scope="row">日付</th>
 				<th class="odd" scope="row">いいね</th>
 			</tr>
+			@for(card <- cardList) {
 			<tr>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
+				<td>@card.fromUser.department.departmentName</td>
+				<td>@card.fromUser.userName</td>
+				<td>@card.toUser.department.departmentName</td>
+				<td>@card.toUser.userName</td>
+				<td>@card.category.categoryName</td>
+				<td>@card.title</td>
+				<td>@card.date</td>
+				<td>@card.goodCount</td>
 			</tr>
-			<tr>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-			</tr>
-			<tr>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-				<td>内容が入ります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			$(function() {
