@@ -8,6 +8,9 @@ a:hover {
   font-weight: bold;
   text-decoration: none;
 }
+table{
+    background-color: aliceblue;
+}
 #main h1 {
   background-color:floralwhite;
   padding: 5px 10px 10px 10px;
