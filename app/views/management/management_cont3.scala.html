@@ -1,3 +1,5 @@
+@(categoryList:List[Category])
+@import helper._
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -30,15 +32,17 @@
 				<th>分類名</th>
 				<th>追加/削除</th>
 			</tr>
+				@for(category<-categoryList){
 			<tr>
-				<td>A01</td>
-				<td>管理本部</td>
+				<td>@category.categoryCd</td>
+				<td>@category.categoryName</td>
 				<td>
 					<form action="" method="post">
 						<a href="#" class="myButtonD">DELETE</a>
 					</form>
 				</td>
 			</tr>
+			}
 			<tbody>
 			<tr>
 				<td><textarea></textarea></td>

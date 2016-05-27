@@ -1,3 +1,5 @@
+@(sectionList:List[Section], departmentList:List[Department])
+@import helper._
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -28,15 +30,17 @@
 				<th>部門名</th>
 				<th>追加/削除</th>
 			</tr>
+			@for(section<-sectionList){
 			<tr>
-				<td>A</td>
-				<td>管理本部</td>
+				<td>@section.sectionCd</td>
+				<td>@section.sectionName</td>
 				<td>
 					<form action="" method="post">
 						<a href="#" class="myButtonD">DELETE</a>
 					</form>
 				</td>
 			</tr>
+			}
 			<tbody>
 			<tr>
 				<td><textarea></textarea></td>
@@ -66,16 +70,18 @@
 				<th>部署名</th>
 				<th>追加/削除</th>
 			</tr>
+			@for(department<-departmentList){
 			<tr>
-				<td>A</td>
-				<td>管理本部</td>
-				<td>人事部</td>
+				<td>@department.departmentCd</td>
+				<td>@department.section.sectionName</td>
+				<td>@department.departmentName</td>
 				<td>
 					<form action="" method="post">
 						<a href="#" class="myButtonD">DELETE</a>
 					</form>
 				</td>
 			</tr>
+			}
 			<tbody>
 			<tr>
 				<td><textarea></textarea></td>

@@ -2,7 +2,7 @@ package controllers;
 
 import java.util.*;
 
-import models.Card;
+import models.*;
 import play.mvc.*;
 
 import views.html.*;
@@ -75,15 +75,19 @@ public class HomeController extends Controller {
     }
     //社員設定
     public Result management_cont1() {
-    	return ok(management_cont1.render());
+    	List<User> userList = User.find.all();
+    	return ok(management_cont1.render(userList));
     }
     //所属設定
     public Result management_cont2() {
-    	return ok(management_cont2.render());
+    	List<Section> sectionList = Section.find.all();
+    	List<Department> departmentList=Department.find.all();
+    	return ok(management_cont2.render(sectionList, departmentList));
     }
     //分類設定
     public Result management_cont3() {
-    	return ok(management_cont3.render());
+    	List<Category> categoryList = Category.find.all();
+    	return ok(management_cont3.render(categoryList));
     }
 
 }
