@@ -2,7 +2,7 @@
 <!-フッターの文字の色とか>
 a { color: #b7a077; }
 b:cpolortest { color:aqua }
-a:visited { color: #a8a8a8; }
+a:visited { color: #000aff; }
 a:hover {
   color: #988564;
   font-weight: bold;
