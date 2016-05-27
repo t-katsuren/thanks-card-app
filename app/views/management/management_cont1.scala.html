@@ -1,3 +1,4 @@
+@(userList:List[User])
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -24,48 +25,27 @@
 		<table class="type04" width="100%">
 			<tr>
 				<th>社員CD</th>
-				<th>部門名</th>
+				<th>社員パス</th>
 				<th>部署名</th>
 				<th>氏名</th>
 				<th>権限</th>
 				<th>追加/削除</th>
 			</tr>
+			@for(user<-userList){
 			<tr>
-				<td>A01</td>
-				<td>管理本部</td>
-				<td>人事</td>
-				<td>●●</td>
-				<td>管理者</td>
-				<td>
+				<td>@user.userCd</td>
+				<td>@user.userPass</td>
+				<td>@user.department.departmentName</td>
+				<td>@user.userName</td>
+				<td>@user.permission.permissionName</td>
+
+
 					<form action="" method="post">
 						<a href="#" class="myButtonD">DELETE</a>
 					</form>
 				</td>
 			</tr>
-			<tr>
-				<td>A01</td>
-				<td>管理本部</td>
-				<td>人事</td>
-				<td>●●</td>
-				<td>管理者</td>
-				<td>
-					<form action="" method="post">
-						<a href="#" class="myButtonD">DELETE</a>
-					</form>
-				</td>
-			</tr>
-			<tr>
-				<td>A01</td>
-				<td>管理本部</td>
-				<td>人事</td>
-				<td>●●</td>
-				<td>管理者</td>
-				<td>
-					<form action="" method="post">
-						<a href="#" class="myButtonD">DELETE</a>
-					</form>
-				</td>
-			</tr>
+			}
 			<tbody>
 				<tr>
 					<td><textarea></textarea></td>
