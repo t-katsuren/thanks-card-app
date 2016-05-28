@@ -40,7 +40,8 @@ public class HomeController extends Controller {
 
 	//マイページを表示
 	public Result mypage_main() {
-		return ok(mypage_main.render());
+		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+		return ok(mypage_main.render(loginUserName));
 	}
 	//マイページ受信箱
 	public Result mypage_cont1() {
@@ -68,7 +69,8 @@ public class HomeController extends Controller {
 
 	//掲示板ページを表示
 	public Result bbs_main() {
-		return ok(bbs_main.render());
+		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+		return ok(bbs_main.render(loginUserName));
 	}
 	//掲示板一覧
 	public Result bbs_cont1() {
@@ -93,7 +95,8 @@ public class HomeController extends Controller {
 
 	//管理者設定ページを表示
 	public Result management_main() {
-		return ok(management_main.render());
+		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+		return ok(management_main.render(loginUserName));
 	}
 	//社員設定
 	public Result management_cont1() {
