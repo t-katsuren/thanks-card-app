@@ -1,6 +1,6 @@
 package controllers;
 
-import java.util.List;
+import java.util.*;
 
 import javax.inject.Inject;
 
@@ -12,6 +12,7 @@ import play.mvc.*;
 
 import views.html.system.*;
 
+@Security.Authenticated(Secured.class)
 public class SystemController extends Controller {
 
 	@Inject

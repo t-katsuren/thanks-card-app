@@ -19,7 +19,7 @@ import views.html.management.*;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-//@Security.Authenticated(Secured.class)
+@Security.Authenticated(Secured.class)
 public class HomeController extends Controller {
 
 	@Inject
