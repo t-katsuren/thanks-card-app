@@ -1,5 +1,7 @@
-@(userList:List[User], userForm:Form[User])
+@(userList: List[User])(userForm: Form[User])
+
 @import helper._
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -7,6 +9,7 @@
 		<meta charset="utf-8">
 
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
 
 		<!-- jQuery -->

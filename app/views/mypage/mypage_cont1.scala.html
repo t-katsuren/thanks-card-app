@@ -1,4 +1,5 @@
 @(cardList: List[Card])
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -29,7 +30,7 @@
 		</script>
 	</head>
 	<body>
-		<center> <h1>受信箱</h1></center>
+		<center><h1>受信箱</h1></center>
 
 		<table class="type04" width="100%">
 			<tr>
@@ -43,7 +44,7 @@
 				<th scope="row">いいね</th>
 			</tr>
 			<tr>
-				@for(card <- cardList) {
+			@for(card <- cardList) {
 			<tr>
 				<td>@card.fromUser.department.departmentName</td>
 				<td>@card.fromUser.userName</td>

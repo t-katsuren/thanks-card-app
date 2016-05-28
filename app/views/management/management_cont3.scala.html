@@ -1,5 +1,7 @@
 @(categoryList:List[Category])
+
 @import helper._
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -12,8 +14,6 @@
 
 		<!-- jQuery -->
 		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
-
-		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/style.css")">
 
 		<title>thanks | 分類設定</title>
 
@@ -32,7 +32,7 @@
 				<th>分類名</th>
 				<th>追加/削除</th>
 			</tr>
-				@for(category<-categoryList){
+			@for(category <- categoryList){
 			<tr>
 				<td>@category.categoryCd</td>
 				<td>@category.categoryName</td>
