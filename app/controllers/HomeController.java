@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.inject.Inject;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import models.*;
 import play.data.*;
 import play.mvc.*;
@@ -111,7 +113,7 @@ public class HomeController extends Controller {
 		User newUser = new User();
 
 		newUser.userCd = params.get("userCd")[0];
-		newUser.userPass = params.get("userPass")[0];
+		newUser.userPass = BCrypt.hashpw(params.get("userPass")[0], BCrypt.gensalt());
 
 		String departmentName = params.get("departmentName")[0];
 		newUser.department = Department.find.where().eq("departmentName", departmentName).findUnique();
