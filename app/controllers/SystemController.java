@@ -1,5 +1,6 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.inject.Inject;
@@ -34,7 +35,27 @@ public class SystemController extends Controller {
 	}
 	//card TOPページ
 	public Result card_cont1() {
-		List<Card> cardList = Card.find.all();
+		List<Card> cards = Card.find.all();
+		List<String[]> cardList = new ArrayList<>();
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+
+		for(int i = 0; i < cards.size(); i++) {
+			String[] temp = new String[9];
+
+			temp[0] = String.valueOf(cards.get(i).id);
+			temp[1] = formatter.format(cards.get(i).date);
+			temp[2] = String.valueOf(cards.get(i).fromUser.id);
+			temp[3] = String.valueOf(cards.get(i).toUser.id);
+			temp[4] = cards.get(i).title;
+			temp[5] = cards.get(i).detail;
+			temp[6] = cards.get(i).message;
+			temp[7] = String.valueOf(cards.get(i).category.id);
+			temp[8] = String.valueOf(cards.get(i).goodCount);
+
+			cardList.add(temp);
+		}
+
 		return ok(card_cont1.render(cardList));
 	}
 	//card 作成ページ

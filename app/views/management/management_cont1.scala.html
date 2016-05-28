@@ -8,12 +8,18 @@
 	<head>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
-
-		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
-
 		<!-- jQuery -->
 		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/system_style.css")">
+
+		<!-- popuup -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+
+		<!-- 表のCSS -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+
+		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
 
 		<title>thanks | 社員設定</title>
 
@@ -38,7 +44,7 @@
 			@for(user <- userList) {
 			<tr>
 				<td>@user.userCd</td>
-				<td>@user.userPass</td>
+				<td>**********</td>
 				<td>@user.department.departmentName</td>
 				<td>@user.userName</td>
 				<td>@user.permission.permissionName</td>

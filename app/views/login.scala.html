@@ -9,10 +9,14 @@
 		<meta charset="utf-8">
 		<title>thanks | ログイン画面</title>
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/login.css")">
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
 	</head>
 	<body>
+		<br><br>
+		<center><img src="@routes.Assets.versioned("images/symbol200.jpg")" ></center>
+		<center>Login to Thanks Card Management System</center>
 		<div id="form">
-			<p class="form-title">ログイン</p>
+			<p class="form-title">ロ グ イ ン</p>
 			@if(loginForm.hasGlobalErrors) {
 				<p class="error">
 					<center>
@@ -38,9 +42,10 @@
 					)
 				</p>
 				<p class="submit">
-					<input type="submit" value="Login" />
+					<center><input class="myButtonA" type="submit" style="width: 150px; height: 35px;" value=" L　o　g　i　n " /></center>
 				</p>
 			}
 		</div>
+		<center><small>&copy; 2016 team_OCC-B</small></center>
 	</body>
 </html>
