@@ -1,4 +1,4 @@
-@(cardList: List[Card])
+@(cardList: List[Array[String]])
 
 @import helper._
 
@@ -31,9 +31,9 @@
 	<body>
 		<p><h1><center>掲示板</center></h1></p>
 
-		<p>◆…◇… 絞 り 込 み …◇…◆</p>
+		<center><p>◆…◇… 絞 り 込 み …◇…◆</p></center>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<select name="navi">
 			<!-- valueにURLを記入 -->
 			<option value=""> --- FROM(部署)検索 ---
@@ -42,10 +42,10 @@
 			<option value="">自治
 		</select>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<input type="search" name="search" placeholder="FROM(氏名)入力">
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<select name="navi">
 			<!-- valueにURLを記入 -->
 			<option value=""> --- TO(部署)検索 ---
@@ -54,10 +54,10 @@
 			<option value="">自治
 		</select>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<input type="search" name="search" placeholder="TO(氏名)入力">
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<select name="navi">
 			<!-- valueにURLを記入 -->
 			<option value =""> --- 分類 ---
@@ -66,7 +66,7 @@
 			<option value="">３
 		</select>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<select name="navi">
 			<!-- valueにURLを記入 -->
 			<option value=""> --- 期間指定なし ---
@@ -75,14 +75,14 @@
 			<option value="">１か月以内
 		</select>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<select name="navi">
 			<!-- valueにURLを記入 -->
 			<option value=""> --- いいね ---
 			<option value="">いいね降順
 		</select>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
 		<input type="submit" name="submit" value="検索">
 
 		<hr size="2" color="#bfc3fa" >
@@ -102,14 +102,14 @@
 			</tr>
 			@for(card <- cardList) {
 			<tr>
-				<td>@card.fromUser.department.departmentName</td>
-				<td>@card.fromUser.userName</td>
-				<td>@card.toUser.department.departmentName</td>
-				<td>@card.toUser.userName</td>
-				<td>@card.category.categoryName</td>
-				<td>@card.title</td>
-				<td>@card.date</td>
-				<td>@card.goodCount</td>
+				<td>@card(0)</td>
+				<td>@card(1)</td>
+				<td>@card(2)</td>
+				<td>@card(3)</td>
+				<td>@card(4)</td>
+				<td>@card(5)</td>
+				<td>@card(6)</td>
+				<td>@card(7)</td>
 			</tr>
 			}
 		</table>

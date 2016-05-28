@@ -1,4 +1,4 @@
-@(cardList: List[Card])
+@(cardList: List[Array[String]])
 
 @import helper._
 
@@ -49,17 +49,17 @@
 			</tr>
 			@for(card <- cardList) {
 			<tr>
-				<td>@card.id</td>
-				<td>@card.date</td>
-				<td>@card.fromUser.id</td>
-				<td>@card.toUser.id</td>
-				<td>@card.title</td>
-				<td>@card.detail</td>
-				<td>@card.message</td>
-				<td>@card.category.id</td>
-				<td>@card.goodCount</td>
+				<td>@card(0)</td>
+				<td>@card(1)</td>
+				<td>@card(2)</td>
+				<td>@card(3)</td>
+				<td>@card(4)</td>
+				<td>@card(5)</td>
+				<td>@card(6)</td>
+				<td>@card(7)</td>
+				<td>@card(8)</td>
 				<td>
-					@form(routes.SystemController.deleteCard(card.id)) {
+					@form(routes.SystemController.deleteCard(card(0).toInt)) {
 						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					}
 				</td>
