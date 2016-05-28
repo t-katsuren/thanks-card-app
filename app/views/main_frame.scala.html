@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(loginUserName: String)(content: Html)
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>thanks | @title</title>
+		<title>thanks Card Management System</title>
 
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
 
@@ -58,7 +58,7 @@
 		<div id="main">
 			<a href="#" id="nav-toggle" class="btn" data-action="toggle" data-side="left"><span align="right"></span></a>
 			<article>
-				<h1>ようこそ＊＊＊＊＊さん</h1>
+				<h1>ようこそ @loginUserName さん</h1>
 			</article>
 		</div>
 		</header>
