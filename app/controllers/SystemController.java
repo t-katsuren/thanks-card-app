@@ -18,10 +18,13 @@ public class SystemController extends Controller {
 	private FormFactory formFactory;
 
 
+
 	//systemメインページ -> cardメインへリダイレクト
 	public Result system_main() {
 		return redirect(routes.SystemController.card_main());
 	}
+
+
 
 
 	//card メインページ
@@ -44,10 +47,12 @@ public class SystemController extends Controller {
 		return redirect(routes.SystemController.card_cont1());
 	}
 	//card 削除
-		public Result deleteCard(Integer cardId) {
-			Card.find.deleteById(cardId);
-			return redirect(routes.SystemController.card_cont1());
-		}
+	public Result deleteCard(Integer cardId) {
+		Card.find.deleteById(cardId);
+		return redirect(routes.SystemController.card_cont1());
+	}
+
+
 
 
 	//category メインページ
@@ -75,6 +80,9 @@ public class SystemController extends Controller {
 		return redirect(routes.SystemController.category_cont1());
 	}
 
+
+
+
 	//department メインページ
 	public Result department_main() {
 		return ok(department_main.render());
@@ -95,10 +103,12 @@ public class SystemController extends Controller {
 		return redirect(routes.SystemController.department_cont1());
 	}
 	//department 削除
-		public Result deleteDepartment(Integer departmentId) {
-			Department.find.deleteById(departmentId);
-			return redirect(routes.SystemController.department_cont1());
-		}
+	public Result deleteDepartment(Integer departmentId) {
+		Department.find.deleteById(departmentId);
+		return redirect(routes.SystemController.department_cont1());
+	}
+
+
 
 
 	//permission メインページ
@@ -121,10 +131,12 @@ public class SystemController extends Controller {
 		return redirect(routes.SystemController.permission_cont1());
 	}
 	//permission 削除
-			public Result deletePermission(Integer permissionId) {
-				Permission.find.deleteById(permissionId);
-				return redirect(routes.SystemController.permission_cont1());
-		}
+	public Result deletePermission(Integer permissionId) {
+		Permission.find.deleteById(permissionId);
+		return redirect(routes.SystemController.permission_cont1());
+	}
+
+
 
 
 	//section メインページ
@@ -147,10 +159,12 @@ public class SystemController extends Controller {
 		return redirect(routes.SystemController.section_cont1());
 	}
 	//section 削除
-		public Result deleteSection(Integer sectionId) {
-			Section.find.deleteById(sectionId);
-			return redirect(routes.SystemController.section_cont1());
+	public Result deleteSection(Integer sectionId) {
+		Section.find.deleteById(sectionId);
+		return redirect(routes.SystemController.section_cont1());
 	}
+
+
 
 
 	//user メインページ
@@ -180,11 +194,13 @@ public class SystemController extends Controller {
 	}
 
 
-	//集計テーブル メインページ
+
+
+	//Master メインページ
 	public Result master_main() {
 		return ok(master_main.render());
 	}
-	//集計テーブル TOPページ
+	//Master TOPページ
 	public Result master_cont1() {
 		return ok(master_cont1.render());
 	}
