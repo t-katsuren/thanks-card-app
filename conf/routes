@@ -38,8 +38,16 @@ GET     /management                 controllers.HomeController.management_main
 GET     /management/cont1           controllers.HomeController.management_cont1
 POST    /management/cont1/delete    controllers.HomeController.deleteUser(userId: Integer)
 POST    /management/cont1/create    controllers.HomeController.createUser
+
 GET     /management/cont2           controllers.HomeController.management_cont2
-GET     /management/cont3           controllers.HomeController.management_cont3
+POST	/management/cont2/:sectionId/deleteSection  		controllers.HomeController.deleteSection(sectionId: Integer)
+POST	/management/cont2/createSection  					controllers.HomeController.createSection
+POST	/management/cont2/:departmentId/deleteDepartment  	controllers.HomeController.deleteDepartment(departmentId: Integer)
+POST	/management/cont2/createDepartment  				controllers.HomeController.createDepartment
+
+GET     /management/cont3           						controllers.HomeController.management_cont3
+POST	/management/cont2/:categoryId/deleteCategory 		controllers.HomeController.deleteCategory(categoryId: Integer)
+POST	/management/cont2/createCategory 					controllers.HomeController.createCategory
 # end
 
 

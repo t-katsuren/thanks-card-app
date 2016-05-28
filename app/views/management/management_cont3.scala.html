@@ -37,22 +37,22 @@
 				<td>@category.categoryCd</td>
 				<td>@category.categoryName</td>
 				<td>
-					<form action="" method="post">
-						<a href="#" class="myButtonD">DELETE</a>
+					<form action="@routes.HomeController.deleteCategory(category.id)" method="post">
+						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
 			</tr>
 			}
 			<tbody>
 			<tr>
-				<td><textarea></textarea></td>
-				<td><textarea></textarea></td>
-				<td>
-					<form action="" method="post">
-						<a href="#" class="myButtonA">ADD</a>
-					</form>
-				</td>
-			</tr>
+				<form action="@routes.HomeController.createCategory()" method="post">
+					<td><input type="text" style="width: 150px; height: 25px;" name="categoryCd" /></td>
+					<td><input type="text" style="width: 150px; height: 25px;" name="categoryName" /></td>
+					<td>
+						<input class="myButtonA" type="submit" style="width: 100px; height: 30px;" value="ADD" />
+					</td>
+				</form>
+				</tr>
 			</tbody>
 		</table>
 	</body>
