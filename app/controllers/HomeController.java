@@ -157,10 +157,67 @@ public class HomeController extends Controller {
 		List<Department> departmentList=Department.find.all();
 		return ok(management_cont2.render(sectionList, departmentList));
 	}
+	//部門削除
+		public Result deleteSection(Integer sectionId){
+			Section.find.byId(sectionId).delete();
+			return redirect(routes.HomeController.management_cont2());
+		}
+		
+	//部門追加
+		public Result createSection(){
+			Map<String, String[]> parms = request().body().asFormUrlEncoded();
+			
+			Section newSection = new Section();
+			
+			newSection.sectionCd =parms.get("sectionCd")[0];
+			newSection.sectionName =parms.get("sectionName")[0];
+			newSection.save();
+			return redirect(routes.HomeController.management_cont2());
+		}
+		//部署削除
+		public Result deleteDepartment(Integer departmentId){
+			Department.find.byId(departmentId).delete();
+			return redirect(routes.HomeController.management_cont2());
+		}
+		//部署追加
+		public Result createDepartment(){
+			Map<String, String[]> parms = request().body().asFormUrlEncoded();
+			
+			Department newDepartment = new Department();
+			
+			newDepartment.departmentCd = parms.get("departmentCd")[0];
+			String sectionName = parms.get("sectionName")[0];
+			newDepartment.section = Section.find.where().eq("sectionName", sectionName).findUnique();
+
+			newDepartment.departmentName = parms.get("departmentName")[0];
+			
+			newDepartment.save();
+			
+			return redirect(routes.HomeController.management_cont2());
+		}
+
 	//分類設定
 	public Result management_cont3() {
 		List<Category> categoryList = Category.find.all();
 		return ok(management_cont3.render(categoryList));
 	}
-
+	//分類削除
+	public Result deleteCategory(Integer categoryId){
+		Category.find.byId(categoryId).delete();
+		return redirect(routes.HomeController.management_cont3());
+	}
+	
+	//分類追加
+	public Result createCategory(){
+		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+		
+		Category newCategory = new Category();
+		
+		newCategory.categoryCd =parms.get("categoryCd")[0];
+		newCategory.categoryName =parms.get("categoryName")[0];
+		newCategory.save();
+		return redirect(routes.HomeController.management_cont3());
+	}
+	
+	//分類追加
 }
