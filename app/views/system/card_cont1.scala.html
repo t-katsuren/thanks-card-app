@@ -36,7 +36,7 @@
 
 		<table class="type04" width="100%">
 			<tr>
-    			<th scope="row">感謝カードID</th>
+    			<th scope="row">カードID</th>
 				<th scope="row">日付</th>
 				<th scope="row">社員ID(From)</th>
 				<th scope="row">社員ID(To)</th>
@@ -60,7 +60,7 @@
 				<td>@card.goodCount</td>
 				<td>
 					@form(routes.SystemController.deleteCard(card.id)) {
-						<input class="myButtonD" type="submit" value="DELETE" />
+						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					}
 				</td>
 			</tr>

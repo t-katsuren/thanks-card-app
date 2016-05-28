@@ -44,20 +44,20 @@
 				<td>@user.permission.permissionName</td>
 				<td>
 					<form action="routes.HomeController.deleteUser(user.id)" method="post">
-						<input class="myButtonD" type="submit" value="DELETE" />
+						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
 			</tr>
 			}
 			<tr>
 				<form action="@routes.HomeController.createUser()" method="post">
-					<td><input type="text" name="userCd" /></td>
-					<td><input type="text" name="userPass" /></td>
-					<td><input type="text" name="departmentName" /></td>
-					<td><input type="text" name="userName" /></td>
-					<td><input type="text" name="permissionName" /></td>
+					<td><input type="text" style="width: 150px; height: 25px;" name="userCd" /></td>
+					<td><input type="Password" style="width: 150px; height: 25px;" name="userPass" /></td>
+					<td><input type="text" style="width: 150px; height: 25px;" name="departmentName" /></td>
+					<td><input type="text" style="width: 150px; height: 25px;" name="userName" /></td>
+					<td><input type="text" style="width: 150px; height: 25px;" name="permissionName" /></td>
 					<td>
-						<input class="myButtonA" type="submit" value="ADD" />
+						<input class="myButtonA" type="submit" style="width: 100px; height: 30px;" value="ADD" />
 					</td>
 				</form>
 			</tr>
