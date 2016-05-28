@@ -3,10 +3,13 @@
 @import helper._
 
 <html>
+	<head>
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+	</head>
 	<body>
 		@form(routes.SystemController.createPermission()) {
 			@inputText(permissionForm("permissionName"), '_label -> "permission_name")
-			<input type="submit" value="Create" />
+			<input class="myButtonA" type="submit" value="Create" />
 		}
 	</body>
 </html>

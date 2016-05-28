@@ -36,15 +36,15 @@
 
 		<table class="type04" width="100%">
 			<tr>
-    			<th class="odd" scope="row">感謝カードID</th>
-				<th class="odd" scope="row">日付</th>
-				<th class="odd" scope="row">社員ID(From)</th>
-				<th scope="odd">社員ID(To)</th>
-				<th scope="odd">タイトル</th>
-				<th scope="odd">してもらった</th>
-				<th scope="odd">感謝の言葉</th>
-				<th scope="odd">分類ID</th>
-				<th scope="odd">いいね</th>
+    			<th scope="row">感謝カードID</th>
+				<th scope="row">日付</th>
+				<th scope="row">社員ID(From)</th>
+				<th scope="row">社員ID(To)</th>
+				<th scope="row">タイトル</th>
+				<th scope="row">してもらった</th>
+				<th scope="row">感謝の言葉</th>
+				<th scope="row">分類ID</th>
+				<th scope="row">いいね</th>
 				<th scope="row">削除</th>
 			</tr>
 			@for(card <- cardList) {
@@ -60,7 +60,7 @@
 				<td>@card.goodCount</td>
 				<td>
 					@form(routes.SystemController.deleteCard(card.id)) {
-						<input type="submit" value="DELETE" />
+						<input class="myButtonD" type="submit" value="DELETE" />
 					}
 				</td>
 			</tr>

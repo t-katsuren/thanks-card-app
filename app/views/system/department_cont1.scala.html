@@ -36,8 +36,8 @@
 
 		<table class="type04" width="100%">
 			<tr>
-				<th class="odd" scope="row">部署ID</th>
-				<th class="odd" scope="row">部署コード</th>
+				<th scope="row">部署ID</th>
+				<th scope="row">部署コード</th>
 				<th scope="row">部門ID</th>
 				<th scope="row">部署名</th>
 				<th scope="row">削除</th>
@@ -50,7 +50,7 @@
 				<td>@department.departmentName</td>
 				<td>
 					@form(routes.SystemController.deleteDepartment(department.id)) {
-						<input type="submit" value="DELETE" />
+						<input class="myButtonD" type="submit" value="DELETE" />
 					}
 				</td>
 			</tr>

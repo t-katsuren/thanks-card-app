@@ -3,12 +3,15 @@
 @import helper._
 
 <html>
+	<head>
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+	</head>
 	<body>
 		@form(routes.SystemController.createDepartment()) {
 			@inputText(departmentForm("departmentCd"), '_label -> "department_cd")
 			@inputText(departmentForm("section.id"), '_label -> "section_id")
 			@inputText(departmentForm("departmentName"), '_label -> "department_name")
-			<input type="submit" value="Create" />
+			<input class="myButtonA" type="submit" value="Create" />
 		}
 	</body>
 </html>

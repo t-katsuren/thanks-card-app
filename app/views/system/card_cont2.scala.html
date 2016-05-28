@@ -3,6 +3,9 @@
 @import helper._
 
 <html>
+	<head>
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+	</head>
 	<body>
 		@form(routes.SystemController.createCard()){
 			@inputDate(cardForm("date"), '_label -> "date")
@@ -13,7 +16,7 @@
 			@inputText(cardForm("message"), '_label -> "message")
 			@inputText(cardForm("category.id"), '_label -> "category_id")
 			@inputText(cardForm("goodCount"), '_label -> "good_count")
-			<input type="submit" value="Create" />
+			<input class="myButtonA" type="submit" value="Create" />
 		}
 	</body>
 </html>

@@ -3,6 +3,9 @@
 @import helper._
 
 <html>
+	<head>
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
+	</head>
 	<body>
 		@form(routes.SystemController.createUser()) {
 			@inputText(userForm("userCd"), '_label -> "user_cd")
@@ -10,7 +13,7 @@
 			@inputText(userForm("department.id"), '_label -> "department_id")
 			@inputText(userForm("userName"), '_label -> "user_name")
 			@inputText(userForm("permission.id"), '_label -> "permission_id")
-			<input type="submit" value="Create" />
+			<input class="myButtonA" type="submit" value="Create" />
 		}
 	</body>
 </html>

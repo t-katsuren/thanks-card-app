@@ -36,16 +36,17 @@
 
 		<table class="type04" width="100%">
 			<tr>
-				<th class="odd" scope="row">権限ID</th>
-				<th class="odd" scope="row">権限名</th>
-				<th class="odd" scope="row">削除</th>
+				<th scope="row">権限ID</th>
+				<th scope="row">権限名</th>
+				<th scope="row">削除</th>
+			</tr>
 			@for(permission <- permissionList) {
 			<tr>
 				<td>@permission.id</td>
 				<td>@permission.permissionName</td>
 				<td>
 					@form(routes.SystemController.deletePermission(permission.id)) {
-						<input type="submit" value="DELETE" />
+						<input class="myButtonD" type="submit" value="DELETE" />
 					}
 				</td>
 			</tr>
