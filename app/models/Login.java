@@ -18,8 +18,7 @@ public class Login {
 		if(authenticate(usercode, password)) {
 			return null;
 		}
-		return "ログイン失敗！<br>"
-				+ "社員コードとパスワードの一方、または両方が間違っています。<br>"
+		return "社員コードとパスワードの一方、または両方が間違っています。<br>"
 				+ "社員コードとパスワードを確かめ、再度入力して下さい。";
 
 	}
