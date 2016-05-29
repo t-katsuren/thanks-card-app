@@ -161,6 +161,8 @@ public class HomeController extends Controller {
 	//掲示板事例1
 	public Result bbs_cont2() {
 
+
+
 		return ok(bbs_cont2.render());
 
 	}
