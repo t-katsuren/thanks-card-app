@@ -41,28 +41,83 @@ public class HomeController extends Controller {
 
 	//マイページを表示
 	public Result mypage_main() {
+
 		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
 		return ok(mypage_main.render(loginUserName));
+
 	}
 	//マイページ受信箱
 	public Result mypage_cont1() {
-		List<Card> cardList = Card.find.all();
+
+		List<Card> cards = Card.find.all();
+
 		String userCd = session("login");
+
 		User nowUser = User.find.where().eq("userCd", userCd).findUnique();
-		cardList = Card.find.where().eq("toUser", nowUser).findList();
+
+		cards = Card.find.where().eq("toUser", nowUser).findList();
+
+		List<String[]> cardList = new ArrayList<>();
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+
+		for(int i = 0; i < cards.size(); i++) {
+			String[] temp = new String[8];
+
+			temp[0] = cards.get(i).fromUser.department.departmentName;
+			temp[1] = cards.get(i).fromUser.userName;
+			temp[2] = cards.get(i).toUser.department.departmentName;
+			temp[3] = cards.get(i).toUser.userName;
+			temp[4] = cards.get(i).category.categoryName;
+			temp[5] = cards.get(i).title;
+			temp[6] = formatter.format(cards.get(i).date);
+			temp[7] = String.valueOf(cards.get(i).goodCount);
+
+			cardList.add(temp);
+		}
+
 		return ok(mypage_cont1.render(cardList));
+
 	}
 	//マイページ送信箱
 	public Result mypage_cont2() {
-		List<Card> cardList = Card.find.all();
+
+		List<Card> cards = Card.find.all();
+
 		String userCd = session("login");
+
 		User nowUser = User.find.where().eq("userCd", userCd).findUnique();
-		cardList = Card.find.where().eq("fromUser", nowUser).findList();
+
+		cards = Card.find.where().eq("fromUser", nowUser).findList();
+
+		List<String[]> cardList = new ArrayList<>();
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+
+		for(int i = 0; i < cards.size(); i++) {
+			String[] temp = new String[8];
+
+			temp[0] = cards.get(i).fromUser.department.departmentName;
+			temp[1] = cards.get(i).fromUser.userName;
+			temp[2] = cards.get(i).toUser.department.departmentName;
+			temp[3] = cards.get(i).toUser.userName;
+			temp[4] = cards.get(i).category.categoryName;
+			temp[5] = cards.get(i).title;
+			temp[6] = formatter.format(cards.get(i).date);
+			temp[7] = String.valueOf(cards.get(i).goodCount);
+
+			cardList.add(temp);
+		}
+
 		return ok(mypage_cont2.render(cardList));
+
 	}
 	//感謝カード作成
 	public Result mypage_cont3() {
+
 		return ok(mypage_cont3.render());
+
 	}
 
 
@@ -70,12 +125,17 @@ public class HomeController extends Controller {
 
 	//掲示板ページを表示
 	public Result bbs_main() {
+
 		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
 		return ok(bbs_main.render(loginUserName));
+
 	}
 	//掲示板一覧
 	public Result bbs_cont1() {
+
 		List<Card> cards = Card.find.all();
+
 		List<String[]> cardList = new ArrayList<>();
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
@@ -96,18 +156,25 @@ public class HomeController extends Controller {
 		}
 
 		return ok(bbs_cont1.render(cardList));
+
 	}
 	//掲示板事例1
 	public Result bbs_cont2() {
+
 		return ok(bbs_cont2.render());
+
 	}
 	//掲示板関連
 	public Result bbs_cont3() {
+
 		return ok(bbs_cont3.render());
+
 	}
 	//掲示板事例2
 	public Result bbs_cont4() {
+
 		return ok(bbs_cont4.render());
+
 	}
 
 
@@ -115,18 +182,27 @@ public class HomeController extends Controller {
 
 	//管理者設定ページを表示
 	public Result management_main() {
+
 		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
 		return ok(management_main.render(loginUserName));
+
 	}
 	//社員設定
 	public Result management_cont1() {
+
 		List<User> userList = User.find.all();
+
 		return ok(management_cont1.render(userList, formFactory.form(User.class)));
+
 	}
 	//社員削除
 	public Result deleteUser(Integer userId){
+
 		User.find.deleteById(userId);
+
 		return redirect(routes.HomeController.management_cont1());
+
 	}
 	//社員追加
 	public Result createUser(){
@@ -153,71 +229,97 @@ public class HomeController extends Controller {
 	}
 	//所属設定
 	public Result management_cont2() {
+
 		List<Section> sectionList = Section.find.all();
-		List<Department> departmentList=Department.find.all();
+
+		List<Department> departmentList = Department.find.all();
+
 		return ok(management_cont2.render(sectionList, departmentList));
+
 	}
 	//部門削除
-		public Result deleteSection(Integer sectionId){
-			Section.find.byId(sectionId).delete();
-			return redirect(routes.HomeController.management_cont2());
-		}
-		
-	//部門追加
-		public Result createSection(){
-			Map<String, String[]> parms = request().body().asFormUrlEncoded();
-			
-			Section newSection = new Section();
-			
-			newSection.sectionCd =parms.get("sectionCd")[0];
-			newSection.sectionName =parms.get("sectionName")[0];
-			newSection.save();
-			return redirect(routes.HomeController.management_cont2());
-		}
-		//部署削除
-		public Result deleteDepartment(Integer departmentId){
-			Department.find.byId(departmentId).delete();
-			return redirect(routes.HomeController.management_cont2());
-		}
-		//部署追加
-		public Result createDepartment(){
-			Map<String, String[]> parms = request().body().asFormUrlEncoded();
-			
-			Department newDepartment = new Department();
-			
-			newDepartment.departmentCd = parms.get("departmentCd")[0];
-			String sectionName = parms.get("sectionName")[0];
-			newDepartment.section = Section.find.where().eq("sectionName", sectionName).findUnique();
+	public Result deleteSection(Integer sectionId){
 
-			newDepartment.departmentName = parms.get("departmentName")[0];
-			
-			newDepartment.save();
-			
-			return redirect(routes.HomeController.management_cont2());
-		}
+		Section.find.byId(sectionId).delete();
+
+		return redirect(routes.HomeController.management_cont2());
+
+	}
+
+	//部門追加
+	public Result createSection(){
+
+		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+
+		Section newSection = new Section();
+
+		newSection.sectionCd = parms.get("sectionCd")[0];
+
+		newSection.sectionName = parms.get("sectionName")[0];
+
+		newSection.save();
+
+		return redirect(routes.HomeController.management_cont2());
+
+	}
+	//部署削除
+	public Result deleteDepartment(Integer departmentId){
+
+		Department.find.byId(departmentId).delete();
+
+		return redirect(routes.HomeController.management_cont2());
+
+	}
+	//部署追加
+	public Result createDepartment(){
+		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+
+		Department newDepartment = new Department();
+
+		newDepartment.departmentCd = parms.get("departmentCd")[0];
+
+		String sectionName = parms.get("sectionName")[0];
+		newDepartment.section = Section.find.where().eq("sectionName", sectionName).findUnique();
+
+		newDepartment.departmentName = parms.get("departmentName")[0];
+
+		newDepartment.save();
+
+		return redirect(routes.HomeController.management_cont2());
+	}
 
 	//分類設定
 	public Result management_cont3() {
+
 		List<Category> categoryList = Category.find.all();
+
 		return ok(management_cont3.render(categoryList));
+
 	}
 	//分類削除
 	public Result deleteCategory(Integer categoryId){
+
 		Category.find.byId(categoryId).delete();
+
 		return redirect(routes.HomeController.management_cont3());
+
 	}
-	
+
 	//分類追加
 	public Result createCategory(){
+
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
-		
+
 		Category newCategory = new Category();
-		
-		newCategory.categoryCd =parms.get("categoryCd")[0];
-		newCategory.categoryName =parms.get("categoryName")[0];
+
+		newCategory.categoryCd = parms.get("categoryCd")[0];
+
+		newCategory.categoryName = parms.get("categoryName")[0];
+
 		newCategory.save();
+
 		return redirect(routes.HomeController.management_cont3());
+
 	}
-	
-	//分類追加
+
 }

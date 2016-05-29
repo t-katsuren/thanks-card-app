@@ -1,4 +1,4 @@
-@(cardList: List[Card])
+@(cardList: List[Array[String]])
 
 <!DOCTYPE html>
 
@@ -46,14 +46,14 @@
 			<tr>
 			@for(card <- cardList) {
 			<tr>
-				<td>@card.fromUser.department.departmentName</td>
-				<td>@card.fromUser.userName</td>
-				<td>@card.toUser.department.departmentName</td>
-				<td>@card.toUser.userName</td>
-				<td>@card.category.categoryName</td>
-				<td>@card.title</td>
-				<td>@card.date</td>
-				<td>@card.goodCount</td>
+				<td>@card(0)</td>
+				<td>@card(1)</td>
+				<td>@card(2)</td>
+				<td>@card(3)</td>
+				<td>@card(4)</td>
+				<td>@card(5)</td>
+				<td>@card(6)</td>
+				<td>@card(7)</td>
 			</tr>
 			}
 		</table>

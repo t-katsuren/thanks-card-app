@@ -35,19 +35,20 @@ GET     /bbs/cont3                  controllers.HomeController.bbs_cont3
 GET     /bbs/cont4                  controllers.HomeController.bbs_cont4
 
 GET     /management                 controllers.HomeController.management_main
+
 GET     /management/cont1           controllers.HomeController.management_cont1
-POST    /management/cont1/delete    controllers.HomeController.deleteUser(userId: Integer)
-POST    /management/cont1/create    controllers.HomeController.createUser
+POST    /management/cont1/deleteU   controllers.HomeController.deleteUser(userId: Integer)
+POST    /management/cont1/createU   controllers.HomeController.createUser
 
 GET     /management/cont2           controllers.HomeController.management_cont2
-POST	/management/cont2/:sectionId/deleteSection  		controllers.HomeController.deleteSection(sectionId: Integer)
-POST	/management/cont2/createSection  					controllers.HomeController.createSection
-POST	/management/cont2/:departmentId/deleteDepartment  	controllers.HomeController.deleteDepartment(departmentId: Integer)
-POST	/management/cont2/createDepartment  				controllers.HomeController.createDepartment
+POST	/management/cont2/deleteS   controllers.HomeController.deleteSection(sectionId: Integer)
+POST	/management/cont2/createS   controllers.HomeController.createSection
+POST	/management/cont2/deleteD   controllers.HomeController.deleteDepartment(departmentId: Integer)
+POST	/management/cont2/createD   controllers.HomeController.createDepartment
 
-GET     /management/cont3           						controllers.HomeController.management_cont3
-POST	/management/cont2/:categoryId/deleteCategory 		controllers.HomeController.deleteCategory(categoryId: Integer)
-POST	/management/cont2/createCategory 					controllers.HomeController.createCategory
+GET     /management/cont3           controllers.HomeController.management_cont3
+POST	/management/cont3/deleteC   controllers.HomeController.deleteCategory(categoryId: Integer)
+POST	/management/cont3/createC   controllers.HomeController.createCategory
 # end
 
 
