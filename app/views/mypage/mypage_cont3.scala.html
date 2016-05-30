@@ -1,4 +1,4 @@
-@(listUser: List[User], listCategory: List[Category], listDepartment:List[Department])
+@(userList: List[User], categoryList: List[Category], departmentList: List[Department])
 
 <!DOCTYPE html>
 
@@ -28,29 +28,22 @@
 					<td>
 						<b>宛先　</b>
 						<select name="country">
-							<option  selected="selected" class="msg"> --- 部署 ---</option>
-							<option class="count1"> @listDepartment.get(0).id</option>
-							<option class="count2"> @listDepartment.get(1).id</option>
-							<option class="count3"> @listDepartment.get(2).id</option>
-							<option class="count4"> @listDepartment.get(3).id</option>
+							<option  selected="selected" class="msg">--- 部署 ---</option>
+							@for(department <- departmentList) {
+								<option class="count@department.id"> @department.departmentName</option>
+							}
 						</select>
 						<select name="city">
-							<option selected="selected" class="msg"> --- 氏名 ---</option>
-							<option class="count1" >@listUser.get(0).department.id</option>
-							<option class="count1">@listUser.get(1).department.id</option>
-							<option class="count1">@listUser.get(2).department.id</option>
-							<option class="count1">@listUser.get(3).department.id</option>
-							<option class="count2"">@listUser.get(4).department.id</option>
-							<option class="count3">@listUser.get(5).department.id</option>
-							<option class="count4">@listUser.get(6).department.id</option>
-							<option class="count4">@listUser.get(7).department.id</option>
-
+							<option selected="selected" class="msg">--- 氏名 ---</option>
+							@for(user <- userList) {
+								<option class="count@user.department.id">@user.userName</option>
+							}
 						</select>
 						&nbsp;&nbsp;<b>分類</b>
 						<select name="category">
 							<!-- にURLを記入 -->
 							<option value =""> --- 分類 ---
-							@for(category <-listCategory){
+							@for(category <- categoryList){
 							<option>@category.categoryName</option>
 							}
 						</select>
