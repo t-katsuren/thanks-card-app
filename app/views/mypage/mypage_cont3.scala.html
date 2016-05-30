@@ -5,13 +5,6 @@
 <html>
 	<head>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-	<script src="jquery.narrows.js"></script>
-<link rel="stylesheet" href="lib/jasmine-2.0.0-rc5/jasmine.css">
-    <script src="lib/jasmine-2.0.0-rc5/jasmine.js"></script>
-    <script src="lib/jasmine-2.0.0-rc5/jasmine-html.js"></script>
-    <script src="lib/jasmine-2.0.0-rc5/boot.js"></script>
-    <script src="spec/narrowsSpec.js"></script>
 		<meta charset="UTF-8">
 		<style>
 			table{border-spacing: 15px;}
@@ -27,13 +20,13 @@
 				<tr>
 					<td>
 						<b>宛先　</b>
-						<select name="country">
+						<select name="department">
 							<option  selected="selected" class="msg">--- 部署 ---</option>
 							@for(department <- departmentList) {
 								<option class="count@department.id"> @department.departmentName</option>
 							}
 						</select>
-						<select name="city">
+						<select name="toUserName">
 							<option selected="selected" class="msg">--- 氏名 ---</option>
 							@for(user <- userList) {
 								<option class="count@user.department.id">@user.userName</option>
@@ -80,42 +73,21 @@
 			<!-- jqueryで絞り込み！！---->>
 			<script>
 			$(function() {
-
-	// 国名が変更されたら発動
-	$('select[name="country"]').change(function() {
-
-		// 選択されている国のクラス名を取得
-		var countyName = $('select[name="country"] option:selected').attr("class");
+	$('select[name="department"]').change(function() {
+		var countyName = $('select[name="department"] option:selected').attr("class");
 		console.log(countyName);
-
-		// 都市名の要素数を取得
-		var count = $('select[name="city"]').children().length;
-
-		// 都市名の要素数分、for文で回す
+		var count = $('select[name="toUserName"]').children().length;
 		for (var i=0; i<count; i++) {
-
-			var city = $('select[name="city"] option:eq(' + i + ')');
-
-			if(city.attr("class") === countyName) {
-				// 選択した国と同じクラス名だった場合
-
-				// 都市の要素を表示
-				city.show();
+			var toUserName = $('select[name="toUserName"] option:eq(' + i + ')');
+			if(toUserName.attr("class") === countyName) {
+				toUserName.show();
 			}else {
-				// 選択した国とクラス名が違った場合
-
-				// 都市の要素を非表示
-				city.hide();
+				toUserName.hide();
 			}
 		}
 	})
 })
 </script>
-			<script type="text/javascript">
-			$(function () {
-    		$("#dep").narrows("#na");    // #dep は #na を絞り込む
-			});
-			</script>
 		</center>
 		</form>
 	</body>
