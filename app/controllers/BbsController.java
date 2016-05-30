@@ -89,10 +89,16 @@ public class BbsController extends Controller {
 			}
 
 			//期間フィルター
-			if(!(params.get("fromDate")[0].equals("default"))) {
+			if(!(params.get("fromDate")[0].equals("")) || !(params.get("toDate")[0].equals(""))) {
 				String fromDate = params.get("fromDate")[0];
 				String toDate = params.get("toDate")[0];
-				cards =  Card.find.where().between("date", fromDate, toDate).findList();
+				if(!(fromDate.equals("")) && !(toDate.equals(""))) {
+					cards = Card.find.where().between("date", fromDate, toDate).findList();
+				} else if(toDate.equals("")) {
+					cards = Card.find.where().ge("date", fromDate).findList();
+				} else {
+					cards = Card.find.where().le("date", toDate).findList();
+				}
 			}
 
 			//いいね 降順
@@ -192,7 +198,7 @@ public class BbsController extends Controller {
 
 		sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < cards.size(); i++) {
 			String[] temp = new String[10];
 
 			temp[0] = String.valueOf(cards.get(i).id);
@@ -207,6 +213,10 @@ public class BbsController extends Controller {
 			temp[9] = String.valueOf(cards.get(i).goodCount);
 
 			cardList.add(temp);
+
+			if(i == 9) {
+				break;
+			}
 		}
 
 		return ok(bbs_cont4.render(cardList));
