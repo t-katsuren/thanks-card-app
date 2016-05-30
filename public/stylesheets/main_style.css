@@ -3,9 +3,9 @@
 a { color: #b7a077;text-decoration: none; }
 b:cpolortest { color:aqua }
 a:visited { color: #00137b;
-text-decoration: none; }
+text-decoration: none;}
 a:hover {
-  color: #988564;
+  color: #ff9022;
   font-weight: bold;
   text-decoration: none;
 }
@@ -194,4 +194,5 @@ tr:not(:first-child):hover{
 #side_banner ul li {
 	margin-bottom: 15px;
 	font-size: 33px;
+	text-decoration: none;
 }
