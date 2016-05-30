@@ -1,7 +1,17 @@
+@(listUser: List[User], listCategory: List[Category], listDepartment:List[Department])
+
 <!DOCTYPE html>
 
 <html>
 	<head>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<script src="jquery.narrows.js"></script>
+<link rel="stylesheet" href="lib/jasmine-2.0.0-rc5/jasmine.css">
+    <script src="lib/jasmine-2.0.0-rc5/jasmine.js"></script>
+    <script src="lib/jasmine-2.0.0-rc5/jasmine-html.js"></script>
+    <script src="lib/jasmine-2.0.0-rc5/boot.js"></script>
+    <script src="spec/narrowsSpec.js"></script>
 		<meta charset="UTF-8">
 		<style>
 			table{border-spacing: 15px;}
@@ -10,47 +20,53 @@
 		<title>thanks | create</title>
 	</head>
 	<body>
+	<form action="@routes.HomeController.sendCard()" method="POST">
 		<center>
 			<h2>感謝カード作成</h2>
 			<table class="thank" bgcolor="#e8e8e8">
 				<tr>
 					<td>
 						<b>宛先</b>
-						<select name="navi">
-							<!-- にURLを記入 -->
+						<select name="department">
 							<option value =""> --- 部署 ---
-							<option value ="">いいね降順
+							@for(department <-listDepartment){
+							<option value=@department.departmentName>@department.departmentName</option>
+							}
 						</select>
-						<select name="navi">
+						<select name="toUserName">
 							<!-- valueにURLを記入 -->
 							<option value =""> --- 氏名 ---
-							<option value ="">いいね降順
+
+							@for(user <-listUser){
+							<option value=@user.userName data-category=@user.department.departmentName>@user.userName</option>
+							}
 						</select>
 						&nbsp;&nbsp;<b>分類</b>
-						<select name="navi">
+						<select name="category">
 							<!-- にURLを記入 -->
 							<option value =""> --- 分類 ---
-							<option value ="">１
-							<option value ="">２
+							@for(category <-listCategory){
+							<option>@category.categoryName</option>
+							}
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<b>タイトル</b><br>
-						<input type="text" size="80">
+						<input type="text" name="title" size="80">
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<b>やってもらったこと</b><br>
-						<textarea cols="80" rows="10"></textarea>
+						<textarea cols="80" name="detail" rows="10"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<b>感謝の言葉</b><br>
-						<textarea cols="80" rows="10"></textarea>
+						<textarea cols="80" name=message rows="10"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -62,6 +78,11 @@
 					</td>
 				</tr>
 			</table>
+			<script type="text/javascript">
+			$(function () {
+    		$("#dep").narrows("#na");    // #dep は #na を絞り込む
+			});
+			</script>
 		</center>
 		</form>
 	</body>

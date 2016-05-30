@@ -115,9 +115,10 @@ public class HomeController extends Controller {
 	}
 	//感謝カード作成
 	public Result mypage_cont3() {
-
-		return ok(mypage_cont3.render());
-
+		List<User> listUser = User.find.all();
+		List<Department> listDepartment = Department.find.all();
+		List<Category> listCategory = Category.find.all();
+		return ok(mypage_cont3.render(listUser,listCategory,listDepartment));
 	}
 
 
@@ -323,6 +324,21 @@ public class HomeController extends Controller {
 
 		return redirect(routes.HomeController.management_cont3());
 
+	}
+
+	public Result sendCard() {
+	    Map<String, String[]> params = request().body().asFormUrlEncoded();
+	    Card newCard = new Card();
+	    newCard.date = new Date();
+	    newCard.fromUser= User.find.where().eq("userCd", session("login")).findUnique();;
+	    newCard.toUser = User.find.where().eq("userName", params.get("toUserName")[0]).findUnique();;
+	    newCard.title = params.get("title")[0]; // <input type="text" name="title" /> に入力された値
+	    newCard.detail = params.get("detail")[0]; // <input type="text" name="detail" /> に入力された値
+	    newCard.message = params.get("message")[0]; // <input type="text" name="message" /> に入力された値
+	    newCard.category = Category.find.where().eq("categoryName", params.get("category")[0]).findUnique();
+	    newCard.goodCount = 0;
+	    newCard.save();
+	    return redirect(routes.HomeController.mypage_cont3());
 	}
 
 }
