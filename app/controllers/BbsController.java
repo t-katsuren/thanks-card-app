@@ -87,13 +87,14 @@ public class BbsController extends Controller {
 				Category category = Category.find.where().eq("categoryName", params.get("categoryName")[0]).findUnique();
 				cards = Card.find.where().eq("category", category).findList();
 			}
-			/*
-			//期間フィルター
+
+				//期間フィルター
 			if(!(params.get("fromDate")[0].equals("default"))) {
 				String fromDate = params.get("fromDate")[0];
 				String toDate = params.get("toDate")[0];
-				cards =Ebean.createSqlQuery("SELECT * FROM Card WHERE date between date fromDate and date toDate;" ).findList();
-			}*/
+				cards = Card.find.where().between("date", fromDate, toDate).findList();
+
+		}
 
 			//いいね 降順
 			if(!(params.get("good")[0].equals("default"))) {
@@ -162,14 +163,12 @@ public class BbsController extends Controller {
 		String year = date.substring(0, 4);
 		String month = date.substring(5, 7);
 
-		int monthInt = Integer.parseInt(month) + 1;
-
 		String nextMonth = "";
 
-		if(monthInt < 10) {
-			nextMonth = "0" + monthInt;
+		if((Integer.parseInt(month) + 1) < 10) {
+			nextMonth = "0" + (Integer.parseInt(month) + 1);
 		} else {
-			nextMonth = "" + monthInt;
+			nextMonth = "" + (Integer.parseInt(month) + 1);
 		}
 
 		String fromStr = year + month + "01 00:00:00";
@@ -177,17 +176,38 @@ public class BbsController extends Controller {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
 
-		List<Card> cardList = new ArrayList<>();
+		List<Card> cards = new ArrayList<>();
 
 		try {
 
 		Date fromDate = sdf.parse(fromStr);
 		Date toDate = sdf.parse(toStr);
 
-		cardList = Card.find.where().ge("date", fromDate).lt("date", toDate).findList();
+		cards = Card.find.where().ge("date", fromDate).lt("date", toDate).orderBy("goodCount DESC").findList();
 
 		} catch(ParseException e) {
 			e.printStackTrace();
+		}
+
+		List<String[]> cardList = new ArrayList<>();
+
+		sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+
+		for(int i = 0; i < 10; i++) {
+			String[] temp = new String[10];
+
+			temp[0] = String.valueOf(cards.get(i).id);
+			temp[1] = String.valueOf(i+1);
+			temp[2] = "a";//cards.get(i).fromUser.department.departmentName;
+			temp[3] = cards.get(i).fromUser.userName;
+			temp[4] = "b";//cards.get(i).toUser.department.departmentName;
+			temp[5] = cards.get(i).toUser.userName;
+			temp[6] = cards.get(i).category.categoryName;
+			temp[7] = cards.get(i).title;
+			temp[8] = sdf.format(cards.get(i).date);
+			temp[9] = String.valueOf(cards.get(i).goodCount);
+
+			cardList.add(temp);
 		}
 
 		return ok(bbs_cont4.render(cardList));
