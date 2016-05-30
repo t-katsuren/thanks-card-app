@@ -37,7 +37,7 @@
 				<td>@category.categoryCd</td>
 				<td>@category.categoryName</td>
 				<td>
-					<form action="@routes.HomeController.deleteCategory(category.id)" method="post">
+					<form action="@routes.ManagementController.deleteCategory(category.id)" method="post">
 						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
@@ -45,7 +45,7 @@
 			}
 			<tbody>
 			<tr>
-				<form action="@routes.HomeController.createCategory()" method="post">
+				<form action="@routes.ManagementController.createCategory()" method="post">
 					<td><input type="text" style="width: 150px; height: 25px;" name="categoryCd" /></td>
 					<td><input type="text" style="width: 150px; height: 25px;" name="categoryName" /></td>
 					<td>
