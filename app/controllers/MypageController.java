@@ -49,16 +49,17 @@ public class MypageController extends Controller {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
 		for(int i = 0; i < cards.size(); i++) {
-			String[] temp = new String[8];
+			String[] temp = new String[9];
 
-			temp[0] = cards.get(i).fromUser.department.departmentName;
-			temp[1] = cards.get(i).fromUser.userName;
-			temp[2] = cards.get(i).toUser.department.departmentName;
-			temp[3] = cards.get(i).toUser.userName;
-			temp[4] = cards.get(i).category.categoryName;
-			temp[5] = cards.get(i).title;
-			temp[6] = formatter.format(cards.get(i).date);
-			temp[7] = String.valueOf(cards.get(i).goodCount);
+			temp[0] = String.valueOf(cards.get(i).id);
+			temp[1] = cards.get(i).fromUser.department.departmentName;
+			temp[2] = cards.get(i).fromUser.userName;
+			temp[3] = cards.get(i).toUser.department.departmentName;
+			temp[4] = cards.get(i).toUser.userName;
+			temp[5] = cards.get(i).category.categoryName;
+			temp[6] = cards.get(i).title;
+			temp[7] = formatter.format(cards.get(i).date);
+			temp[8] = String.valueOf(cards.get(i).goodCount);
 
 			cardList.add(temp);
 		}
@@ -84,16 +85,17 @@ public class MypageController extends Controller {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
 		for(int i = 0; i < cards.size(); i++) {
-			String[] temp = new String[8];
+			String[] temp = new String[9];
 
-			temp[0] = cards.get(i).fromUser.department.departmentName;
-			temp[1] = cards.get(i).fromUser.userName;
-			temp[2] = cards.get(i).toUser.department.departmentName;
-			temp[3] = cards.get(i).toUser.userName;
-			temp[4] = cards.get(i).category.categoryName;
-			temp[5] = cards.get(i).title;
-			temp[6] = formatter.format(cards.get(i).date);
-			temp[7] = String.valueOf(cards.get(i).goodCount);
+			temp[0] = String.valueOf(cards.get(i).id);
+			temp[1] = cards.get(i).fromUser.department.departmentName;
+			temp[2] = cards.get(i).fromUser.userName;
+			temp[3] = cards.get(i).toUser.department.departmentName;
+			temp[4] = cards.get(i).toUser.userName;
+			temp[5] = cards.get(i).category.categoryName;
+			temp[6] = cards.get(i).title;
+			temp[7] = formatter.format(cards.get(i).date);
+			temp[8] = String.valueOf(cards.get(i).goodCount);
 
 			cardList.add(temp);
 		}
