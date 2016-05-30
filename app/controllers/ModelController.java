@@ -76,7 +76,20 @@ public class ModelController extends Controller {
 					Category category = Category.find.where().eq("categoryName", params.get("categoryName")[0]).findUnique();
 					cards = Card.find.where().eq("category", category).findList();
 				}
+				//date
+				/*
+				if(!(params.get("fromDate")[0].equals("default"))) {
+					String fromDate = params.get("fromDate")[0];
+					String toDate = params.get("toDate")[0];
+					cards =Ebean.createSqlQuery("SELECT * FROM Card WHERE date between date fromDate and date toDate;" ).findList();
+				}*/
 
+
+				//いいね　降順
+				if(!(params.get("good")[0].equals("default"))) {
+					cards = Card.find.where().orderBy("goodCount DESC").findList();
+
+				}
 			}
 
 			List<String[]> cardList = new ArrayList<>();
