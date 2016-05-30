@@ -1,4 +1,4 @@
-@(cardList: List[Array[String]])
+@(cardList: List[Array[String]])(departmentList: List[Department])(categoryList: List[Category])
 
 @import helper._
 
@@ -31,60 +31,55 @@
 	<body>
 		<p><h1><center>掲示板</center></h1></p>
 
-		<center><p>◆…◇… 絞 り 込 み …◇…◆</p></center>
+		<p>◆…◇… 絞 り 込 み …◇…◆</p>
 
-		<center>
-		<select name="navi">
-			<!-- valueにURLを記入 -->
-			<option value=""> --- FROM(部署)検索 ---
-			<option value="">IT
-			<option value="">人事
-			<option value="">自治
-		</select>
-
-		&nbsp;&nbsp;
-		<input type="search" name="search" placeholder="FROM(氏名)入力">
-
-		&nbsp;&nbsp;
-		<select name="navi">
-			<!-- valueにURLを記入 -->
-			<option value=""> --- TO(部署)検索 ---
-			<option value="">IT
-			<option value="">人事
-			<option value="">自治
-		</select>
-
-		&nbsp;&nbsp;
-		<input type="search" name="search" placeholder="TO(氏名)入力">
-
-		&nbsp;&nbsp;
-		<select name="navi">
-			<!-- valueにURLを記入 -->
-			<option value =""> --- 分類 ---
-			<option value="">１
-			<option value="">２
-			<option value="">３
-		</select>
-
-		&nbsp;&nbsp;
-		<select name="navi">
-			<!-- valueにURLを記入 -->
-			<option value=""> --- 期間指定なし ---
-			<option value="">１日以内
-			<option value="">１週間以内
-			<option value="">１か月以内
-		</select>
-
-		&nbsp;&nbsp;
-		<select name="navi">
-			<!-- valueにURLを記入 -->
-			<option value=""> --- いいね ---
-			<option value="">いいね降順
-		</select>
-
-		&nbsp;&nbsp;
-		<input type="submit" name="submit" value="検索">
-		</center>
+		<form action="@routes.ModelController.bbs_cont1()" method="post">
+			<p>
+				送った人：
+				<select name="fromDepartmentName">
+					<option value="default"> --- FROM(部署)検索 ---
+					@for(department <- departmentList) {
+						<option value="@department.departmentName">@department.departmentName
+					}
+				</select>
+				&nbsp;&nbsp;
+				<input type="text" name="fromUserName" placeholder="FROM(氏名)入力">
+			</p>
+			<p>
+				貰った人：
+				<select name="toDepartmentName">
+					<option value="default"> --- TO(部署)検索 ---
+					@for(department <- departmentList) {
+						<option value="@department.departmentName">@department.departmentName
+					}
+				</select>
+				&nbsp;&nbsp;
+				<input type="text" name="toUserName" placeholder="TO(氏名)入力">
+			</p>
+			<p>
+				&nbsp;分&nbsp;類&nbsp;&nbsp;：
+				<select name="categoryName">
+					<option value="default"> --- 分 類 ---
+					@for(category <- categoryList) {
+						<option value="@category.categoryName">@category.categoryName
+					}
+				</select>
+			</p>
+			<p>
+				&nbsp;期&nbsp;間&nbsp;&nbsp;：
+					いつから -> <input type="date" name="fromDate">
+					&nbsp;&nbsp;
+					いつまで -> <input type="date" name="toDate">
+				</p>
+			<p>
+				い&nbsp;い&nbsp;ね&nbsp;：
+				<select name="good">
+					<option value="default"> --- いいね ---
+					<option value="sortOn">いいね降順
+				</select>
+			</p>
+			<input type="submit" name="submit" value="検索">
+		</form>
 
 		<hr size="2" color="#bfc3fa" >
 

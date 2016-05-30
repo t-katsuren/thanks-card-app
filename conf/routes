@@ -31,6 +31,7 @@ POST    /mypage_cont3               controllers.HomeController.sendCard
 
 GET     /bbs                        controllers.ModelController.bbs_main
 GET     /bbs/cont1                  controllers.ModelController.bbs_cont1
+POST    /bbs/cont1                  controllers.ModelController.bbs_cont1
 GET     /bbs/cont2                  controllers.ModelController.bbs_cont2
 GET     /bbs/cont3                  controllers.ModelController.bbs_cont3
 GET     /bbs/cont4                  controllers.ModelController.bbs_cont4
