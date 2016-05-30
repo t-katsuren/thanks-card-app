@@ -36,13 +36,11 @@ public class MypageController extends Controller {
 	//マイページ受信箱
 	public Result mypage_cont1() {
 
-		List<Card> cards = Card.find.all();
-
 		String userCd = session("login");
 
 		User nowUser = User.find.where().eq("userCd", userCd).findUnique();
 
-		cards = Card.find.where().eq("toUser", nowUser).findList();
+		List<Card> cards = Card.find.where().eq("toUser", nowUser).findList();
 
 		List<String[]> cardList = new ArrayList<>();
 
@@ -72,13 +70,11 @@ public class MypageController extends Controller {
 	//マイページ送信箱
 	public Result mypage_cont2() {
 
-		List<Card> cards = Card.find.all();
-
 		String userCd = session("login");
 
 		User nowUser = User.find.where().eq("userCd", userCd).findUnique();
 
-		cards = Card.find.where().eq("fromUser", nowUser).findList();
+		List<Card> cards = Card.find.where().eq("fromUser", nowUser).findList();
 
 		List<String[]> cardList = new ArrayList<>();
 
