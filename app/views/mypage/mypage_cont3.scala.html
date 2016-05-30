@@ -26,20 +26,25 @@
 			<table class="thank" bgcolor="#e8e8e8">
 				<tr>
 					<td>
-						<b>宛先</b>
-						<select name="department">
-							<option value =""> --- 部署 ---
-							@for(department <-listDepartment){
-							<option value=@department.departmentName>@department.departmentName</option>
-							}
+						<b>宛先　</b>
+						<select name="country">
+							<option  selected="selected" class="msg"> --- 部署 ---</option>
+							<option class="count1"> @listDepartment.get(0).id</option>
+							<option class="count2"> @listDepartment.get(1).id</option>
+							<option class="count3"> @listDepartment.get(2).id</option>
+							<option class="count4"> @listDepartment.get(3).id</option>
 						</select>
-						<select name="toUserName">
-							<!-- valueにURLを記入 -->
-							<option value =""> --- 氏名 ---
+						<select name="city">
+							<option selected="selected" class="msg"> --- 氏名 ---</option>
+							<option class="count1" >@listUser.get(0).department.id</option>
+							<option class="count1">@listUser.get(1).department.id</option>
+							<option class="count1">@listUser.get(2).department.id</option>
+							<option class="count1">@listUser.get(3).department.id</option>
+							<option class="count2"">@listUser.get(4).department.id</option>
+							<option class="count3">@listUser.get(5).department.id</option>
+							<option class="count4">@listUser.get(6).department.id</option>
+							<option class="count4">@listUser.get(7).department.id</option>
 
-							@for(user <-listUser){
-							<option value=@user.userName data-category=@user.department.departmentName>@user.userName</option>
-							}
 						</select>
 						&nbsp;&nbsp;<b>分類</b>
 						<select name="category">
@@ -78,6 +83,41 @@
 					</td>
 				</tr>
 			</table>
+
+			<!-- jqueryで絞り込み！！---->>
+			<script>
+			$(function() {
+
+	// 国名が変更されたら発動
+	$('select[name="country"]').change(function() {
+
+		// 選択されている国のクラス名を取得
+		var countyName = $('select[name="country"] option:selected').attr("class");
+		console.log(countyName);
+
+		// 都市名の要素数を取得
+		var count = $('select[name="city"]').children().length;
+
+		// 都市名の要素数分、for文で回す
+		for (var i=0; i<count; i++) {
+
+			var city = $('select[name="city"] option:eq(' + i + ')');
+
+			if(city.attr("class") === countyName) {
+				// 選択した国と同じクラス名だった場合
+
+				// 都市の要素を表示
+				city.show();
+			}else {
+				// 選択した国とクラス名が違った場合
+
+				// 都市の要素を非表示
+				city.hide();
+			}
+		}
+	})
+})
+</script>
 			<script type="text/javascript">
 			$(function () {
     		$("#dep").narrows("#na");    // #dep は #na を絞り込む
