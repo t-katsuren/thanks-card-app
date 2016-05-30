@@ -1,3 +1,5 @@
+@(contentsList: List[String])
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -100,15 +102,15 @@
 				<div>
 					<br>
 					<center>  <h1>～ THANK YOU ～</h1></center>
-					<p>●TO　: 金城</p>
-					<center><p>●TITLE　:  説明書き説明書き説明書き説明書き</p></center>
+					<p>●TO : @contentsList.get(2) @contentsList.get(3)</p>
+					<center><p>●TITLE : @contentsList.get(5)</p></center>
 					<dl class="dl2">
-						<dt><a>●HELP   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp●CATEGORY:</a> </dt>
-						<dd>サンプルサンプルサンプルサンプルサンプル・・・・・・</dd>
+						<dt><a>●HELP   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp●CATEGORY : @contentsList.get(4)</a> </dt>
+						<dd>@contentsList.get(6)</dd>
 						<dt>●MESSAGE</dt>
-						<dd>サンプルサンプルサンプルサンプルサンプル・・・・・・</dd>
+						<dd>@contentsList.get(7)</dd>
 					</dl>
-					<p Align="right">●FROM : 金村 <br><br><input class="myButtonI" type="submit" style="width: 100px; height: 30px;" value="いいね!!" /></p>
+					<p Align="right">●FROM : @contentsList.get(0) @contentsList.get(1) <br><br><input class="myButtonI" type="submit" style="width: 100px; height: 30px;" value="いいね!!" /></p>
 				</div>
 			</div>
 		</div>

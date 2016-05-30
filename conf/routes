@@ -23,21 +23,33 @@ GET     /logout                     controllers.AuthController.logout
 
 # Home Control for main contents
 # start
+GET     /thanks/card                controllers.HomeController.openCard(cardId: String)
+# end
+
+
+# Mypage Control for mypage
+# start
 GET     /mypage                     controllers.MypageController.mypage_main
 GET     /mypage/cont1               controllers.MypageController.mypage_cont1
 GET     /mypage/cont2               controllers.MypageController.mypage_cont2
 GET     /mypage/cont3               controllers.MypageController.mypage_cont3
 POST    /mypage_cont3               controllers.MypageController.sendCard
+# end
 
 
+# Bbs Control for bbs
+# start
 GET     /bbs                        controllers.BbsController.bbs_main
 GET     /bbs/cont1                  controllers.BbsController.bbs_cont1
 POST    /bbs/cont1                  controllers.BbsController.bbs_cont1
 GET     /bbs/cont2                  controllers.BbsController.bbs_cont2
 GET     /bbs/cont3                  controllers.BbsController.bbs_cont3
 GET     /bbs/cont4                  controllers.BbsController.bbs_cont4(date: String)
+# end
 
 
+# Management Control for management
+# start
 GET     /management                 controllers.ManagementController.management_main
 
 GET     /management/cont1           controllers.ManagementController.management_cont1
