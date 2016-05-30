@@ -1,3 +1,5 @@
+@(cardList: List[Card])
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -42,50 +44,19 @@
 				<th scope="row">日付</th>
 				<th scope="row">いいね</th>
 			</tr>
+			@for(card <- cardList) {
 			<tr>
 				<td>1</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
+				<td>@card.fromUser.department.departmentName</td>
+				<td>@card.fromUser.userName</td>
+				<td>@card.toUser.department.departmentName</td>
+				<td>@card.toUser.userName</td>
+				<td>@card.category.categoryName</td>
+				<td>@card.title</td>
+				<td>@card.date</td>
+				<td>@card.goodCount</td>
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-				<td>内容がはいります。</td>
-			</tr>
+			}
 		</table>
 		<script>
 			jQuery(function($){

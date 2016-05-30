@@ -1,6 +1,6 @@
 package controllers;
 
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.*;
 
 import javax.inject.Inject;
@@ -121,9 +121,24 @@ public class ModelController extends Controller {
 		//掲示板事例1
 		public Result bbs_cont2() {
 
+			List<Card> cardList = Card.find.all();
 
+			List<String> dateAll = new ArrayList<>();
 
-			return ok(bbs_cont2.render());
+			for(int i = 0; i < cardList.size(); i++) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分ss秒");
+				String str = sdf.format(cardList.get(i).date);
+				dateAll.add(str.substring(0, 8));
+			}
+
+			HashSet<String> dateSet = new HashSet<String>();
+	        dateSet.addAll(dateAll);
+
+	        List<String> dateList = new ArrayList<>(dateSet);
+
+	        Collections.sort(dateList);
+
+			return ok(bbs_cont2.render(dateList));
 
 		}
 		//掲示板関連
@@ -133,9 +148,40 @@ public class ModelController extends Controller {
 
 		}
 		//掲示板事例2
-		public Result bbs_cont4() {
+		public Result bbs_cont4(String date) {
 
-			return ok(bbs_cont4.render());
+			String year = date.substring(0, 4);
+			String month = date.substring(5, 7);
+
+			int monthInt = Integer.parseInt(month) + 1;
+
+			String nextMonth = "";
+
+			if(monthInt < 10) {
+				nextMonth = "0" + monthInt;
+			} else {
+				nextMonth = "" + monthInt;
+			}
+
+			String fromStr = year + month + "01 00:00:00";
+			String toStr = year + nextMonth + "01 00:00:00";
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
+
+			List<Card> cardList = new ArrayList<>();
+
+			try {
+
+			Date fromDate = sdf.parse(fromStr);
+			Date toDate = sdf.parse(toStr);
+
+			cardList = Card.find.where().ge("date", fromDate).lt("date", toDate).findList();
+
+			} catch(ParseException e) {
+				e.printStackTrace();
+			}
+
+			return ok(bbs_cont4.render(cardList));
 
 		}
 

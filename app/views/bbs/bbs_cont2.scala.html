@@ -1,3 +1,5 @@
+@(dateList: List[String])
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -31,9 +33,9 @@
 		<div class="jirei">
 			<center>
 				<h1>過去の事例</h1>
-				<a class="popup-iframe" href="@routes.ModelController.bbs_cont4()">● 2016年3月 TOP10</a></br>
-				<a class="popup-iframe" href="@routes.ModelController.bbs_cont4()">● 2016年4月 TOP10</a></br>
-				<a class="popup-iframe" href="@routes.ModelController.bbs_cont4()">● 2016年5月 TOP10</a></br>
+				@for(date <- dateList) {
+					<a class="popup-iframe" href="@routes.ModelController.bbs_cont4(date)">● @date TOP10</a></br>
+				}
 			</center>
 		</div>
 		<script>
