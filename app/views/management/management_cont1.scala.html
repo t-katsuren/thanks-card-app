@@ -49,14 +49,14 @@
 				<td>@user.userName</td>
 				<td>@user.permission.permissionName</td>
 				<td>
-					<form action="@routes.HomeController.deleteUser(user.id)" method="post">
+					<form action="@routes.ManagementController.deleteUser(user.id)" method="post">
 						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
 			</tr>
 			}
 			<tr>
-				<form action="@routes.HomeController.createUser()" method="post">
+				<form action="@routes.ManagementController.createUser()" method="post">
 					<td><input type="text" style="width: 150px; height: 25px;" name="userCd" /></td>
 					<td><input type="Password" style="width: 150px; height: 25px;" name="userPass" /></td>
 					<td><input type="text" style="width: 150px; height: 25px;" name="departmentName" /></td>

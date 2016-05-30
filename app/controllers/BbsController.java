@@ -5,6 +5,8 @@ import java.util.*;
 
 import javax.inject.Inject;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import models.*;
 import play.data.*;
 import play.mvc.*;
@@ -14,10 +16,12 @@ import views.html.mypage.*;
 import views.html.bbs.*;
 import views.html.management.*;
 
-public class ModelController extends Controller {
+@Security.Authenticated(Secured.class)
+public class BbsController extends Controller {
 
 	@Inject
 	private FormFactory formFactory;
+
 
 	//掲示板ページを表示
 	public Result bbs_main() {
@@ -27,6 +31,8 @@ public class ModelController extends Controller {
 		return ok(bbs_main.render(loginUserName));
 
 	}
+
+
 	//掲示板一覧
 	public Result bbs_cont1() {
 
@@ -81,7 +87,6 @@ public class ModelController extends Controller {
 				Category category = Category.find.where().eq("categoryName", params.get("categoryName")[0]).findUnique();
 				cards = Card.find.where().eq("category", category).findList();
 			}
-
 			/*
 			//期間フィルター
 			if(!(params.get("fromDate")[0].equals("default"))) {
@@ -99,19 +104,20 @@ public class ModelController extends Controller {
 
 		List<String[]> cardList = new ArrayList<>();
 
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
 		for(int i = 0; i < cards.size(); i++) {
-			String[] temp = new String[8];
+			String[] temp = new String[9];
 
-			temp[0] = cards.get(i).fromUser.department.departmentName;
-			temp[1] = cards.get(i).fromUser.userName;
-			temp[2] = cards.get(i).toUser.department.departmentName;
-			temp[3] = cards.get(i).toUser.userName;
-			temp[4] = cards.get(i).category.categoryName;
-			temp[5] = cards.get(i).title;
-			temp[6] = formatter.format(cards.get(i).date);
-			temp[7] = String.valueOf(cards.get(i).goodCount);
+			temp[0] = String.valueOf(cards.get(i).id);
+			temp[1] = "b";//cards.get(i).fromUser.department.departmentName;
+			temp[2] = cards.get(i).fromUser.userName;
+			temp[3] = "d";//cards.get(i).toUser.department.departmentName;
+			temp[4] = cards.get(i).toUser.userName;
+			temp[5] = cards.get(i).category.categoryName;
+			temp[6] = cards.get(i).title;
+			temp[7] = sdf.format(cards.get(i).date);
+			temp[8] = String.valueOf(cards.get(i).goodCount);
 
 			cardList.add(temp);
 		}
@@ -123,7 +129,9 @@ public class ModelController extends Controller {
 		return ok(bbs_cont1.render(cardList, departmentList, categoryList));
 
 	}
-	//掲示板事例1
+
+
+	//掲示板事例1ページ目
 	public Result bbs_cont2() {
 
 		List<Card> cardList = Card.find.all();
@@ -146,13 +154,9 @@ public class ModelController extends Controller {
 		return ok(bbs_cont2.render(dateList));
 
 	}
-	//掲示板関連
-	public Result bbs_cont3() {
 
-		return ok(bbs_cont3.render());
 
-	}
-	//掲示板事例2
+	//掲示板事例2ページ目
 	public Result bbs_cont4(String date) {
 
 		String year = date.substring(0, 4);
@@ -187,6 +191,14 @@ public class ModelController extends Controller {
 		}
 
 		return ok(bbs_cont4.render(cardList));
+
+	}
+
+
+	//掲示板関連
+	public Result bbs_cont3() {
+
+		return ok(bbs_cont3.render());
 
 	}
 

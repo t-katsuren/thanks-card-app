@@ -1,4 +1,4 @@
-@(userList: List[User], categoryList: List[Category], departmentList: List[Department])
+@(userList: List[User])(departmentList: List[Department])(categoryList: List[Category])
 
 <!DOCTYPE html>
 
@@ -13,13 +13,13 @@
 		<title>thanks | create</title>
 	</head>
 	<body>
-	<form action="@routes.HomeController.sendCard()" method="POST">
-		<center>
-			<h2>感謝カード作成</h2>
-			<table class="thank" bgcolor="#e8e8e8">
+		<form action="@routes.MypageController.sendCard()" method="POST">
+			<center>
+				<h2>感謝カード作成</h2>
+				<table class="thank" bgcolor="#e8e8e8">
 				<tr>
 					<td>
-						<b>宛先　</b>
+						<b>宛先</b>
 						<select name="department">
 							<option  selected="selected" class="msg">--- 部署 ---</option>
 							@for(department <- departmentList) {
@@ -34,8 +34,7 @@
 						</select>
 						&nbsp;&nbsp;<b>分類</b>
 						<select name="category">
-							<!-- にURLを記入 -->
-							<option value =""> --- 分類 ---
+							<option value ="default"> --- 分類 ---
 							@for(category <- categoryList){
 							<option>@category.categoryName</option>
 							}
@@ -68,27 +67,26 @@
 						</div>
 					</td>
 				</tr>
-			</table>
-
-			<!-- jqueryで絞り込み！！---->>
-			<script>
-			$(function() {
-	$('select[name="department"]').change(function() {
-		var countyName = $('select[name="department"] option:selected').attr("class");
-		console.log(countyName);
-		var count = $('select[name="toUserName"]').children().length;
-		for (var i=0; i<count; i++) {
-			var toUserName = $('select[name="toUserName"] option:eq(' + i + ')');
-			if(toUserName.attr("class") === countyName) {
-				toUserName.show();
-			}else {
-				toUserName.hide();
-			}
-		}
-	})
-})
-</script>
-		</center>
+				</table>
+				<!-- jqueryで絞り込み！！---->>
+				<script>
+					$(function() {
+						$('select[name="department"]').change(function() {
+							var countyName = $('select[name="department"] option:selected').attr("class");
+							console.log(countyName);
+							var count = $('select[name="toUserName"]').children().length;
+							for (var i=0; i<count; i++) {
+								var toUserName = $('select[name="toUserName"] option:eq(' + i + ')');
+								if(toUserName.attr("class") === countyName) {
+									toUserName.show();
+								} else {
+									toUserName.hide();
+								}
+							}
+						})
+					})
+				</script>
+			</center>
 		</form>
 	</body>
 </html>

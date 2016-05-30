@@ -37,7 +37,7 @@
 				<td>@section.sectionCd</td>
 				<td>@section.sectionName</td>
 				<td>
-					<form action="@routes.HomeController.deleteSection(section.id)" method="post">
+					<form action="@routes.ManagementController.deleteSection(section.id)" method="post">
 						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
@@ -45,7 +45,7 @@
 			}
 			<tbody>
 				<tr>
-					<form action="@routes.HomeController.createSection()" method="post">
+					<form action="@routes.ManagementController.createSection()" method="post">
 						<td><input type="text" style="width: 150px; height: 25px;" name="sectionCd" /></td>
 						<td><input type="text" style="width: 150px; height: 25px;" name="sectionName" /></td>
 						<td>
@@ -75,7 +75,7 @@
 				<td>@department.section.sectionName</td>
 				<td>@department.departmentName</td>
 				<td>
-					<form action="@routes.HomeController.deleteDepartment(department.id)" method="post">
+					<form action="@routes.ManagementController.deleteDepartment(department.id)" method="post">
 						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
@@ -83,7 +83,7 @@
 			}
 			<tbody>
 			<tr>
-				<form action="@routes.HomeController.createDepartment()" method="post">
+				<form action="@routes.ManagementController.createDepartment()" method="post">
 					<td><input type="text" style="width: 150px; height: 25px;" name="departmentCd" /></td>
 					<td><input type="text" style="width: 150px; height: 25px;" name="sectionName" /></td>
 					<td><input type="text" style="width: 150px; height: 25px;" name="departmentName" /></td>

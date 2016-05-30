@@ -33,7 +33,7 @@
 
 		<p>◆…◇… 絞 り 込 み …◇…◆</p>
 
-		<form action="@routes.ModelController.bbs_cont1()" method="post">
+		<form action="@routes.BbsController.bbs_cont1()" method="post">
 			<p>
 				送った人：
 				<select name="fromDepartmentName">
@@ -98,7 +98,6 @@
 			</tr>
 			@for(card <- cardList) {
 			<tr>
-				<td>@card(0)</td>
 				<td>@card(1)</td>
 				<td>@card(2)</td>
 				<td>@card(3)</td>
@@ -106,6 +105,7 @@
 				<td>@card(5)</td>
 				<td>@card(6)</td>
 				<td>@card(7)</td>
+				<td>@card(8)</td>
 			</tr>
 			}
 		</table>

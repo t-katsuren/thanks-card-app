@@ -23,34 +23,36 @@ GET     /logout                     controllers.AuthController.logout
 
 # Home Control for main contents
 # start
-GET     /mypage                     controllers.HomeController.mypage_main
-GET     /mypage/cont1               controllers.HomeController.mypage_cont1
-GET     /mypage/cont2               controllers.HomeController.mypage_cont2
-GET     /mypage/cont3               controllers.HomeController.mypage_cont3
-POST    /mypage_cont3               controllers.HomeController.sendCard
+GET     /mypage                     controllers.MypageController.mypage_main
+GET     /mypage/cont1               controllers.MypageController.mypage_cont1
+GET     /mypage/cont2               controllers.MypageController.mypage_cont2
+GET     /mypage/cont3               controllers.MypageController.mypage_cont3
+POST    /mypage_cont3               controllers.MypageController.sendCard
 
-GET     /bbs                        controllers.ModelController.bbs_main
-GET     /bbs/cont1                  controllers.ModelController.bbs_cont1
-POST    /bbs/cont1                  controllers.ModelController.bbs_cont1
-GET     /bbs/cont2                  controllers.ModelController.bbs_cont2
-GET     /bbs/cont3                  controllers.ModelController.bbs_cont3
-GET     /bbs/cont4                  controllers.ModelController.bbs_cont4(date: String)
 
-GET     /management                 controllers.HomeController.management_main
+GET     /bbs                        controllers.BbsController.bbs_main
+GET     /bbs/cont1                  controllers.BbsController.bbs_cont1
+POST    /bbs/cont1                  controllers.BbsController.bbs_cont1
+GET     /bbs/cont2                  controllers.BbsController.bbs_cont2
+GET     /bbs/cont3                  controllers.BbsController.bbs_cont3
+GET     /bbs/cont4                  controllers.BbsController.bbs_cont4(date: String)
 
-GET     /management/cont1           controllers.HomeController.management_cont1
-POST    /management/cont1/deleteU   controllers.HomeController.deleteUser(userId: Integer)
-POST    /management/cont1/createU   controllers.HomeController.createUser
 
-GET     /management/cont2           controllers.HomeController.management_cont2
-POST	/management/cont2/deleteS   controllers.HomeController.deleteSection(sectionId: Integer)
-POST	/management/cont2/createS   controllers.HomeController.createSection
-POST	/management/cont2/deleteD   controllers.HomeController.deleteDepartment(departmentId: Integer)
-POST	/management/cont2/createD   controllers.HomeController.createDepartment
+GET     /management                 controllers.ManagementController.management_main
 
-GET     /management/cont3           controllers.HomeController.management_cont3
-POST	/management/cont3/deleteC   controllers.HomeController.deleteCategory(categoryId: Integer)
-POST	/management/cont3/createC   controllers.HomeController.createCategory
+GET     /management/cont1           controllers.ManagementController.management_cont1
+POST    /management/cont1/deleteU   controllers.ManagementController.deleteUser(userId: Integer)
+POST    /management/cont1/createU   controllers.ManagementController.createUser
+
+GET     /management/cont2           controllers.ManagementController.management_cont2
+POST	/management/cont2/deleteS   controllers.ManagementController.deleteSection(sectionId: Integer)
+POST	/management/cont2/createS   controllers.ManagementController.createSection
+POST	/management/cont2/deleteD   controllers.ManagementController.deleteDepartment(departmentId: Integer)
+POST	/management/cont2/createD   controllers.ManagementController.createDepartment
+
+GET     /management/cont3           controllers.ManagementController.management_cont3
+POST	/management/cont3/deleteC   controllers.ManagementController.deleteCategory(categoryId: Integer)
+POST	/management/cont3/createC   controllers.ManagementController.createCategory
 # end
 
 

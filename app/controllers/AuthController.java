@@ -18,7 +18,7 @@ public class AuthController extends Controller {
 
 		//ログイン中であればログイン画面は表示しない
 		if(session("login") != null) {
-			return redirect(routes.HomeController.mypage_main());
+			return redirect(routes.MypageController.mypage_main());
 		}
 
 		return ok(login.render(formFactory.form(Login.class)));
@@ -35,7 +35,7 @@ public class AuthController extends Controller {
 		} else {
 			Login login = loginForm.get();
 			session("login", login.usercode);
-			return redirect(routes.HomeController.mypage_main());
+			return redirect(routes.MypageController.mypage_main());
 		}
 
 	}
