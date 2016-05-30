@@ -6,7 +6,7 @@ textarea{
     height: 30px;
     background-color:beige;
 }
-table.tyepe04{
+table.type04{
     text-align: center;
     font-family: helvetica;
 	border-collapse: separate;
@@ -14,8 +14,6 @@ table.tyepe04{
 	text-align: left;
 	line-height: 1.5;
 	border-top: 1px solid #ccc;
-
-
 }
 table.type04 th {
       text-align: center;
@@ -27,11 +25,14 @@ table.type04 th {
     }
 table.type04 td {
     text-align: center;
-	width: 350px;
+	max-width: 150px;
 	padding: 10px;
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
-      border-right: 1px solid #ccc;
+     border-right: 1px solid #ccc;
+       white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 table.tyepe03{
     width: 100%;
