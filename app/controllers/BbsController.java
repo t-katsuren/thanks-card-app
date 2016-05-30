@@ -116,9 +116,9 @@ public class BbsController extends Controller {
 			String[] temp = new String[9];
 
 			temp[0] = String.valueOf(cards.get(i).id);
-			temp[1] = "b";//cards.get(i).fromUser.department.departmentName;
+			temp[1] = cards.get(i).fromUser.department.departmentName;
 			temp[2] = cards.get(i).fromUser.userName;
-			temp[3] = "d";//cards.get(i).toUser.department.departmentName;
+			temp[3] = cards.get(i).toUser.department.departmentName;
 			temp[4] = cards.get(i).toUser.userName;
 			temp[5] = cards.get(i).category.categoryName;
 			temp[6] = cards.get(i).title;
@@ -203,9 +203,9 @@ public class BbsController extends Controller {
 
 			temp[0] = String.valueOf(cards.get(i).id);
 			temp[1] = String.valueOf(i+1);
-			temp[2] = "a";//cards.get(i).fromUser.department.departmentName;
+			temp[2] = cards.get(i).fromUser.department.departmentName;
 			temp[3] = cards.get(i).fromUser.userName;
-			temp[4] = "b";//cards.get(i).toUser.department.departmentName;
+			temp[4] = cards.get(i).toUser.department.departmentName;
 			temp[5] = cards.get(i).toUser.userName;
 			temp[6] = cards.get(i).category.categoryName;
 			temp[7] = cards.get(i).title;
