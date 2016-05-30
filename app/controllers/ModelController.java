@@ -36,7 +36,7 @@ public class ModelController extends Controller {
 
 			if(params != null) {
 
-				if(params.get("fromDepartmentName")[0] != null) {
+				if(!(params.get("fromDepartmentName")[0].equals("default"))) {
 					Department department = Department.find.where().eq("departmentName", params.get("fromDepartmentName")[0]).findUnique();
 					List<User> fromUserList = User.find.where().eq("department", department).findList();
 					List<Card> temp = new ArrayList<>();
@@ -48,13 +48,13 @@ public class ModelController extends Controller {
 					}
 					cards = temp;
 				}
-				/*
-				if(params.get("fromUserName")[0] != null) {
+
+				if(!(params.get("fromUserName")[0].equals(""))) {
 					User fromUser = User.find.where().eq("userName", params.get("fromUserName")[0]).findUnique();
 					cards = Card.find.where().eq("fromUser", fromUser).findList();
 				}
 
-				if(params.get("toDepartmentName")[0] != null) {
+				if(!(params.get("toDepartmentName")[0].equals("default"))) {
 					Department department = Department.find.where().eq("departmentName", params.get("toDepartmentName")[0]).findUnique();
 					List<User> toUserList = User.find.where().eq("department", department).findList();
 					List<Card> temp = new ArrayList<>();
@@ -67,15 +67,15 @@ public class ModelController extends Controller {
 					cards = temp;
 				}
 
-				if(params.get("toUserName")[0] != null) {
+				if(!(params.get("toUserName")[0].equals(""))) {
 					User toUser = User.find.where().eq("userName", params.get("toUserName")[0]).findUnique();
 					cards = Card.find.where().eq("toUser", toUser).findList();
 				}
 
-				if(params.get("categoryName")[0] != null) {
-
+				if(!(params.get("categoryName")[0].equals("default"))) {
+					Category category = Category.find.where().eq("categoryName", params.get("categoryName")[0]).findUnique();
+					cards = Card.find.where().eq("category", category).findList();
 				}
-				*/
 
 			}
 
