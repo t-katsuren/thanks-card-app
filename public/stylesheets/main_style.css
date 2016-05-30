@@ -196,6 +196,44 @@ tr:not(:first-child):hover{
 }
 #side_banner ul li {
 	margin-bottom: 15px;
-	font-size: 33px;
+	font-size: 28px;
 	text-decoration: none;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #00137b;
+}
+ul#menu li{
+    float:center;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    width: 200px;
+    background-color: #69BD83;
+    display: block;
+}
+ul#menu li:hover{
+	 color: #ff9022;
+  font-weight: bold;
+  text-decoration: none
+
+	}
+ul.child{
+    display: none;
+    position: absolute;
+    margin-left: 0px;
+    padding: 0;
+}
+ul.child li a{
+    padding: 5px 10px;
+    margin-left: -41px;
+    margin-right: -30px;
+    margin-bottom: -5px;
+    display: block;
+    color: black;
+}
+ul.child li a:hover{
+    background: #2e7443;
 }
