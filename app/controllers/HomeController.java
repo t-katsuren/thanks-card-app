@@ -122,7 +122,7 @@ public class HomeController extends Controller {
 
 
 
-
+	/*一旦コメントアウト
 	//掲示板ページを表示
 	public Result bbs_main() {
 
@@ -178,6 +178,7 @@ public class HomeController extends Controller {
 		return ok(bbs_cont4.render());
 
 	}
+	*/
 
 
 
