@@ -48,11 +48,34 @@ public class ModelController extends Controller {
 					}
 					cards = temp;
 				}
-
+				/*
 				if(params.get("fromUserName")[0] != null) {
 					User fromUser = User.find.where().eq("userName", params.get("fromUserName")[0]).findUnique();
 					cards = Card.find.where().eq("fromUser", fromUser).findList();
 				}
+
+				if(params.get("toDepartmentName")[0] != null) {
+					Department department = Department.find.where().eq("departmentName", params.get("toDepartmentName")[0]).findUnique();
+					List<User> toUserList = User.find.where().eq("department", department).findList();
+					List<Card> temp = new ArrayList<>();
+					for(int i = 0; i < toUserList.size(); i++) {
+						List<Card> temp1 = Card.find.where().eq("toUser", toUserList.get(i)).findList();
+						for(int j = 0; j < temp1.size(); j++) {
+							temp.add(temp1.get(j));
+						}
+					}
+					cards = temp;
+				}
+
+				if(params.get("toUserName")[0] != null) {
+					User toUser = User.find.where().eq("userName", params.get("toUserName")[0]).findUnique();
+					cards = Card.find.where().eq("toUser", toUser).findList();
+				}
+
+				if(params.get("categoryName")[0] != null) {
+
+				}
+				*/
 
 			}
 
