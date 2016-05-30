@@ -34,7 +34,7 @@ GET     /bbs/cont1                  controllers.ModelController.bbs_cont1
 POST    /bbs/cont1                  controllers.ModelController.bbs_cont1
 GET     /bbs/cont2                  controllers.ModelController.bbs_cont2
 GET     /bbs/cont3                  controllers.ModelController.bbs_cont3
-GET     /bbs/cont4                  controllers.ModelController.bbs_cont4
+GET     /bbs/cont4                  controllers.ModelController.bbs_cont4(date: String)
 
 GET     /management                 controllers.HomeController.management_main
 
