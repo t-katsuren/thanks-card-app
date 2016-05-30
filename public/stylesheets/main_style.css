@@ -76,7 +76,6 @@ header #header_contact {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  height:auto;
 }
 #main {
   width: 100%;
@@ -87,8 +86,6 @@ footer {
     width:100%;
   background-color: #352b23;
   text-align: center;
-  position:absolute;
-     bottom:0;
 }
 footer #footer_nav {
   background-color: #efefef;
