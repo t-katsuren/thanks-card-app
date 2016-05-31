@@ -1,4 +1,4 @@
-@(cardList: List[Array[String]])(departmentList: List[Department])(categoryList: List[Category])
+@(cardList: List[Array[String]])(departmentList: List[Department])(categoryList: List[Category])(userList: List[User])
 
 @import helper._
 
@@ -37,24 +37,32 @@
 			<p>
 				送った人：
 				<select name="fromDepartmentName">
-					<option value="default"> --- FROM(部署)検索 ---
+					<option value="default">--- FROM(部署)検索 ---</option>
 					@for(department <- departmentList) {
-						<option value="@department.departmentName">@department.departmentName
+						<option class="count@department.id" value="@department.departmentName"> @department.departmentName</option>
 					}
 				</select>
-				&nbsp;&nbsp;
-				<input type="text" name="fromUserName" placeholder="FROM(氏名)入力">
+				<select name="fromUserName">
+					<option value="default">--- FROM(氏名) ---</option>
+					@for(user <- userList) {
+							<option class="count@user.department.id" value="@user.userName">@user.userName</option>
+					}
+				</select>
 			</p>
 			<p>
 				貰った人：
 				<select name="toDepartmentName">
-					<option value="default"> --- TO(部署)検索 ---
+					<option value="default">--- TO(部署)検索 ---</option>
 					@for(department <- departmentList) {
-						<option value="@department.departmentName">@department.departmentName
+						<option class="count@department.id" value="@department.departmentName">@department.departmentName</option>
 					}
 				</select>
-				&nbsp;&nbsp;
-				<input type="text" name="toUserName" placeholder="TO(氏名)入力">
+				<select name="toUserName">
+					<option value="default">--- FROM(氏名) ---</option>
+					@for(user <- userList) {
+							<option class="count@user.department.id" value="@user.userName">@user.userName</option>
+					}
+				</select>
 			</p>
 			<p>
 				&nbsp;分&nbsp;類&nbsp;&nbsp;：
@@ -79,6 +87,40 @@
 				</select>
 			</p>
 			<input type="submit" name="submit" value="検索">
+			<script>
+				$(function() {
+					$('select[name="fromDepartmentName"]').change(function() {
+						var countyName = $('select[name="fromDepartmentName"] option:selected').attr("class");
+						console.log(countyName);
+						var count = $('select[name="fromUserName"]').children().length;
+						for (var i=0; i<count; i++) {
+							var fromUserName = $('select[name="fromUserName"] option:eq(' + i + ')');
+							if(fromUserName.attr("class") === countyName) {
+								fromUserName.show();
+							} else {
+								fromUserName.hide();
+							}
+						}
+					})
+				})
+			</script>
+			<script>
+				$(function() {
+					$('select[name="toDepartmentName"]').change(function() {
+						var countyName = $('select[name="toDepartmentName"] option:selected').attr("class");
+						console.log(countyName);
+						var count = $('select[name="toUserName"]').children().length;
+						for (var i=0; i<count; i++) {
+							var toUserName = $('select[name="toUserName"] option:eq(' + i + ')');
+							if(toUserName.attr("class") === countyName) {
+								toUserName.show();
+							} else {
+								toUserName.hide();
+							}
+						}
+					})
+				})
+			</script>
 		</form>
 
 		<hr size="2" color="#bfc3fa" >

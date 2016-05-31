@@ -75,7 +75,7 @@ public class BbsController extends Controller {
 			}
 
 			//from氏名フィルター
-			if(!(params.get("fromUserName")[0].equals(""))) {
+			if(!(params.get("fromUserName")[0].equals("default"))) {
 				User fromUser = User.find.where().eq("userName", params.get("fromUserName")[0]).findUnique();
 				cards = Card.find.where().eq("fromUser", fromUser).findList();
 			}
@@ -95,7 +95,7 @@ public class BbsController extends Controller {
 			}
 
 			//to氏名フィルター
-			if(!(params.get("toUserName")[0].equals(""))) {
+			if(!(params.get("toUserName")[0].equals("default"))) {
 				User toUser = User.find.where().eq("userName", params.get("toUserName")[0]).findUnique();
 				cards = Card.find.where().eq("toUser", toUser).findList();
 			}
@@ -130,7 +130,7 @@ public class BbsController extends Controller {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
-		for(int i = 0; i < cards.size(); i++) {
+		for(int i = cards.size()-1; i >=0; i--) {
 			String[] temp = new String[9];
 
 			temp[0] = String.valueOf(cards.get(i).id);
@@ -150,7 +150,9 @@ public class BbsController extends Controller {
 
 		List<Category> categoryList = Category.find.all();
 
-		return ok(bbs_cont1.render(cardList, departmentList, categoryList));
+		List<User> userList = User.find.all();
+
+		return ok(bbs_cont1.render(cardList, departmentList, categoryList, userList));
 
 	}
 
