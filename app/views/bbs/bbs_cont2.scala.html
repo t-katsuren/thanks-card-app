@@ -1,4 +1,4 @@
-@(dateList: List[String])
+@(cardList: List[Array[String]])
 
 <!DOCTYPE html>
 
@@ -19,7 +19,7 @@
 
 		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
 
-		<title>thanks | 事例</title>
+		<title>事例</title>
 
 		<!-- 表のセルに対して色を変えてる -->
 		<script>
@@ -30,45 +30,41 @@
 		</script>
 	</head>
 	<body>
-		<div class="jirei">
-			<center>
-				<h1>過去の事例</h1>
-				@for(date <- dateList) {
-					<a class="popup-iframe" href="@routes.BbsController.bbs_cont4(date)">● @date TOP10</a></br>
-				}
-			</center>
-		</div>
+		<!-- ここまで -->
+		<h1><center>2016年4月 TOP10</center></h1>
+		<table class="type04" width="100%">
+			<tr>
+				<th scope="row">ランキング</th>
+				<th scope="row">部署(From)</th>
+				<th scope="row">氏名(From)</th>
+				<th scope="row">部署(To)</th>
+				<th scope="row">氏名(To)</th>
+				<th scope="row">分類</th>
+				<th scope="row">タイトル</th>
+				<th scope="row">日付</th>
+				<th scope="row">いいね</th>
+			</tr>
+			@for(card <- cardList) {
+			<tr>
+				<td>@card(1)</td>
+				<td>@card(2)</td>
+				<td>@card(3)</td>
+				<td>@card(4)</td>
+				<td>@card(5)</td>
+				<td><a class="popup-iframe" href="@routes.HomeController.openCard(card(0))">@card(6)</a></td>
+				<td>@card(7)</td>
+				<td>@card(8)</td>
+				<td>@card(9)</td>
+			</tr>
+			}
+		</table>
 		<script>
-			jQuery(function($) {
+			jQuery(function($){
 				$('.parent-container').magnificPopup({
 					delegate: 'a', // 子要素のセレクタ
 					type: 'image'
 					// other options
 				})
-			});
-		</script>
-		<script>
-			$(function() {
-				$('.popup-iframe').magnificPopup({
-					type: 'iframe',
-					disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
-					mainClass: 'mfp-fade',
-					removalDelay: 200,
-					preloader: false,
-					fixedContentPos: false,
-				});
-			});
-		</script>
-		<script>
-			$(function(){
-				$('.popup-iframe').magnificPopup({
-					type: 'iframe',
-					disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
-					mainClass: 'mfp-fade',
-					removalDelay: 200,
-					preloader: false,
-					fixedContentPos: false,
-				});
 			});
 		</script>
 	</body>
