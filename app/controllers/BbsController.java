@@ -130,7 +130,7 @@ public class BbsController extends Controller {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
-		for(int i = 0; i < cards.size(); i++) {
+		for(int i = cards.size()-1; i >=0; i--) {
 			String[] temp = new String[9];
 
 			temp[0] = String.valueOf(cards.get(i).id);
