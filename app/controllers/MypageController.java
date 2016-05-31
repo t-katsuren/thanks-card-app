@@ -26,9 +26,13 @@ public class MypageController extends Controller {
 	//マイページを表示
 	public Result mypage_main() {
 
-		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+		String[] loginUser = new String[2];
 
-		return ok(mypage_main.render(loginUserName));
+		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
+		loginUser[1] = User.find.where().eq("userCd", session("login")).findUnique().permission.permissionName;
+
+		return ok(mypage_main.render(loginUser));
 
 	}
 

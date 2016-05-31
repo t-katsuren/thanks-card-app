@@ -26,9 +26,13 @@ public class ManagementController extends Controller {
 	//管理者設定ページを表示
 	public Result management_main() {
 
-		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+		String[] loginUser = new String[2];
 
-		return ok(management_main.render(loginUserName));
+		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
+		loginUser[1] = User.find.where().eq("userCd", session("login")).findUnique().permission.permissionName;
+
+		return ok(management_main.render(loginUser));
 
 	}
 

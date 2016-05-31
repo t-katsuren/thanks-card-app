@@ -1,4 +1,4 @@
-@(loginUserName: String)(content: Html)
+@(loginUser: Array[String])(content: Html)
 
 <!DOCTYPE html>
 
@@ -58,7 +58,7 @@
 		<div id="main">
 			<a href="#" id="nav-toggle" class="btn" data-action="toggle" data-side="left"><span align="right"></span></a>
 			<article>
-				<h1>ようこそ @loginUserName さん</h1>
+				<h1>ようこそ @loginUser(0) さん &nbsp;（ &nbsp;@loginUser(1)&nbsp; ）</h1>
 			</article>
 		</div>
 		</header>

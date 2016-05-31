@@ -44,9 +44,13 @@ public class BbsController extends Controller {
         Collections.sort(dateList);
         Collections.reverse(dateList);
 
-		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
+        String[] loginUser = new String[2];
 
-		return ok(bbs_main.render(loginUserName, dateList));
+		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
+		loginUser[1] = User.find.where().eq("userCd", session("login")).findUnique().permission.permissionName;
+
+		return ok(bbs_main.render(loginUser, dateList));
 
 	}
 
