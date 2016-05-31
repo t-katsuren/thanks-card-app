@@ -75,4 +75,16 @@ public class HomeController extends Controller {
 
 	}
 
+	public Result systemError() {
+
+		String[] loginUser = new String[2];
+
+		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
+		loginUser[1] = User.find.where().eq("userCd", session("login")).findUnique().permission.permissionName;
+
+		return badRequest(system_error.render(loginUser));
+
+	}
+
 }
