@@ -222,9 +222,11 @@ button::-moz-focus-inner {
   .mfp-iframe-holder .mfp-content {
     line-height: 0px;
     width: 100%;
-    max-width: 100%; }
+    max-width: 100%;
+    max-height: 100% }
   .mfp-iframe-holder .mfp-close {
-    top: -40px; }
+    top: -40px;
+    bottom: 40px; }
 
 .mfp-iframe-scaler {
   width: 100%;
