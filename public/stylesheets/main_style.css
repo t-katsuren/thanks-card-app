@@ -235,3 +235,26 @@ ul.child li a{
 ul.child li a:hover{
     background: #2e7443;
 }
+.objectopen {
+	margin: 0 auto;
+}
+.bodytop {
+	padding: 10px;
+}
+.bodybtm2 {
+	width: 100%;
+	display: none;
+}
+.bodybtm2 p,
+.bodybtm2 span {
+	padding: 10px;
+}
+.bodytop .button3 {
+	cursor: pointer;
+	color: #4776AF;
+}
+.contents {
+	margin: 10px auto 40px auto;
+	padding: 10px;
+	background: #9fb7d4;
+}
