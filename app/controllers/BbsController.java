@@ -218,7 +218,7 @@ public class BbsController extends Controller {
 			}
 		}
 
-		return ok(bbs_cont2.render(cardList));
+		return ok(bbs_cont2.render(cardList, date));
 
 	}
 
