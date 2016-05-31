@@ -104,7 +104,7 @@ public class MypageController extends Controller {
 	//感謝カード作成
 	public Result mypage_cont3() {
 
-		List<User> userList = User.find.all();
+		List<User> userList = User.find.where().gt("id", 1).findList();
 
 		List<Department> departmentList = Department.find.all();
 
