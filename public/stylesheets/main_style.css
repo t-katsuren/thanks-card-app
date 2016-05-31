@@ -15,8 +15,8 @@ table{
 
 #main h1 {
   background-color:floralwhite;
-  padding: 5px 10px 10px 10px;
-  font-size: 30px;
+  padding: 2px 10px 10px 2px;
+  font-size: 18px;
   color: #44382d;
   border-bottom: solid 3.5px  ;
 }
@@ -24,7 +24,7 @@ header {
 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
    width: 100%;
   margin: 0 auto;
-    font-size: 50px;
+    font-size: 30px;
      display: block;
    text-align: center;
 
@@ -35,17 +35,17 @@ header div{
 header #header_contact {
 
   float: right;
-  margin: 35px 0;
+  margin: 20px 0;
 }
 #global_navi {
     font-family: helvetica bold;
-  font-size: 17px;
+  font-size: 12px;
     font-weight:bold;
-    letter-spacing:10px;
+    letter-spacing:8px;
   width: 1340px;
   clear: both;
   overflow: hidden;
-  margin: 16px auto;
+  margin: 5px auto;
 }
 #global_navi ul {
   list-style: none;
@@ -156,14 +156,14 @@ tr:not(:first-child):hover{
  	text-decoration:underl
  }
 /*ハンバーガーアイコンの記述*/
-#nav-toggle { position: absolute; right: 5%; top: 25.3%; }
+#nav-toggle { position: absolute; right: 5%; top: 15.3%; }
 
-#nav-toggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+#nav-toggle { cursor: pointer; padding: 10px 15px 16px 0px; }
 #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
   cursor: pointer;
-  border-radius: 5px;
-  height: 6.3px;
-  width: 55px;
+  border-radius: 2px;
+  height: 3.3px;
+  width: 35px;
   background: #4040f0;
   position: absolute;
   display: block;
@@ -171,10 +171,10 @@ tr:not(:first-child):hover{
 
 }
 #nav-toggle span:before {
-  top: -18px;
+  top: -10px;
 }
 #nav-toggle span:after {
-  bottom: -18px;
+  bottom: -10px;
 }
 
 #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
