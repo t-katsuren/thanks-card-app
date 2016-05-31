@@ -71,7 +71,13 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		User.find.deleteById(userId);
+		User delUser = User.find.byId(userId);
+
+		Card.find.where().eq("fromUser", delUser).delete();
+
+		Card.find.where().eq("toUser", delUser).delete();
+
+		delUser.delete();
 
 		return redirect(routes.ManagementController.management_cont1());
 
@@ -134,7 +140,21 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		Section.find.byId(sectionId).delete();
+		Section delSection = Section.find.byId(sectionId);
+
+		List<Department> delDepartmentList = Department.find.where().eq("section", delSection).findList();
+
+		List<User> delUserList = User.find.where().in("department", delDepartmentList).findList();
+
+		Card.find.where().in("fromUser", delUserList).delete();
+
+		Card.find.where().in("toUser", delUserList).delete();
+
+		User.find.where().in("department", delDepartmentList).delete();
+
+		Department.find.where().eq("section", delSection).delete();
+
+		delSection.delete();
 
 		return redirect(routes.ManagementController.management_cont2());
 
@@ -172,7 +192,17 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		Department.find.byId(departmentId).delete();
+		Department delDepartment = Department.find.byId(departmentId);
+
+		List<User> delUserList = User.find.where().eq("department", delDepartment).findList();
+
+		Card.find.where().in("fromUser", delUserList).delete();
+
+		Card.find.where().in("toUser", delUserList).delete();
+
+		User.find.where().eq("department", delDepartment).delete();
+
+		delDepartment.delete();
 
 		return redirect(routes.ManagementController.management_cont2());
 
@@ -228,7 +258,11 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		Category.find.byId(categoryId).delete();
+		Category delCategory = Category.find.byId(categoryId);
+
+		Card.find.where().eq("category", delCategory).delete();
+
+		delCategory.delete();
 
 		return redirect(routes.ManagementController.management_cont3());
 
