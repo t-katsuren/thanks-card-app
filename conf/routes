@@ -25,6 +25,8 @@ GET     /logout                     controllers.AuthController.logout
 # start
 GET     /thanks/card                controllers.HomeController.openCard(cardId: String)
 POST    /thanks/card                controllers.HomeController.addGoodCount(cardId: String)
+
+GET     /thanks/card/error          controllers.HomeController.appError
 # end
 
 

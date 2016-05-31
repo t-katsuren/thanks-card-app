@@ -26,6 +26,12 @@ public class ManagementController extends Controller {
 	//管理者設定ページを表示
 	public Result management_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		String[] loginUser = new String[2];
 
 		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
@@ -40,6 +46,12 @@ public class ManagementController extends Controller {
 	//社員設定
 	public Result management_cont1() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		List<User> userList = User.find.where().gt("id", 1).findList();;
 
 		List<Department> departmentList = Department.find.all();
@@ -53,6 +65,12 @@ public class ManagementController extends Controller {
 	//社員削除
 	public Result deleteUser(Integer userId){
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		User.find.deleteById(userId);
 
 		return redirect(routes.ManagementController.management_cont1());
@@ -61,6 +79,12 @@ public class ManagementController extends Controller {
 
 	//社員追加
 	public Result createUser(){
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
 
 		Map<String, String[]> params = request().body().asFormUrlEncoded();
 
@@ -87,6 +111,12 @@ public class ManagementController extends Controller {
 	//所属設定
 	public Result management_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		List<Section> sectionList = Section.find.all();
 
 		List<Department> departmentList = Department.find.all();
@@ -98,6 +128,12 @@ public class ManagementController extends Controller {
 	//部門削除
 	public Result deleteSection(Integer sectionId){
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		Section.find.byId(sectionId).delete();
 
 		return redirect(routes.ManagementController.management_cont2());
@@ -106,6 +142,12 @@ public class ManagementController extends Controller {
 
 	//部門追加
 	public Result createSection(){
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
 
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
 
@@ -124,6 +166,12 @@ public class ManagementController extends Controller {
 	//部署削除
 	public Result deleteDepartment(Integer departmentId){
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		Department.find.byId(departmentId).delete();
 
 		return redirect(routes.ManagementController.management_cont2());
@@ -132,6 +180,13 @@ public class ManagementController extends Controller {
 
 	//部署追加
 	public Result createDepartment(){
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
 
 		Department newDepartment = new Department();
@@ -152,6 +207,12 @@ public class ManagementController extends Controller {
 	//分類設定
 	public Result management_cont3() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		List<Category> categoryList = Category.find.all();
 
 		return ok(management_cont3.render(categoryList));
@@ -161,6 +222,12 @@ public class ManagementController extends Controller {
 	//分類削除
 	public Result deleteCategory(Integer categoryId){
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
+
 		Category.find.byId(categoryId).delete();
 
 		return redirect(routes.ManagementController.management_cont3());
@@ -169,6 +236,12 @@ public class ManagementController extends Controller {
 
 	//分類追加
 	public Result createCategory(){
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id > 2) {
+			return redirect(routes.HomeController.appError());
+		}
 
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
 
