@@ -24,7 +24,7 @@
  						<li >事例
  								<ul class="child">
  								@for(date <- dateList) {
- 									<li><a class="popup-iframe" href="@routes.BbsController.bbs_cont2(date)">・@date TOP10</a></li>
+ 									<li class="btn" data-action="toggle" data-side="left"><a class="popup-iframe" href="@routes.BbsController.bbs_cont2(date)">・@date TOP10</a></li>
  								}
  								</ul>
  							</li>
