@@ -121,7 +121,7 @@ public class BbsController extends Controller {
 
 			//いいね 降順
 			if(!(params.get("good")[0].equals("default"))) {
-				cards = Card.find.where().orderBy("goodCount DESC").findList();
+				cards = Card.find.where().orderBy("goodCount ASC").findList();
 			}
 
 		}
