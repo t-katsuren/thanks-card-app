@@ -12,6 +12,7 @@ import play.data.*;
 import play.mvc.*;
 
 import views.html.system.*;
+import views.html.errors.*;
 
 @Security.Authenticated(Secured.class)
 public class SystemController extends Controller {
@@ -23,6 +24,12 @@ public class SystemController extends Controller {
 	//systemメインページ -> cardメインへリダイレクト
 	public Result system_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return redirect(routes.SystemController.card_main());
 
 	}
@@ -33,11 +40,23 @@ public class SystemController extends Controller {
 	//card メインページ
 	public Result card_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(card_main.render());
 
 	}
 	//card TOPページ
 	public Result card_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		List<Card> cards = Card.find.all();
 
@@ -67,11 +86,23 @@ public class SystemController extends Controller {
 	//card 作成ページ
 	public Result card_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(card_cont2.render(formFactory.form(Card.class)));
 
 	}
 	//card 作成
 	public Result createCard() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Card newCard = formFactory.form(Card.class).bindFromRequest().get();
 
@@ -82,6 +113,12 @@ public class SystemController extends Controller {
 	}
 	//card 削除
 	public Result deleteCard(Integer cardId) {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Card.find.deleteById(cardId);
 
@@ -95,11 +132,23 @@ public class SystemController extends Controller {
 	//category メインページ
 	public Result category_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(category_main.render());
 
 	}
 	//category TOPページ
 	public Result category_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		List<Category> categoryList = Category.find.all();
 
@@ -109,11 +158,23 @@ public class SystemController extends Controller {
 	//category 作成ページ
 	public Result category_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(category_cont2.render(formFactory.form(Category.class)));
 
 	}
 	//category 作成
 	public Result createCategory() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Category newCategory = formFactory.form(Category.class).bindFromRequest().get();
 
@@ -124,6 +185,12 @@ public class SystemController extends Controller {
 	}
 	//category 削除
 	public Result deleteCategory(Integer categoryId) {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Category.find.deleteById(categoryId);
 
@@ -137,11 +204,23 @@ public class SystemController extends Controller {
 	//department メインページ
 	public Result department_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(department_main.render());
 
 	}
 	//department TOPページ
 	public Result department_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		List<Department> departmentList = Department.find.all();
 
@@ -151,11 +230,23 @@ public class SystemController extends Controller {
 	//department 作成ページ
 	public Result department_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(department_cont2.render(formFactory.form(Department.class)));
 
 	}
 	//department 作成
 	public Result createDepartment() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Department newDepartment = formFactory.form(Department.class).bindFromRequest().get();
 
@@ -166,6 +257,12 @@ public class SystemController extends Controller {
 	}
 	//department 削除
 	public Result deleteDepartment(Integer departmentId) {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Department.find.deleteById(departmentId);
 
@@ -179,11 +276,23 @@ public class SystemController extends Controller {
 	//permission メインページ
 	public Result permission_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(permission_main.render());
 
 	}
 	//permission TOPページ
 	public Result permission_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		List<Permission> permissionList = Permission.find.all();
 
@@ -193,11 +302,23 @@ public class SystemController extends Controller {
 	//permission 作成ページ
 	public Result permission_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(permission_cont2.render(formFactory.form(Permission.class)));
 
 	}
 	//permission 作成
 	public Result createPermission() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Permission newPermission = formFactory.form(Permission.class).bindFromRequest().get();
 
@@ -208,6 +329,12 @@ public class SystemController extends Controller {
 	}
 	//permission 削除
 	public Result deletePermission(Integer permissionId) {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Permission.find.deleteById(permissionId);
 
@@ -221,11 +348,23 @@ public class SystemController extends Controller {
 	//section メインページ
 	public Result section_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(section_main.render());
 
 	}
 	//section TOPページ
 	public Result section_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		List<Section> sectionList = Section.find.all();
 
@@ -235,11 +374,23 @@ public class SystemController extends Controller {
 	//section 作成ページ
 	public Result section_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(section_cont2.render(formFactory.form(Section.class)));
 
 	}
 	//section 作成
 	public Result createSection() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Section newSection = formFactory.form(Section.class).bindFromRequest().get();
 
@@ -250,6 +401,12 @@ public class SystemController extends Controller {
 	}
 	//section 削除
 	public Result deleteSection(Integer sectionId) {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		Section.find.deleteById(sectionId);
 
@@ -263,11 +420,23 @@ public class SystemController extends Controller {
 	//user メインページ
 	public Result user_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(user_main.render());
 
 	}
 	//user TOPページ
 	public Result user_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		List<User> userList = User.find.all();
 
@@ -277,11 +446,23 @@ public class SystemController extends Controller {
 	//user 作成ページ
 	public Result user_cont2() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(user_cont2.render(formFactory.form(User.class)));
 
 	}
 	//user 作成
 	public Result createUser() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		User newUser = formFactory.form(User.class).bindFromRequest().get();
 
@@ -295,6 +476,12 @@ public class SystemController extends Controller {
 	//user 削除
 	public Result deleteUser(Integer userId) {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		User.find.deleteById(userId);
 
 		return redirect(routes.SystemController.user_cont1());
@@ -307,11 +494,23 @@ public class SystemController extends Controller {
 	//Master メインページ
 	public Result master_main() {
 
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
+
 		return ok(master_main.render());
 
 	}
 	//Master TOPページ
 	public Result master_cont1() {
+
+		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
+
+		if(id != 1) {
+			return redirect(routes.HomeController.systemError());
+		}
 
 		return ok(master_cont1.render());
 
