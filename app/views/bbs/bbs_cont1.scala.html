@@ -30,12 +30,14 @@
 	</head>
 	<body>
 		<p><h1><center>掲示板</center></h1></p>
-
-		<p>◆…◇… 絞 り 込 み …◇…◆</p>
-
+<div class="objectopen">
+<div class="bodytop">
+		◆…◇… 絞 り 込 み …◇…◆&nbsp&nbsp
+		<span class="button3">ツールを開く</span>
+		<!--bodytop--></div>
+        <div class="bodybtm2">
 		<form action="@routes.BbsController.bbs_cont1()" method="post">
-			<p>
-				送った人：
+				<p>送った人：
 				<select name="fromDepartmentName">
 					<option value="default">--- FROM(部署)検索 ---</option>
 					@for(department <- departmentList) {
@@ -87,6 +89,8 @@
 				</select>
 			</p>
 			<input type="submit" name="submit" value="検索">
+			<!--bodybtm2--></div>
+			<!--objectopen--></div>
 			<script>
 				$(function() {
 					$('select[name="fromDepartmentName"]').change(function() {
@@ -151,6 +155,22 @@
 			</tr>
 			}
 		</table>
+		<script>
+		$(document).ready(function(){
+			//$('.bodybtm2').hide();
+			var flg = 'close';
+			$('.button3').click(function(){
+			$('.bodybtm2').slideToggle('fast');
+			if(flg == 'close'){
+			flg = 'open';
+			$(this).text('閉じる');
+			}else{
+			flg = 'close';
+			$(this).text('ツールを開く');
+			}
+			});
+			});
+		</script>
 		<script>
 			$(function() {
 				$('.popup-iframe').magnificPopup({
