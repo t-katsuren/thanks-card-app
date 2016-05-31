@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
 		<meta charset="UTF-8">
 		<style>
 			table{border-spacing: 15px;}
@@ -21,7 +21,7 @@
 					<td>
 						<b>宛先</b>
 						<select name="department">
-							<option  selected="selected" class="msg">--- 部署 ---</option>
+							<option selected="selected" class="msg">--- 部署 ---</option>
 							@for(department <- departmentList) {
 								<option class="count@department.id"> @department.departmentName</option>
 							}
