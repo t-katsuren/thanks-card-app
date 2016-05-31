@@ -150,7 +150,7 @@ public class BbsController extends Controller {
 
 		List<Category> categoryList = Category.find.all();
 
-		List<User> userList = User.find.all();
+		List<User> userList = User.find.where().gt("id", 1).findList();;
 
 		return ok(bbs_cont1.render(cardList, departmentList, categoryList, userList));
 

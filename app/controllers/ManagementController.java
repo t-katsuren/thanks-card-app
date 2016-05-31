@@ -36,9 +36,13 @@ public class ManagementController extends Controller {
 	//社員設定
 	public Result management_cont1() {
 
-		List<User> userList = User.find.all();
+		List<User> userList = User.find.where().gt("id", 1).findList();;
 
-		return ok(management_cont1.render(userList, formFactory.form(User.class)));
+		List<Department> departmentList = Department.find.all();
+
+		List<Permission> permissionList = Permission.find.where().gt("id", 1).findList();
+
+		return ok(management_cont1.render(userList, formFactory.form(User.class), departmentList, permissionList));
 
 	}
 

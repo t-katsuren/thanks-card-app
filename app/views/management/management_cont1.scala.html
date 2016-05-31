@@ -1,4 +1,4 @@
-@(userList: List[User])(userForm: Form[User])
+@(userList: List[User])(userForm: Form[User])(departmentList: List[Department])(permissionList: List[Permission])
 
 @import helper._
 
@@ -59,9 +59,23 @@
 				<form action="@routes.ManagementController.createUser()" method="post">
 					<td><input type="text" style="width: 150px; height: 25px;" name="userCd" /></td>
 					<td><input type="Password" style="width: 150px; height: 25px;" name="userPass" /></td>
-					<td><input type="text" style="width: 150px; height: 25px;" name="departmentName" /></td>
+					<td>
+						<select style="width: 165px; height: 30px;" name="departmentName">
+							<option value="default">部署名を選択</option>
+							@for(department <- departmentList) {
+								<option value="@department.departmentName">@department.departmentName</option>
+							}
+						</select>
+					</td>
 					<td><input type="text" style="width: 150px; height: 25px;" name="userName" /></td>
-					<td><input type="text" style="width: 150px; height: 25px;" name="permissionName" /></td>
+					<td>
+						<select style="width: 165px; height: 30px;" name="permissionName">
+							<option value="default">権限名を選択</option>
+							@for(permission <- permissionList) {
+								<option value="@permission.permissionName">@permission.permissionName</option>
+							}
+						</select>
+					</td>
 					<td>
 						<input class="myButtonA" type="submit" style="width: 100px; height: 30px;" value="ADD" />
 					</td>

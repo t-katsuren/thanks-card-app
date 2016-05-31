@@ -2,6 +2,9 @@
 
 @main_frame(loginUserName) {
 	<!-- wrapper -->
+			<!-- popuup -->
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+		<script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")"></script>
 	<div id="wrapper">
 		<div class="sidebar left">
 			<section id="side_banner">
@@ -66,6 +69,18 @@
  			    });
  			});
  			</script>
+ <script>
+$(function(){
+  $('.popup-iframe').magnificPopup({
+    type: 'iframe',
+    disableOn: 500, //ウィンドウ幅が500px以下だったらモーダル表示させずにリンク先へ遷移
+    mainClass: 'mfp-fade',
+    removalDelay: 200,
+    preloader: false,
+    fixedContentPos: false,
+  });
+});
+</script>
 		</div>
 	</div>
 }
