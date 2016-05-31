@@ -20,21 +20,21 @@
 				<tr>
 					<td>
 						<b>宛先</b>
-						<select name="department">
-							<option selected="selected" class="msg">--- 部署 ---</option>
+						<select name="department" required>>
+							<option selected="selected" class="msg" value ="">--- 部署 ---</option>
 							@for(department <- departmentList) {
 								<option class="count@department.id"> @department.departmentName</option>
 							}
 						</select>
-						<select name="toUserName">
-							<option selected="selected" class="msg">--- 氏名 ---</option>
+						<select name="toUserName" required>>
+							<option selected="selected" class="msg" value ="">--- 氏名 ---</option>
 							@for(user <- userList) {
 								<option class="count@user.department.id">@user.userName</option>
 							}
 						</select>
 						&nbsp;&nbsp;<b>分類</b>
-						<select name="category">
-							<option value ="default"> --- 分類 ---
+						<select name="category" required>
+							<option value =""> --- 分類 ---
 							@for(category <- categoryList){
 							<option>@category.categoryName</option>
 							}
@@ -44,19 +44,19 @@
 				<tr>
 					<td>
 						<b>タイトル</b><br>
-						<input type="text" name="title" size="80">
+						<input type="text" name="title" size="80" required>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<b>やってもらったこと</b><br>
-						<textarea cols="80" name="detail" rows="10"></textarea>
+						<textarea cols="80" name="detail" rows="10" required></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<b>感謝の言葉</b><br>
-						<textarea cols="80" name=message rows="10"></textarea>
+						<textarea cols="80" name=message rows="10" required></textarea>
 					</td>
 				</tr>
 				<tr>
