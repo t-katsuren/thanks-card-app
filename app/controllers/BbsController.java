@@ -7,6 +7,8 @@ import javax.inject.Inject;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.avaje.ebean.ExpressionList;
+
 import models.*;
 import play.data.*;
 import play.mvc.*;
@@ -62,7 +64,9 @@ public class BbsController extends Controller {
 	//掲示板一覧
 	public Result bbs_cont1() {
 
-		List<Card> cards = Card.find.all();
+		List<Card> cards = new ArrayList<>();
+
+		ExpressionList<Card> expression = Card.find.where();
 
 		Map<String, String[]> params = request().body().asFormUrlEncoded();
 
@@ -75,7 +79,7 @@ public class BbsController extends Controller {
 
 				List<User> fromUserList = User.find.where().eq("department", department).findList();
 
-				cards = Card.find.where().in("fromUser", fromUserList).findList();
+				expression = expression.in("fromUser", fromUserList);
 
 			}
 
@@ -84,7 +88,7 @@ public class BbsController extends Controller {
 
 				User fromUser = User.find.where().eq("userName", params.get("fromUserName")[0]).findUnique();
 
-				cards = Card.find.where().eq("fromUser", fromUser).findList();
+				expression = expression.eq("fromUser", fromUser);
 
 			}
 
@@ -95,7 +99,7 @@ public class BbsController extends Controller {
 
 				List<User> toUserList = User.find.where().eq("department", department).findList();
 
-				cards = Card.find.where().in("toUser", toUserList).findList();
+				expression = expression.in("toUser", toUserList);
 
 			}
 
@@ -104,7 +108,7 @@ public class BbsController extends Controller {
 
 				User toUser = User.find.where().eq("userName", params.get("toUserName")[0]).findUnique();
 
-				cards = Card.find.where().eq("toUser", toUser).findList();
+				expression = expression.eq("toUser", toUser);
 
 			}
 
@@ -113,7 +117,7 @@ public class BbsController extends Controller {
 
 				Category category = Category.find.where().eq("categoryName", params.get("categoryName")[0]).findUnique();
 
-				cards = Card.find.where().eq("category", category).findList();
+				expression = expression.eq("category", category);
 
 			}
 
@@ -125,15 +129,15 @@ public class BbsController extends Controller {
 
 				if(!(fromDate.equals("")) && !(toDate.equals(""))) {
 
-					cards = Card.find.where().between("date", fromDate, toDate).findList();
+					expression = expression.between("date", fromDate, toDate);
 
 				} else if(toDate.equals("")) {
 
-					cards = Card.find.where().ge("date", fromDate).findList();
+					expression = expression.ge("date", fromDate);
 
 				} else {
 
-					cards = Card.find.where().le("date", toDate).findList();
+					expression = expression.le("date", toDate);
 
 				}
 
@@ -142,9 +146,17 @@ public class BbsController extends Controller {
 			//いいね 降順
 			if(!(params.get("good")[0].equals("default"))) {
 
-				cards = Card.find.where().orderBy("goodCount ASC").findList();
+				cards = expression.orderBy("goodCount ASC").findList();
+
+			} else {
+
+				cards = expression.findList();
 
 			}
+
+		} else {
+
+			cards = Card.find.all();
 
 		}
 
