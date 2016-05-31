@@ -1,3 +1,5 @@
+@(relationList: List[Array[String]])(departmentList: List[Department])
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -16,46 +18,38 @@
 		</script>
 	</head>
 	<body>
-		<table class="type01" width="100%">
-			<thead>
-				<tr>
-					<td><strong> F R O M <strong>＼</strong> T O </strong></td>
-					<th>IT</th>
-					<th>自治</th>
-					<th>人事</th>
-				</tr>
-			</thead>
-			<tbody class="type10">
-				<tr>
-					<th>IT</th>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<th>自治体</th>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<th>人事</th>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-				</tr>
-		</table>
-		<br>
-		<br>
 		<hr>
-			<table class="type01"　width="100%">
+			<table class="type01" width="100%">
 				<tr>
-				<th>FROMはピンクです</th>
+				<th>TOはピンクです</th>
 				<tbody class="type10">
-				<th>Toは青です</th>
+				<th>FROMは青です</th>
 				</tr>
 				</tbody>
 			</table>
 		<hr>
+		<table class="type01" width="100%">
+			<thead>
+				<tr>
+					<td><strong> FROM <strong>＼</strong> TO </strong></td>
+					@for(department <- departmentList) {
+						<th>@department.departmentName</th>
+					}
+				</tr>
+			</thead>
+			<tbody class="type10">
+				@for(relation <- relationList) {
+					<tr>
+						@for(i <- 0 to (departmentList.length)) {
+							@if(i == 0) {
+								<th>@relation(i)</th>
+							} else {
+								<td>@relation(i)</td>
+							}
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
 	</body>
 </html>

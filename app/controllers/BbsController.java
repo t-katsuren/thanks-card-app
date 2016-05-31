@@ -222,7 +222,45 @@ public class BbsController extends Controller {
 	//掲示板関連
 	public Result bbs_cont3() {
 
-		return ok(bbs_cont3.render());
+		List<Department> departmentList = Department.find.all();
+
+		List<String[]> relationList = new ArrayList<>();
+
+		int size = departmentList.size();
+
+		for(int i = 1; i <= size; i++) {
+
+			String[] temp = new String[size+1];
+
+			for(int j = 0; j <= size; j++) {
+
+				if(j == 0) {
+
+					temp[j] = departmentList.get(i-1).departmentName;
+
+				} else {
+
+					Department from = Department.find.where().eq("id", i).findUnique();
+					Department to = Department.find.where().eq("id", j).findUnique();
+
+					List<User> fromUser = User.find.where().eq("department", from).findList();
+					List<User> toUser   = User.find.where().eq("department", to).findList();
+
+					List<Card> cards = Card.find.where().in("fromUser", fromUser).in("toUser", toUser).findList();
+
+					Integer count = cards.size();
+
+					temp[j] = String.valueOf(count);
+
+				}
+
+			}
+
+			relationList.add(temp);
+
+		}
+
+		return ok(bbs_cont3.render(relationList, departmentList));
 
 	}
 
