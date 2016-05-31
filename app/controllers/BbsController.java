@@ -31,9 +31,13 @@ public class BbsController extends Controller {
 		List<String> dateAll = new ArrayList<>();
 
 		for(int i = 0; i < cardList.size(); i++) {
+
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分ss秒");
+
 			String str = sdf.format(cardList.get(i).date);
+
 			dateAll.add(str.substring(0, 8));
+
 		}
 
 		HashSet<String> dateSet = new HashSet<String>();
@@ -66,66 +70,80 @@ public class BbsController extends Controller {
 
 			//from部署フィルター
 			if(!(params.get("fromDepartmentName")[0].equals("default"))) {
+
 				Department department = Department.find.where().eq("departmentName", params.get("fromDepartmentName")[0]).findUnique();
+
 				List<User> fromUserList = User.find.where().eq("department", department).findList();
-				List<Card> temp = new ArrayList<>();
-				for(int i = 0; i < fromUserList.size(); i++) {
-					List<Card> temp1 = Card.find.where().eq("fromUser", fromUserList.get(i)).findList();
-					for(int j = 0; j < temp1.size(); j++) {
-						temp.add(temp1.get(j));
-					}
-				}
-				cards = temp;
+
+				cards = Card.find.where().in("fromUser", fromUserList).findList();
+
 			}
 
 			//from氏名フィルター
 			if(!(params.get("fromUserName")[0].equals("default"))) {
+
 				User fromUser = User.find.where().eq("userName", params.get("fromUserName")[0]).findUnique();
+
 				cards = Card.find.where().eq("fromUser", fromUser).findList();
+
 			}
 
 			//to部署フィルター
 			if(!(params.get("toDepartmentName")[0].equals("default"))) {
+
 				Department department = Department.find.where().eq("departmentName", params.get("toDepartmentName")[0]).findUnique();
+
 				List<User> toUserList = User.find.where().eq("department", department).findList();
-				List<Card> temp = new ArrayList<>();
-				for(int i = 0; i < toUserList.size(); i++) {
-					List<Card> temp1 = Card.find.where().eq("toUser", toUserList.get(i)).findList();
-					for(int j = 0; j < temp1.size(); j++) {
-						temp.add(temp1.get(j));
-					}
-				}
-				cards = temp;
+
+				cards = Card.find.where().in("toUser", toUserList).findList();
+
 			}
 
 			//to氏名フィルター
 			if(!(params.get("toUserName")[0].equals("default"))) {
+
 				User toUser = User.find.where().eq("userName", params.get("toUserName")[0]).findUnique();
+
 				cards = Card.find.where().eq("toUser", toUser).findList();
+
 			}
 
 			//分類フィルター
 			if(!(params.get("categoryName")[0].equals("default"))) {
+
 				Category category = Category.find.where().eq("categoryName", params.get("categoryName")[0]).findUnique();
+
 				cards = Card.find.where().eq("category", category).findList();
+
 			}
 
 			//期間フィルター
 			if(!(params.get("fromDate")[0].equals("")) || !(params.get("toDate")[0].equals(""))) {
+
 				String fromDate = params.get("fromDate")[0];
 				String toDate = params.get("toDate")[0];
+
 				if(!(fromDate.equals("")) && !(toDate.equals(""))) {
+
 					cards = Card.find.where().between("date", fromDate, toDate).findList();
+
 				} else if(toDate.equals("")) {
+
 					cards = Card.find.where().ge("date", fromDate).findList();
+
 				} else {
+
 					cards = Card.find.where().le("date", toDate).findList();
+
 				}
+
 			}
 
 			//いいね 降順
 			if(!(params.get("good")[0].equals("default"))) {
+
 				cards = Card.find.where().orderBy("goodCount ASC").findList();
+
 			}
 
 		}
@@ -134,7 +152,7 @@ public class BbsController extends Controller {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
-		for(int i = cards.size()-1; i >=0; i--) {
+		for(int i = (cards.size() - 1); i >= 0; i--) {
 			String[] temp = new String[9];
 
 			temp[0] = String.valueOf(cards.get(i).id);
@@ -170,13 +188,17 @@ public class BbsController extends Controller {
 		String nextMonth = "";
 
 		if((Integer.parseInt(month) + 1) < 10) {
+
 			nextMonth = "0" + (Integer.parseInt(month) + 1);
+
 		} else {
+
 			nextMonth = "" + (Integer.parseInt(month) + 1);
+
 		}
 
 		String fromStr = year + month + "01 00:00:00";
-		String toStr = year + nextMonth + "01 00:00:00";
+		String toStr   = year + nextMonth + "01 00:00:00";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
 
@@ -185,12 +207,14 @@ public class BbsController extends Controller {
 		try {
 
 		Date fromDate = sdf.parse(fromStr);
-		Date toDate = sdf.parse(toStr);
+		Date toDate   = sdf.parse(toStr);
 
 		cards = Card.find.where().ge("date", fromDate).lt("date", toDate).orderBy("goodCount DESC").findList();
 
 		} catch(ParseException e) {
+
 			e.printStackTrace();
+
 		}
 
 		List<String[]> cardList = new ArrayList<>();
@@ -245,7 +269,7 @@ public class BbsController extends Controller {
 				} else {
 
 					Department from = Department.find.where().eq("id", i).findUnique();
-					Department to = Department.find.where().eq("id", j).findUnique();
+					Department to   = Department.find.where().eq("id", j).findUnique();
 
 					List<User> fromUser = User.find.where().eq("department", from).findList();
 					List<User> toUser   = User.find.where().eq("department", to).findList();
@@ -267,5 +291,6 @@ public class BbsController extends Controller {
 		return ok(bbs_cont3.render(relationList, departmentList));
 
 	}
+
 
 }
