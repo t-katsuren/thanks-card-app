@@ -24,6 +24,7 @@ GET     /logout                     controllers.AuthController.logout
 # Home Control for main contents
 # start
 GET     /thanks/card                controllers.HomeController.openCard(cardId: String)
+POST    /thanks/card                controllers.HomeController.addGoodCount(cardId: String)
 # end
 
 

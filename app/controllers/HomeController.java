@@ -33,6 +33,7 @@ public class HomeController extends Controller {
 
 		List<String> contentsList = new ArrayList<>();
 
+		contentsList.add(String.valueOf(card.id));
 		contentsList.add(card.fromUser.department.departmentName);
 		contentsList.add(card.fromUser.userName);
 		contentsList.add(card.toUser.department.departmentName);
@@ -43,6 +44,21 @@ public class HomeController extends Controller {
 		contentsList.add(card.message);
 
 		return ok(open_card.render(contentsList));
+
+	}
+
+	//「いいね」ボタンが押されたらGoodCountを足す
+	public Result addGoodCount(String cardId) {
+
+		Integer id = Integer.parseInt(cardId);
+
+		Card card = Card.find.byId(id);
+
+		card.goodCount = card.goodCount + 1;
+
+		card.save();
+
+		return redirect(routes.MypageController.mypage_cont1());
 
 	}
 
