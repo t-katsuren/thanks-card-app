@@ -26,9 +26,27 @@ public class BbsController extends Controller {
 	//掲示板ページを表示
 	public Result bbs_main() {
 
+		List<Card> cardList = Card.find.all();
+
+		List<String> dateAll = new ArrayList<>();
+
+		for(int i = 0; i < cardList.size(); i++) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分ss秒");
+			String str = sdf.format(cardList.get(i).date);
+			dateAll.add(str.substring(0, 8));
+		}
+
+		HashSet<String> dateSet = new HashSet<String>();
+        dateSet.addAll(dateAll);
+
+        List<String> dateList = new ArrayList<>(dateSet);
+
+        Collections.sort(dateList);
+        Collections.reverse(dateList);
+
 		String loginUserName = User.find.where().eq("userCd", session("login")).findUnique().userName;
 
-		return ok(bbs_main.render(loginUserName));
+		return ok(bbs_main.render(loginUserName, dateList));
 
 	}
 
@@ -137,33 +155,8 @@ public class BbsController extends Controller {
 	}
 
 
-	//掲示板事例1ページ目
-	public Result bbs_cont2() {
-
-		List<Card> cardList = Card.find.all();
-
-		List<String> dateAll = new ArrayList<>();
-
-		for(int i = 0; i < cardList.size(); i++) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分ss秒");
-			String str = sdf.format(cardList.get(i).date);
-			dateAll.add(str.substring(0, 8));
-		}
-
-		HashSet<String> dateSet = new HashSet<String>();
-        dateSet.addAll(dateAll);
-
-        List<String> dateList = new ArrayList<>(dateSet);
-
-        Collections.sort(dateList);
-
-		return ok(bbs_cont2.render(dateList));
-
-	}
-
-
-	//掲示板事例2ページ目
-	public Result bbs_cont4(String date) {
+	//掲示板事例
+	public Result bbs_cont2(String date) {
 
 		String year = date.substring(0, 4);
 		String month = date.substring(5, 7);
@@ -219,7 +212,7 @@ public class BbsController extends Controller {
 			}
 		}
 
-		return ok(bbs_cont4.render(cardList));
+		return ok(bbs_cont2.render(cardList));
 
 	}
 

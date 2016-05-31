@@ -42,9 +42,8 @@ POST    /mypage_cont3               controllers.MypageController.sendCard
 GET     /bbs                        controllers.BbsController.bbs_main
 GET     /bbs/cont1                  controllers.BbsController.bbs_cont1
 POST    /bbs/cont1                  controllers.BbsController.bbs_cont1
-GET     /bbs/cont2                  controllers.BbsController.bbs_cont2
+GET     /bbs/cont2                  controllers.BbsController.bbs_cont2(date: String)
 GET     /bbs/cont3                  controllers.BbsController.bbs_cont3
-GET     /bbs/cont4                  controllers.BbsController.bbs_cont4(date: String)
 # end
 
 
