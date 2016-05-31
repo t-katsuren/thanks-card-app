@@ -6,6 +6,7 @@ import models.*;
 import play.mvc.*;
 
 import views.html.*;
+import views.html.errors.*;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -59,6 +60,18 @@ public class HomeController extends Controller {
 		card.save();
 
 		return redirect(routes.MypageController.mypage_cont1());
+
+	}
+
+	public Result appError() {
+
+		String[] loginUser = new String[2];
+
+		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
+
+		loginUser[1] = User.find.where().eq("userCd", session("login")).findUnique().permission.permissionName;
+
+		return badRequest(app_error.render(loginUser));
 
 	}
 

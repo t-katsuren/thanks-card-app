@@ -1,0 +1,54 @@
+@(loginUser: Array[String])
+
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>thanks Card Management System</title>
+
+		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main_style.css")">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
+
+		<!-- Slide bar -->
+		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery.sidebar.min.js")"></script>
+
+	</head>
+	<body>
+		<header>
+			Thanks Card Management System
+		<!-- グローバルナビ -->
+		<nav id="global_navi">
+			<ul>
+				<li><a href="@routes.MypageController.mypage_main()">マイページ</a></li>
+				<li><a href="@routes.BbsController.bbs_main()">掲示板</a></li>
+				<li><a href="@routes.ManagementController.management_main()">管理者設定</a></li>
+				<li><a href="@routes.AuthController.logout()">ログアウト</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<a href="#" id="nav-toggle" class="btn" data-action="toggle" data-side="left"><span align="right"></span></a>
+			<article>
+				<h1>ようこそ @loginUser(0) さん &nbsp;（ &nbsp;@loginUser(1)&nbsp; ）</h1>
+			</article>
+		</div>
+		</header>
+		<center><h1 style="color: red;" >アプリケーション管理者専用ページ</h1></center>
+		<center><h3 style="color: red;" >アクセスする権限がありません。</h3></center>
+		<center><h3 style="color: red;" >詳細はアプリケーション管理者へお問い合わせ下さい。</h3></center>
+		<footer>
+			<div id="footer_nav">
+				<ul>
+					<li><a href="@routes.MypageController.mypage_main()">マイページ</a></li>
+					<li><a href="@routes.BbsController.bbs_main()">掲示板</a></li>
+					<li><a href="@routes.ManagementController.management_main()">管理者画面</a></li>
+					<li><a href="@routes.AuthController.logout()">ログアウト</a>
+				</ul>
+			</div>
+			<small>&copy; 2016 team_OCC-B</small>
+		</footer>
+	</body>
+</html>
