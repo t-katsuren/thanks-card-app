@@ -29,6 +29,16 @@
 				$("tr:nth-child(even)").addClass("even");
 			});
 		</script>
+					<script>
+			function myEnter(){
+			     myRet = confirm("削除しちゃうよ？");
+			     if ( myRet == true ){
+			         alert("削除しました！");
+			     }else{
+			    	 location.href = "@routes.ManagementController.management_cont1()";
+			     }
+			}
+			</script>
 	</head>
 	<body>
 		<center><h1>社員設定</h1></center>
@@ -50,7 +60,7 @@
 				<td>@user.permission.permissionName</td>
 				<td>
 					<form action="@routes.ManagementController.deleteUser(user.id)" method="post">
-						<input class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
+						<input onclick="myEnter()" class="myButtonD" type="submit" style="width: 100px; height: 30px;" value="DELETE" />
 					</form>
 				</td>
 			</tr>
