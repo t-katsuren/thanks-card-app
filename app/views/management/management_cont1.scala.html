@@ -61,7 +61,7 @@
 					<td><input type="Password" style="width: 150px; height: 25px;" name="userPass" required /></td>
 					<td>
 						<select style="width: 165px; height: 30px;" name="departmentName" required>
-							<option value="default">部署名を選択</option>
+							<option value="">部署名を選択</option>
 							@for(department <- departmentList) {
 								<option value="@department.departmentName">@department.departmentName</option>
 							}
@@ -70,7 +70,7 @@
 					<td><input type="text" style="width: 150px; height: 25px;" name="userName"  required/></td>
 					<td>
 						<select style="width: 165px; height: 30px;" name="permissionName" required>
-							<option value="default">権限名を選択</option>
+							<option value="">権限名を選択</option>
 							@for(permission <- permissionList) {
 								<option value="@permission.permissionName">@permission.permissionName</option>
 							}

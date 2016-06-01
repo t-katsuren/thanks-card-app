@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
 	</head>
 	<body>
+	<center><h1>user作成</h1></center>
+
 		@form(routes.SystemController.createUser()) {
 			@inputText(userForm("userCd"), '_label -> "user_cd")
 			@inputPassword(userForm("userPass"), '_label -> "user_pass")
@@ -14,6 +16,7 @@
 			@inputText(userForm("userName"), '_label -> "user_name")
 			@inputText(userForm("permission.id"), '_label -> "permission_id")
 			<input class="myButtonA" type="submit" style="width: 100px; height: 30px;" value="Create" />
+
 		}
 	</body>
 </html>
