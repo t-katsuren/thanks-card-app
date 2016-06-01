@@ -24,7 +24,9 @@ GET     /logout                     controllers.AuthController.logout
 # Home Control for main contents
 # start
 GET     /thanks/card                controllers.HomeController.openCard(cardId: String)
-POST    /thanks/card                controllers.HomeController.addGoodCount(cardId: String)
+POST    /thanks/card/mycont1        controllers.HomeController.addGoodCount_MyCont1(cardId: String)
+POST    /thanks/card/mycont2        controllers.HomeController.addGoodCount_MyCont2(cardId: String)
+POST    /thanks/card/bbscont1       controllers.HomeController.addGoodCount_BbsCont1(cardId: String)
 
 GET     /thanks/card/error          controllers.HomeController.appError
 GET     /system/error               controllers.HomeController.systemError

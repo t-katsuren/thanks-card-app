@@ -41,6 +41,7 @@
 				<th scope="row">分類</th>
 				<th scope="row">タイトル</th>
 				<th scope="row">日付</th>
+				<th scope="row">いいね件数</th>
 				<th scope="row">いいね</th>
 			</tr>
 			<tr>
@@ -54,6 +55,11 @@
 				<td><a class="popup-iframe" href="@routes.HomeController.openCard(card(0))">@card(6)</a></td>
 				<td>@card(7)</td>
 				<td>@card(8)</td>
+				<td>
+					<form action="@routes.HomeController.addGoodCount_MyCont1(card(0))" method="POST" >
+						<input class="myButtonI" type="submit" style="width: 96px; height: 32px;" value="いいね!!">
+					</form>
+				</td>
 			</tr>
 			}
 		</table>
