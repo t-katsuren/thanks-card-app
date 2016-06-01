@@ -60,16 +60,16 @@ header #header_contact {
 #global_navi ul li a {
   display: block;
   padding: 16px;
-  background-color: #22201e;
+  background-color: #263248;
   color: #fff;
   text-decoration: none;
   transition: background-color 0.2s linear;
 }
 #global_navi ul li.current a {
-  background-color: #c19f63;
+  background-color: #7E8AA2';
 }
 #global_navi ul li a:hover {
-  background-color: #8c7a5b;
+  background-color: #3c5076;
     font-size: 15px;
 }
 #wrapper {
