@@ -242,6 +242,8 @@ public class ManagementController extends Controller {
 
 		Department newDepartment = new Department();
 
+		newDepartment.id = Department.find.all().size() + 1;
+
 		newDepartment.departmentCd = parms.get("departmentCd")[0];
 
 		String sectionName = parms.get("sectionName")[0];
