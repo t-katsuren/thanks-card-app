@@ -7,7 +7,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
-
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 		<!-- jQuery -->
 		<script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.12.3.min.js")"></script>
 
@@ -73,16 +73,25 @@
 						<select style="width: 165px; height: 30px;" name="departmentName" required>
 							<option value="">部署名を選択</option>
 							@for(department <- departmentList) {
-								<option value="@department.departmentName">@department.departmentName</option>
-							}
+								@if(department.id == 1){
+								<option value="@department.departmentName" class="human">@department.departmentName</option>
+								}else{
+								<option value="@department.departmentName" class="etc">@department.departmentName</option>
+								}
+					}
 						</select>
 					</td>
 					<td><input type="text" style="width: 150px; height: 25px;" name="userName"  required/></td>
 					<td>
-						<select style="width: 165px; height: 30px;" name="permissionName" required>
+						<select  style="width: 165px; height: 30px;" name="permissionName" required>
 							<option value="">権限名を選択</option>
 							@for(permission <- permissionList) {
-								<option value="@permission.permissionName">@permission.permissionName</option>
+							@if(permission.id==3){
+                            <option value="@permission.permissionName" class="etc">@permission.permissionName</option>
+							}
+							@if(permission.id==2){
+							<option value="@permission.permissionName" class="human">@permission.permissionName</option>
+							}
 							}
 						</select>
 					</td>
@@ -90,6 +99,31 @@
 						<input class="myButtonA" type="submit" style="width: 100px; height: 30px;" value="ADD" />
 					</td>
 				</form>
+				<script>
+				$(function() {
+	$('select[name="departmentName"]').change(function() {
+		var countyName = $('select[name="departmentName"] option:selected').attr("class");
+		console.log(countyName);
+	})
+})
+
+$(function() {
+	$('select[name="departmentName"]').change(function() {
+		var countyName = $('select[name="departmentName"] option:selected').attr("class");
+		console.log(countyName);
+		var count = $('select[name="permissionName"]').children().length;
+
+		for (var i=0; i<count; i++) {
+			var city = $('select[name="permissionName"] option:eq(' + i + ')');
+			if(city.attr("class") === countyName) {
+				city.show();
+			}else {
+				city.hide();
+			}
+		}
+	})
+})
+</script>
 			</tr>
 		</table>
 	</body>
