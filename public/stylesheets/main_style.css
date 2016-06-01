@@ -4,7 +4,7 @@ a { color: #b7a077;text-decoration: none; }
 b:cpolortest { color:aqua }
 a:visited { color: #7E8AA2;}
 a:hover {
-  color: #ff9022;
+  color: #ff9800;
   font-weight: bold;
   text-decoration: none;
 }
@@ -38,7 +38,7 @@ header #header_contact {
 }
 #global_navi {
     font-family: helvetica bold;
-  font-size: 12px;
+  font-size: 16.5px;
     font-weight:bold;
     letter-spacing:8px;
   width: 1340px;
