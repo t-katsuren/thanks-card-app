@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
 	</head>
 	<body>
+		<center><h1>category作成</h1></center>
+
 		@form(routes.SystemController.createCategory()) {
 			@inputText(categoryForm("categoryCd"), '_label -> "category_cd")
 			@inputText(categoryForm("categoryName"), '_label -> "category_name")
