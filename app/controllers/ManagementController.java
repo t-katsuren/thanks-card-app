@@ -94,6 +94,13 @@ public class ManagementController extends Controller {
 
 		Map<String, String[]> params = request().body().asFormUrlEncoded();
 
+		User user = User.find.where().eq("userCd", params.get("userCd")[0]).findUnique();
+
+		if(user != null) {
+			String str = "社員";
+			return redirect(routes.HomeController.cdError(str));
+		}
+
 		User newUser = new User();
 
 		newUser.userCd = params.get("userCd")[0];
@@ -171,6 +178,13 @@ public class ManagementController extends Controller {
 
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
 
+		Section section = Section.find.where().eq("sectionCd", parms.get("sectionCd")[0]).findUnique();
+
+		if(section != null) {
+			String str = "部門";
+			return redirect(routes.HomeController.cdError(str));
+		}
+
 		Section newSection = new Section();
 
 		newSection.sectionCd = parms.get("sectionCd")[0];
@@ -218,6 +232,13 @@ public class ManagementController extends Controller {
 		}
 
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+
+		Department department = Department.find.where().eq("departmentCd", parms.get("departmentCd")[0]).findUnique();
+
+		if(department != null) {
+			String str = "部署";
+			return redirect(routes.HomeController.cdError(str));
+		}
 
 		Department newDepartment = new Department();
 
@@ -278,6 +299,13 @@ public class ManagementController extends Controller {
 		}
 
 		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+
+		Category category = Category.find.where().eq("categoryCd", parms.get("categoryCd")[0]).findUnique();
+
+		if(category != null) {
+			String str = "分類";
+			return redirect(routes.HomeController.cdError(str));
+		}
 
 		Category newCategory = new Category();
 

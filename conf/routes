@@ -27,8 +27,8 @@ GET     /thanks/card                controllers.HomeController.openCard(cardId: 
 POST    /thanks/card                controllers.HomeController.addGoodCount(cardId: String)
 
 GET     /thanks/card/error          controllers.HomeController.appError
-
 GET     /system/error               controllers.HomeController.systemError
+GET     /cd/error                   controllers.HomeController.cdError(str: String)
 # end
 
 
