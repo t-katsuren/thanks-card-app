@@ -87,7 +87,7 @@
 					<td><input type="text" style="width: 150px; height: 25px;" name="departmentCd" required/></td>
 					<td>
 						<select style="width: 165px; height: 30px;" name="sectionName" required>
-							<option value="default">部門名を選択</option>
+							<option value="">部門名を選択</option>
 							@for(section <- sectionList) {
 								<option value="@section.sectionName">@section.sectionName</option>
 							}

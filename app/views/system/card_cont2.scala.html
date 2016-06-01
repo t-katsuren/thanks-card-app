@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
 	</head>
 	<body>
+	<center><h1>card作成</h1></center>
 		@form(routes.SystemController.createCard()){
 			@inputDate(cardForm("date"), '_label -> "date")
 			@inputText(cardForm("fromUser.id"), '_label -> "from_user_id")

@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
 	</head>
 	<body>
+		<center><h1>section作成</h1></center>
+
 		@form(routes.SystemController.createSection()) {
 			@inputText(sectionForm("sectionCd"), '_label -> "section_cd")
 			@inputText(sectionForm("sectionName"), '_label -> "section_name")

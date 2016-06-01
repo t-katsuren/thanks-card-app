@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/input_hyou.css")">
 	</head>
 	<body>
+		<center><h1>department作成</h1></center>
+
 		@form(routes.SystemController.createDepartment()) {
 			@inputText(departmentForm("departmentCd"), '_label -> "department_cd")
 			@inputText(departmentForm("section.id"), '_label -> "section_id")
