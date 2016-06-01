@@ -68,6 +68,7 @@ header #header_contact {
 #global_navi ul li.current a {
   background-color: #7E8AA2;
 }
+
 #global_navi ul li a:hover {
   background-color: #3d5176;
     font-size: 15px;
