@@ -87,4 +87,10 @@ public class HomeController extends Controller {
 
 	}
 
+	public Result cdError(String str) {
+
+		return badRequest(cd_error.render(str));
+
+	}
+
 }
