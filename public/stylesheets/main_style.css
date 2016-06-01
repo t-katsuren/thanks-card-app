@@ -149,7 +149,6 @@ tr:not(:first-child):hover{
       left: 0;
       bottom: 0;
       width: 270px;
-      background: #69BD83; /*背景色も好みに応じにて調節してください。*/
 }
  div.jirei{
  	line-height: 2.0;
@@ -256,5 +255,6 @@ ul.child li a:hover{
 .contents {
 	margin: 10px auto 40px auto;
 	padding: 10px;
+
 	background: #9fb7d4;
 }
