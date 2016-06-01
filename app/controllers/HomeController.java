@@ -48,8 +48,8 @@ public class HomeController extends Controller {
 
 	}
 
-	//「いいね」ボタンが押されたらGoodCountを足す
-	public Result addGoodCount(String cardId) {
+	//「いいね」ボタンが押されたらGoodCountを足す from mypage_cont1
+	public Result addGoodCount_MyCont1(String cardId) {
 
 		Integer id = Integer.parseInt(cardId);
 
@@ -60,6 +60,36 @@ public class HomeController extends Controller {
 		card.save();
 
 		return redirect(routes.MypageController.mypage_cont1());
+
+	}
+
+	//「いいね」ボタンが押されたらGoodCountを足す from mypage_cont2
+	public Result addGoodCount_MyCont2(String cardId) {
+
+		Integer id = Integer.parseInt(cardId);
+
+		Card card = Card.find.byId(id);
+
+		card.goodCount = card.goodCount + 1;
+
+		card.save();
+
+		return redirect(routes.MypageController.mypage_cont2());
+
+	}
+
+	//「いいね」ボタンが押されたらGoodCountを足す from bbs_cont1
+	public Result addGoodCount_BbsCont1(String cardId) {
+
+		Integer id = Integer.parseInt(cardId);
+
+		Card card = Card.find.byId(id);
+
+		card.goodCount = card.goodCount + 1;
+
+		card.save();
+
+		return redirect(routes.BbsController.bbs_cont1());
 
 	}
 
