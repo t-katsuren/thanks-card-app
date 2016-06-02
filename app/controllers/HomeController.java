@@ -25,7 +25,11 @@ public class HomeController extends Controller {
 		return ok(index.render("Your new application is ready."));
 	}
 
-	//感謝カードを開く
+
+	/**
+	 * 感謝カードを開く
+	 * 感謝カード画面へ表示させる各値をListへ格納しテンプレートへ渡す
+	 */
 	public Result openCard(String cardId) {
 
 		Integer id = Integer.parseInt(cardId);
@@ -48,7 +52,11 @@ public class HomeController extends Controller {
 
 	}
 
-	//「いいね」ボタンが押されたらGoodCountを足す from mypage_cont1
+
+	/**
+	 * 「いいね」ボタンが押されたらGoodCountを足す
+	 * マイページ受信一覧から押された場合元の受信一覧へリダイレクト
+	 */
 	public Result addGoodCount_MyCont1(String cardId) {
 
 		Integer id = Integer.parseInt(cardId);
@@ -63,7 +71,11 @@ public class HomeController extends Controller {
 
 	}
 
-	//「いいね」ボタンが押されたらGoodCountを足す from mypage_cont2
+
+	/**
+	 * 「いいね」ボタンが押されたらGoodCountを足す
+	 * マイページ送信一覧から押された場合元の送信一覧へリダイレクト
+	 */
 	public Result addGoodCount_MyCont2(String cardId) {
 
 		Integer id = Integer.parseInt(cardId);
@@ -78,7 +90,11 @@ public class HomeController extends Controller {
 
 	}
 
-	//「いいね」ボタンが押されたらGoodCountを足す from bbs_cont1
+
+	/**
+	 * 「いいね」ボタンが押されたらGoodCountを足す
+	 * 掲示板一覧から押された場合元の掲示板一覧へリダイレクト
+	 */
 	public Result addGoodCount_BbsCont1(String cardId) {
 
 		Integer id = Integer.parseInt(cardId);
@@ -93,6 +109,11 @@ public class HomeController extends Controller {
 
 	}
 
+
+	/**
+	 * アプリケーション管理エラー
+	 * 一般ユーザーが管理者設定画面を開くとエラーメッセージ画面へ飛ぶ
+	 */
 	public Result appError() {
 
 		String[] loginUser = new String[2];
@@ -105,6 +126,11 @@ public class HomeController extends Controller {
 
 	}
 
+
+	/**
+	 * システム管理エラー
+	 * システム管理者以外がシステム画面を開くとエラーメッセージ画面へ飛ぶ
+	 */
 	public Result systemError() {
 
 		String[] loginUser = new String[2];
@@ -117,6 +143,11 @@ public class HomeController extends Controller {
 
 	}
 
+
+	/**
+	 * コード重複エラー
+	 * 既に存在するコードを登録しようとするとエラーメッセージ画面へ飛ぶ
+	 */
 	public Result cdError(String str) {
 
 		return badRequest(cd_error.render(str));

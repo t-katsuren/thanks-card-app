@@ -16,6 +16,12 @@ import views.html.mypage.*;
 import views.html.bbs.*;
 import views.html.management.*;
 
+
+/**
+ * 管理者設定画面をコントロールするクラス
+ * 各メソッドで一般ユーザーからアクセスされた場合
+ * アプリケーションエラー画面へリダイレクトさせる処理を記述
+ */
 @Security.Authenticated(Secured.class)
 public class ManagementController extends Controller {
 
@@ -23,7 +29,10 @@ public class ManagementController extends Controller {
 	private FormFactory formFactory;
 
 
-	//管理者設定ページを表示
+	/**
+	 * 管理者設定ページを表示
+	 * ログインユーザー名と権限名をテンプレート側へ渡す
+	 */
 	public Result management_main() {
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -43,7 +52,10 @@ public class ManagementController extends Controller {
 	}
 
 
-	//社員設定
+	/**
+	 * 社員設定ページを表示
+	 * administratorユーザーをテンプレート側へ渡さない
+	 */
 	public Result management_cont1() {
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -62,7 +74,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//社員削除
+	/**
+	 * 社員を削除メソッド
+	 * 関連するデータも削除する
+	 */
 	public Result deleteUser(Integer userId){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -83,7 +98,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//社員追加
+	/**
+	 * 社員を追加するメソッド
+	 * コードが重複した場合、コードエラー画面へリダイレクト
+	 */
 	public Result createUser(){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -121,7 +139,9 @@ public class ManagementController extends Controller {
 	}
 
 
-	//所属設定
+	/**
+	 * 所属設定ページを表示
+	 */
 	public Result management_cont2() {
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -138,7 +158,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//部門削除
+	/**
+	 * 部門を削除するメソッド
+	 * 関連するデータも削除する
+	 */
 	public Result deleteSection(Integer sectionId){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -167,7 +190,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//部門追加
+	/**
+	 * 部門を追加するメソッド
+	 * コードが重複した場合、コードエラー画面へリダイレクト
+	 */
 	public Result createSection(){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -176,9 +202,9 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+		Map<String, String[]> params = request().body().asFormUrlEncoded();
 
-		Section section = Section.find.where().eq("sectionCd", parms.get("sectionCd")[0]).findUnique();
+		Section section = Section.find.where().eq("sectionCd", params.get("sectionCd")[0]).findUnique();
 
 		if(section != null) {
 			String str = "部門";
@@ -187,9 +213,9 @@ public class ManagementController extends Controller {
 
 		Section newSection = new Section();
 
-		newSection.sectionCd = parms.get("sectionCd")[0];
+		newSection.sectionCd = params.get("sectionCd")[0];
 
-		newSection.sectionName = parms.get("sectionName")[0];
+		newSection.sectionName = params.get("sectionName")[0];
 
 		newSection.save();
 
@@ -197,7 +223,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//部署削除
+	/**
+	 * 部署を削除するメソッド
+	 * 関連するデータも削除する
+	 */
 	public Result deleteDepartment(Integer departmentId){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -222,7 +251,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//部署追加
+	/**
+	 * 部署を追加するメソッド
+	 * コードが重複した場合、コードエラー画面へリダイレクト
+	 */
 	public Result createDepartment(){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -231,9 +263,9 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+		Map<String, String[]> params = request().body().asFormUrlEncoded();
 
-		Department department = Department.find.where().eq("departmentCd", parms.get("departmentCd")[0]).findUnique();
+		Department department = Department.find.where().eq("departmentCd", params.get("departmentCd")[0]).findUnique();
 
 		if(department != null) {
 			String str = "部署";
@@ -244,12 +276,12 @@ public class ManagementController extends Controller {
 
 		newDepartment.id = Department.find.all().size() + 1;
 
-		newDepartment.departmentCd = parms.get("departmentCd")[0];
+		newDepartment.departmentCd = params.get("departmentCd")[0];
 
-		String sectionName = parms.get("sectionName")[0];
+		String sectionName = params.get("sectionName")[0];
 		newDepartment.section = Section.find.where().eq("sectionName", sectionName).findUnique();
 
-		newDepartment.departmentName = parms.get("departmentName")[0];
+		newDepartment.departmentName = params.get("departmentName")[0];
 
 		newDepartment.save();
 
@@ -257,7 +289,9 @@ public class ManagementController extends Controller {
 	}
 
 
-	//分類設定
+	/**
+	 * 分類設定ページを表示
+	 */
 	public Result management_cont3() {
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -272,7 +306,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//分類削除
+	/**
+	 * 分類を削除するメソッド
+	 * 関連データも削除する
+	 */
 	public Result deleteCategory(Integer categoryId){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -291,7 +328,10 @@ public class ManagementController extends Controller {
 
 	}
 
-	//分類追加
+	/**
+	 * 分類を追加するメソッド
+	 * コードが重複した場合、コードエラー画面へリダイレクト
+	 */
 	public Result createCategory(){
 
 		Integer id = User.find.where().eq("userCd", session("login")).findUnique().permission.id;
@@ -300,9 +340,9 @@ public class ManagementController extends Controller {
 			return redirect(routes.HomeController.appError());
 		}
 
-		Map<String, String[]> parms = request().body().asFormUrlEncoded();
+		Map<String, String[]> params = request().body().asFormUrlEncoded();
 
-		Category category = Category.find.where().eq("categoryCd", parms.get("categoryCd")[0]).findUnique();
+		Category category = Category.find.where().eq("categoryCd", params.get("categoryCd")[0]).findUnique();
 
 		if(category != null) {
 			String str = "分類";
@@ -311,9 +351,9 @@ public class ManagementController extends Controller {
 
 		Category newCategory = new Category();
 
-		newCategory.categoryCd = parms.get("categoryCd")[0];
+		newCategory.categoryCd = params.get("categoryCd")[0];
 
-		newCategory.categoryName = parms.get("categoryName")[0];
+		newCategory.categoryName = params.get("categoryName")[0];
 
 		newCategory.save();
 
