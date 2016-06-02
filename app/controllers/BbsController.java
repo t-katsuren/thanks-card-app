@@ -18,6 +18,10 @@ import views.html.mypage.*;
 import views.html.bbs.*;
 import views.html.management.*;
 
+
+/*
+ * 掲示板画面をコントロールするクラス
+ */
 @Security.Authenticated(Secured.class)
 public class BbsController extends Controller {
 
@@ -25,7 +29,14 @@ public class BbsController extends Controller {
 	private FormFactory formFactory;
 
 
-	//掲示板ページを表示
+	/**
+	 * 掲示板ページを表示
+	 *
+	 * テンプレート側へ渡す因数
+	 * ①カードリストから取得した年月
+	 * ②ログインユーザー名
+	 * ③ログインユーザーの権限
+	 */
 	public Result bbs_main() {
 
 		List<Card> cardList = Card.find.all();
@@ -38,22 +49,25 @@ public class BbsController extends Controller {
 
 			String str = sdf.format(cardList.get(i).date);
 
+			//頭8桁のみ取得しListへ追加
 			dateAll.add(str.substring(0, 8));
 
 		}
 
+		//年月の重複を削除する為、HashSet化
 		HashSet<String> dateSet = new HashSet<String>();
-        dateSet.addAll(dateAll);
+		dateSet.addAll(dateAll);
 
-        List<String> dateList = new ArrayList<>(dateSet);
 
-        Collections.sort(dateList);
-        Collections.reverse(dateList);
+		//再度List化し降順でソート
+		List<String> dateList = new ArrayList<>(dateSet);
+		Collections.sort(dateList);
+		Collections.reverse(dateList);
 
-        String[] loginUser = new String[2];
 
+		//ログインユーザー名と権限名を取得
+		String[] loginUser = new String[2];
 		loginUser[0] = User.find.where().eq("userCd", session("login")).findUnique().userName;
-
 		loginUser[1] = User.find.where().eq("userCd", session("login")).findUnique().permission.permissionName;
 
 		return ok(bbs_main.render(loginUser, dateList));
@@ -61,11 +75,17 @@ public class BbsController extends Controller {
 	}
 
 
-	//掲示板一覧
+	/**
+	 * 掲示板一覧を表示
+	 *
+	 * フィルター機能で送信されたリクエストパラメータがnullの場合は全件数を表示
+	 * not nullの場合は各フィルター機能の条件で絞込を行う
+	 */
 	public Result bbs_cont1() {
 
 		List<Card> cards = new ArrayList<>();
 
+		//組み合わせ検索をする為にListではなくExpressionListクラスのインスタンスを取得する
 		ExpressionList<Card> expression = Card.find.where();
 
 		Map<String, String[]> params = request().body().asFormUrlEncoded();
@@ -143,7 +163,11 @@ public class BbsController extends Controller {
 
 			}
 
-			//いいね 降順
+			/*
+			 * いいね 降順
+			 *
+			 * この時にExpressionListからList化する
+			 */
 			if(!(params.get("good")[0].equals("default"))) {
 
 				cards = expression.orderBy("goodCount ASC").findList();
@@ -156,10 +180,13 @@ public class BbsController extends Controller {
 
 		} else {
 
+			//リクエストパラメータがnullの場合は全件取得
 			cards = Card.find.all();
 
 		}
 
+		//dateの表示を"yyyy/MM/dd hh:mm:ss"形式で表示させたいので
+		//List<Card>でなくList<String[]>でテンプレート側へ値を渡す入れ物を用意
 		List<String[]> cardList = new ArrayList<>();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
@@ -180,10 +207,13 @@ public class BbsController extends Controller {
 			cardList.add(temp);
 		}
 
+
+		/**
+		 * 部署、分類、ユーザーの値もテンプレートへ渡す
+		 * administratorは除外する
+		 */
 		List<Department> departmentList = Department.find.all();
-
 		List<Category> categoryList = Category.find.all();
-
 		List<User> userList = User.find.where().gt("id", 1).findList();;
 
 		return ok(bbs_cont1.render(cardList, departmentList, categoryList, userList));
@@ -191,7 +221,11 @@ public class BbsController extends Controller {
 	}
 
 
-	//掲示板事例
+	/**
+	 * 掲示板事例
+	 * テンプレート側から渡された"yyyy年mm月"形式の値を利用し
+	 * 適切な月の「いいね」TOP10を表示する
+	 */
 	public Result bbs_cont2(String date) {
 
 		String year = date.substring(0, 4);
@@ -259,7 +293,11 @@ public class BbsController extends Controller {
 	}
 
 
-	//掲示板関連
+	/**
+	 * 掲示板関連
+	 * 部署間のやり取り件数をマトリックス表で
+	 * 表示させる為の入れ物を作成しテンプレート側へ渡す
+	 */
 	public Result bbs_cont3() {
 
 		List<Department> departmentList = Department.find.all();

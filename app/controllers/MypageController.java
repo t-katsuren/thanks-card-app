@@ -16,6 +16,10 @@ import views.html.mypage.*;
 import views.html.bbs.*;
 import views.html.management.*;
 
+
+/**
+ * マイページ画面をコントロールするクラス
+ */
 @Security.Authenticated(Secured.class)
 public class MypageController extends Controller {
 
