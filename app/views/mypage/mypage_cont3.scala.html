@@ -11,6 +11,11 @@
 			div.migi{text-align: right}
 		</style>
 		<title>thanks | create</title>
+		<script>
+			function myEnter(){
+			     myRet = alert("あなたの思いを責任もって送りました。");
+			}
+			</script>
 	</head>
 	<body>
 		<form action="@routes.MypageController.sendCard()" method="POST">
@@ -62,7 +67,7 @@
 				<tr>
 					<td>
 						<div class="migi">
-							<input type="submit" value="作成完了">
+							<input type="submit" value="作成完了" onclick="myEnter()" >
 							<input type="reset" value="リセット">
 						</div>
 					</td>
